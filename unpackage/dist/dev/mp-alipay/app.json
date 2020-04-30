@@ -1,0 +1,28 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/nearShop",
+    "pages/index/shopDetail",
+    "pages/index/loan",
+    "pages/index/loanSuccess",
+    "pages/index/userInfo",
+    "pages/index/order",
+    "pages/index/orderDetail",
+    "pages/index/joinIn",
+    "pages/index/question",
+    "pages/index/aboutUs",
+    "pages/index/balance",
+    "pages/index/reflect",
+    "pages/index/reflectSuccess",
+    "pages/index/reflectFail",
+    "pages/index/recharge",
+    "pages/index/history"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "起电",
+    "titleBarColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

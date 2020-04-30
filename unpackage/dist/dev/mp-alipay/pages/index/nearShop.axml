@@ -1,0 +1,1 @@
+<view class="near-shop"><block a:for="{{shopData}}" a:for-item="item" a:for-index="index" a:key="index"><shop-item vue-id="{{'590ac048-1-'+index}}" item="{{item.shopInfo}}" onVueInit="__l"></shop-item></block></view>

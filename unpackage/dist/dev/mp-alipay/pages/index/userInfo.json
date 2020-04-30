@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "个人中心",
+  "titleBarColor": "#22A6F1",
+  "usingComponents": {
+    "login-sheet": "/components/loginSheet"
+  }
+}

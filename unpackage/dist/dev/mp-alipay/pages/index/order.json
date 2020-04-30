@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "我的订单",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "order-item": "/components/orderItem"
+  }
+}

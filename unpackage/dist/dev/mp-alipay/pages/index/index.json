@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "起电",
+  "titleBarColor": "#FFFFFF",
+  "usingComponents": {
+    "login-sheet": "/components/loginSheet",
+    "shop-item": "/components/shopItem",
+    "call-us": "/components/callUs"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="order-content"><block wx:for="{{orderData}}" wx:for-item="item" wx:for-index="index" wx:key="index"><order-item vue-id="{{'8cbca2c4-1-'+index}}" item="{{item}}" bind:__l="__l"></order-item></block><order-item vue-id="8cbca2c4-2" bind:__l="__l"></order-item></view>

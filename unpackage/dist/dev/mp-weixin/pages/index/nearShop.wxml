@@ -1,0 +1,1 @@
+<view class="near-shop"><block wx:for="{{shopData}}" wx:for-item="item" wx:for-index="index" wx:key="index"><shop-item vue-id="{{'5914c072-1-'+index}}" item="{{item.shopInfo}}" bind:__l="__l"></shop-item></block></view>

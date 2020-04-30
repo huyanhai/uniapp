@@ -1,0 +1,143 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "起电",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/index/nearShop",
+			"style": {
+				"navigationBarTitleText": "附件门店",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"backgroundColor": "#F8F8F9"
+			}
+		},
+		{
+			"path": "pages/index/shopDetail",
+			"style": {
+				"navigationBarTitleText": "商家详情",
+				"backgroundColor": "#F8F8F9",
+				"navigationBarBackgroundColor": "#22A6F1",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/index/loan",
+			"style": {
+				"navigationBarTitleText": "免押租借",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"backgroundColor": "#F8F8F9"
+			}
+		},
+		{
+			"path": "pages/index/loanSuccess",
+			"style": {
+				"navigationBarTitleText": "免押租借",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"backgroundColor": "#F8F8F9"
+			}
+		},
+		{
+			"path": "pages/index/userInfo",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"navigationBarBackgroundColor": "#22A6F1",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/index/order",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/index/orderDetail",
+			"style": {
+				"navigationBarTitleText": "订单详情",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/joinIn",
+		    "style" : {
+				"navigationBarTitleText": "合作加盟",
+				"backgroundColor": "#F8F8F9",
+				"navigationBarBackgroundColor": "#22A6F1",
+				"navigationBarTextStyle": "white"
+			}
+		},
+        {
+            "path" : "pages/index/question",
+            "style" : {
+        		"navigationBarTitleText": "问题或意见",
+        		"navigationBarBackgroundColor": "#FFFFFF"
+        	}
+        },
+		{
+		    "path" : "pages/index/aboutUs",
+		    "style" : {
+				"navigationBarTitleText": "关于我们",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/balance",
+		    "style" : {
+				"navigationBarTitleText": "余额",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/reflect",
+		    "style" : {
+				"navigationBarTitleText": "提现",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/reflectSuccess",
+		    "style" : {
+				"navigationBarTitleText": "提现成功",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/reflectFail",
+		    "style" : {
+				"navigationBarTitleText": "提现失败",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/recharge",
+		    "style" : {
+				"navigationBarTitleText": "充值",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/history",
+		    "style" : {
+				"navigationBarTitleText": "交易记录",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		}
+    ],
+	"permission": {
+		"userLocation": {
+			"desc": "你的位置信息将用于小程序位置接口的效果展示"
+		}
+	},
+	"barButtonTheme": "default",
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "起电",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
