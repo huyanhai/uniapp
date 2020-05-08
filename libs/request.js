@@ -7,7 +7,7 @@ export function get(url,data) {
 			method: 'GET',
 			url:BASE_URL + url,
 			header:{
-				authCode:HEADER
+				authCode:String(HEADER)
 			},
 			timeout:TIMEOUT,
 			success:function(res){
@@ -35,7 +35,7 @@ export function post(url,data) {
 			url:BASE_URL + url,
 			timeout:TIMEOUT,
 			header:{
-				authCode:HEADER
+				authCode:String(HEADER)
 			},
 			data:data,
 			success:function(res){

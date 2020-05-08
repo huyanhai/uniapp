@@ -9497,12 +9497,31 @@ function userLogin() {
       provider: name,
       scopes: 'auth_user',
       success: function success(loginRes) {
-        console.log('------', loginRes);
         uni.getUserInfo({
           provider: name,
           success: function success(infoRes) {
             uni.setStorageSync('user_info', infoRes.userInfo);
             var data = Object.assign(loginRes, infoRes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             (0, _request.post)('login/weixin', {
               code: data.code,
               encryptedData: data.encryptedData,
@@ -9519,6 +9538,7 @@ function userLogin() {
 
               }
             });
+
             resolve(data);
           },
           fail: function fail(err) {
@@ -9585,7 +9605,7 @@ function get(url, data) {
       method: 'GET',
       url: _index.BASE_URL + url,
       header: {
-        authCode: _index.HEADER },
+        authCode: String(_index.HEADER) },
 
       timeout: _index.TIMEOUT,
       success: function success(res) {
@@ -9613,7 +9633,7 @@ function post(url, data) {
       url: _index.BASE_URL + url,
       timeout: _index.TIMEOUT,
       header: {
-        authCode: _index.HEADER },
+        authCode: String(_index.HEADER) },
 
       data: data,
       success: function success(res) {

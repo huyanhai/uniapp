@@ -19,12 +19,31 @@ export function userLogin() {
             provider: name,
             scopes: 'auth_user',
             success: function(loginRes) {
-				console.log('------',loginRes)
                 uni.getUserInfo({
                     provider: name,
                     success: function(infoRes) {
                         uni.setStorageSync('user_info', infoRes.userInfo);
 						let data = Object.assign(loginRes,infoRes)
+						// #ifdef MP-ALIPAY
+						uni.showModal({
+							content:JSON.stringify(data)
+						})
+						post('login/alipay',{
+							code: data.code,
+						}).then(res=>{
+							console.log('res',res);
+							if(res.code === 200) {
+								uni.setStorageSync('authCode',res.data)
+								console.log('res',res);
+							} else {
+								uni.showToast({
+									title: res.msg,
+									icon: 'none'
+								})
+							}
+						})
+						// #endif
+						// #ifdef MP-WEIXIN
 						post('login/weixin',{
 							code: data.code,
 							encryptedData: data.encryptedData,
@@ -41,6 +60,7 @@ export function userLogin() {
 								})
 							}
 						})
+						// #endif
                         resolve(data);
                     },
                     fail(err) {
