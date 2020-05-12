@@ -33,7 +33,9 @@ export default {
 	  // 获取我的订单
 	  getMyOrder(){
 		  post('order/list',{}).then(res=>{
-			  console.log(res)
+			  if(res.code === 200){
+				  this.orderData = res.data
+			  }
 		  })
 	  }
   }

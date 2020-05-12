@@ -28,13 +28,15 @@ export function userLogin() {
 						uni.showModal({
 							content:JSON.stringify(data)
 						})
+						console.log('data',data)
 						post('login/alipay',{
 							code: data.code,
+							headUrl: data.avatar,
+							nickname: data.nickName
 						}).then(res=>{
 							console.log('res',res);
 							if(res.code === 200) {
 								uni.setStorageSync('authCode',res.data)
-								console.log('res',res);
 							} else {
 								uni.showToast({
 									title: res.msg,

@@ -26,89 +26,91 @@
 /* 文章场景相关 */
 .loan-content {
   padding: 30rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .loan-content .studus-img {
-    width: 428rpx;
-    height: 350rpx;
-    margin: 60rpx auto 40rpx auto;
-    display: block;
+  width: 428rpx;
+  height: 350rpx;
+  margin: 60rpx auto 40rpx auto;
+  display: block;
 }
 .loan-content .tips {
-    font-size: 28rpx;
-    color: #333333;
-    text-align: center;
-    display: block;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: center;
+  display: block;
 }
 .loan-content .rule {
-    margin-top: 80rpx;
+  margin-top: 80rpx;
 }
 .loan-content .rule .title {
-      font-size: 28rpx;
-      color: #333333;
+  font-size: 28rpx;
+  color: #333333;
 }
 .loan-content .rule .item {
-      font-size: 26rpx;
-      color: #777777;
-      line-height: 48rpx;
+  font-size: 26rpx;
+  color: #777777;
+  line-height: 48rpx;
 }
 .loan-content .rule .item .num {
-        color: #22A6F1;
+  color: #22a6f1;
 }
 .loan-content .submit {
-    height: 90rpx;
-    margin: 70rpx 0 0 0;
-    background: #22A6F1;
-    color: #FFFFFF;
-    border-radius: 90rpx;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+  height: 90rpx;
+  margin: 70rpx 0 0 0;
+  background: #22a6f1;
+  color: #ffffff;
+  border-radius: 90rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .loan-content .submit .b {
-      font-size: 30rpx;
+  font-size: 30rpx;
 }
 .loan-content .submit .s {
-      font-size: 24rpx;
+  font-size: 24rpx;
 }
 .loan-content .check-agreement {
-    margin-top: 20rpx;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
-    font-size: 24rpx;
-    color: #333333;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
+  margin-top: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 24rpx;
+  color: #333333;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .loan-content .check-agreement .check {
-      width: 24rpx;
-      height: 24rpx;
-      position: relative;
-      margin-right: 10rpx;
+  width: 24rpx;
+  height: 24rpx;
+  position: relative;
+  margin-right: 10rpx;
 }
 .loan-content .check-agreement .check .wx-checkbox-input {
-        width: 24rpx;
-        height: 24rpx;
-        box-sizing: border-box;
-        position: absolute;
-        top: 0;
+  width: 24rpx;
+  height: 24rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 0;
 }
 .loan-content .check-agreement .agreement {
-      color: #22A6F1;
+  color: #22a6f1;
 }
 

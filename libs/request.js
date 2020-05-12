@@ -1,13 +1,14 @@
 import { BASE_URL,TIMEOUT,HEADER } from "../config/index.js"
 
 export function get(url,data) {
+	let authCode = String(uni.getStorageSync("authCode"))
 	return new Promise((resolve, reject)=>{
 		uni.showLoading();
 		uni.request({
 			method: 'GET',
 			url:BASE_URL + url,
 			header:{
-				authCode:String(HEADER)
+				authCode:authCode
 			},
 			timeout:TIMEOUT,
 			success:function(res){
@@ -28,6 +29,8 @@ export function get(url,data) {
 }
 
 export function post(url,data) {
+	let authCode = String(uni.getStorageSync("authCode"))
+	
 	return new Promise((resolve, reject)=>{
 		uni.showLoading();
 		uni.request({
@@ -35,7 +38,7 @@ export function post(url,data) {
 			url:BASE_URL + url,
 			timeout:TIMEOUT,
 			header:{
-				authCode:String(HEADER)
+				authCode:authCode
 			},
 			data:data,
 			success:function(res){

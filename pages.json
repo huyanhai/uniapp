@@ -33,6 +33,13 @@
 			}
 		},
 		{
+		    "path" : "pages/index/loaning",
+		    "style" : {
+				"navigationBarTitleText": "免押租借",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
 			"path": "pages/index/loanSuccess",
 			"style": {
 				"navigationBarTitleText": "免押租借",
@@ -127,6 +134,7 @@
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		}
+        
     ],
 	"permission": {
 		"userLocation": {

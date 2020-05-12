@@ -15,17 +15,17 @@
 				</view>
 				<view class="user">
 					<text class="name">{{userInfo.nickName}}</text>
-					<text class="id">ID：232344543</text>
+					<text class="id">ID：{{moreInfo.stringId}}</text>
 				</view>
 			</view>
 			<view class="bottom">
 				<view class="left">
 					<text class="name">押金</text>
-					<text class="money">￥0.00</text>
+					<text class="money">￥{{moreInfo.balance}}</text>
 				</view>
 				<view class="right" @click="goPage('balance')">
 					<text class="name">余额</text>
-					<text class="money">￥3.00</text>
+					<text class="money">￥{{moreInfo.useNumber}}</text>
 				</view>
 			</view>
 		</view>
@@ -65,11 +65,14 @@
 
 <script>
 	import loginSheet from "../../components/loginSheet";
+	import { get,post } from "../../libs/request.js"
+	
 	export default {
 		data(){
 			return {
 				userInfo:null,
 				showSheet:false,
+				moreInfo:{}
 			}
 		},
 		onLoad(){
@@ -85,14 +88,23 @@
 			  if (!this.userInfo) {
 			    that.showSheet = true;
 			  }
+			  this.getUserInfo();
 			},
 			authSuccess(e) {
 			  this.userInfo = uni.getStorageSync("user_info") || null;
 			  this.showSheet = false;
+			  this.getUserInfo();
 			},
 			goPage(path){
 				uni.navigateTo({
 				  url: path
+				});
+			},
+			getUserInfo(){
+				get('/login/info').then(res => {
+					if(res.code === 200){
+						this.moreInfo = res.data
+					}
 				});
 			}
 		}

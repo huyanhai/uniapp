@@ -4,6 +4,7 @@
     "pages/index/nearShop",
     "pages/index/shopDetail",
     "pages/index/loan",
+    "pages/index/loaning",
     "pages/index/loanSuccess",
     "pages/index/userInfo",
     "pages/index/order",
@@ -31,5 +32,5 @@
     }
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap60.json"
+  "sitemapLocation": "sitemap78.json"
 }

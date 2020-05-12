@@ -9,6 +9,7 @@ require('../../pages/index/index?hash=3b975345698a37ffaac295e7a67fe65467fe0234')
 require('../../pages/index/nearShop?hash=bbadf83ea2a0430f561dcfe83034cf0a30b39e68');
 require('../../pages/index/shopDetail?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/index/loan?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
+require('../../pages/index/loaning?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/index/loanSuccess?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/index/userInfo?hash=d7f56cce57525e284fed886289d7d53c9553da8e');
 require('../../pages/index/order?hash=7e87dcbb8563a5c6140817e0d97f6e369983f873');
