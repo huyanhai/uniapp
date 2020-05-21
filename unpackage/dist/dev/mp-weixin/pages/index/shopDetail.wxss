@@ -119,7 +119,7 @@
 }
 .shop-detail-content .top .shop-info .info .name {
   font-size: 34rpx;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 22rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -127,7 +127,7 @@
 }
 .shop-detail-content .top .shop-info .info .address {
   font-size: 26rpx;
-  color: #FFFFFF;
+  color: #ffffff;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
@@ -143,7 +143,7 @@
 }
 .shop-detail-content .top .shop-address {
   font-size: 26rpx;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 30rpx 55rpx;
 }
 .shop-detail-content .top .detail {
@@ -154,7 +154,7 @@
   -webkit-justify-content: space-between;
           justify-content: space-between;
   font-size: 26rpx;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0 55rpx 30rpx 55rpx;
 }
 .shop-detail-content .img-list {
@@ -208,9 +208,9 @@
   height: 90rpx;
   line-height: 90rpx;
   border-radius: 90rpx;
-  background: #22A6F1;
+  background: #22a6f1;
   font-size: 30rpx;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 30rpx;
   text-align: center;
 }

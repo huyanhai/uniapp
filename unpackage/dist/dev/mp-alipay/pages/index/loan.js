@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(wx) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni, wx) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -195,21 +195,26 @@ var _request = __webpack_require__(/*! ../../libs/request.js */ 25); //
 //
 //
 //
-var _default = { data: function data() {return { checked: [] };}, methods: { changed: function changed(e) {this.checked = e.detail.value;}, submit: function submit(e) {var sn = '88c12dc1c96f4ed1846454691ad74e77'; // if(this.checked.length > 0){
-      this.getAliPay(sn); // uni.reLaunch({
-      //     url: 'loanSuccess'
-      // });
-      // } else {
-      // 	uni.showToast({
-      // 		title:'请勾选协议'
-      // 	});
-      // }
-    }, getWechart: function getWechart(sn) {(0, _request.post)('wxpay/payscore', { sn: sn }).then(function (res) {if (res.code === 200) {wx.openBusinessView({ businessType: 'wxpayScoreUse', extraData: { mch_id: res.data.mchId, package: res.data.packageInfo, timestamp: res.data.timestamp, nonce_str: res.data.nonceStr, sign_type: res.data.signType,
+var _default = { data: function data() {return { checked: [], tips: "", sn: "" };}, onLoad: function onLoad(e) {this.sn = e.sn;this.getOrderTips(this.sn);}, methods: { changed: function changed(e) {this.checked = e.detail.value;}, submit: function submit(e) {var sn = this.sn;if (this.checked.length > 0) {this.getAliPay(sn);} else {uni.showToast({ title: '请勾选协议' });}}, getWechart: function getWechart(sn) {
+      var _this = this;
+      (0, _request.post)('wxpay/payscore', {
+        sn: sn }).
+      then(function (res) {
+        console.info('step1', res.data);
+        if (res.code === 200) {
+          wx.openBusinessView({
+            businessType: 'wxpayScoreUse',
+            extraData: {
+              mch_id: res.data.mchId,
+              package: res.data.packageInfo,
+              timestamp: res.data.timestamp,
+              nonce_str: res.data.nonceStr,
+              sign_type: res.data.signType,
               sign: res.data.sign },
 
             success: function success() {
               //dosomething
-              console.log('成功');
+              console.info('step2');
               wx.navigateToMiniProgram({
                 appId: 'wxd8f3793ea3b935b8',
                 path: 'pages/use/use',
@@ -222,22 +227,35 @@ var _default = { data: function data() {return { checked: [] };}, methods: { cha
                   sign: res.data.sign },
 
                 success: function success() {
-                  //dosomething
+                  console.info('step3');
+
                 },
                 fail: function fail() {
                   //dosomething
                 },
                 complete: function complete() {
                   //dosomething
+                  console.info('complete');
+                  uni.navigateTo({
+                    url: "loaning?orderNum=".concat(res.data.orderNum) });
+
                 } });
 
             },
             fail: function fail() {
               //dosomething
-              console.log('失败');
+              uni.showToast({
+                title: '授权失败' });
+
+              uni.navigateTo({
+                url: "index" });
+
             },
             complete: function complete() {
               //dosomething
+              uni.navigateTo({
+                url: "index" });
+
             } });
 
         }
@@ -247,10 +265,39 @@ var _default = { data: function data() {return { checked: [] };}, methods: { cha
       (0, _request.post)('/wxpay/freeze', {
         sn: sn }).
       then(function (res) {
-        console.log(res);
+        if (res.code === 200) {
+
+          console.log(res);
+          my.tradePay({
+            // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
+            orderStr: res.data.orderStr,
+            success: function success(res) {
+              uni.navigateTo({
+                url: "loaning?orderNum=".concat(res.data.orderNum) });
+
+            },
+            fail: function fail(res) {
+              uni.showToast({
+                title: '授权失败' });
+
+              uni.navigateTo({
+                url: "index" });
+
+            } });
+
+
+        }
       });
+    },
+    getOrderTips: function getOrderTips(sn) {var _this2 = this;
+      (0, _request.post)('/order/bill', {
+        sn: sn }).
+      then(function (res) {
+        _this2.tips = res.data;
+      });
+
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"], __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

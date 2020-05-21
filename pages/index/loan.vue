@@ -14,8 +14,8 @@
 			<view class="title">计费规则：</view>
 			<text class="item">
 				1.
-				<text class="num">0.5</text>
-				元/小时； 2. 租借5分钟内免费，日封顶10.00元，总封顶99.00元； 3. 押金99.00元，支持免押服务。
+				<text class="num">{{tips.hourMoney}}</text>
+				元/小时;\n2. 租借{{tips.freeTime}}分钟内免费，日封顶{{tips.dayMoney}}元，总封顶{{tips.dayMoney}}元； <!-- 3. 押金99.00元，支持免押服务。 -->
 			</text>
 		</view>
 		<view class="submit" @click="submit">
@@ -35,37 +35,40 @@ import { get, post } from '../../libs/request.js';
 export default {
 	data() {
 		return {
-			checked: []
+			checked: [],
+			tips:"",
+			sn:""
 		};
+	},
+	onLoad(e){
+		this.sn = e.sn;
+		this.getOrderTips(this.sn);
 	},
 	methods: {
 		changed(e) {
 			this.checked = e.detail.value;
 		},
 		submit(e) {
-			let sn = '88c12dc1c96f4ed1846454691ad74e77';
-			// if(this.checked.length > 0){
+			let sn = this.sn;
+			if(this.checked.length > 0){
 			// #ifdef MP-WEIXIN
 			this.getWechart(sn);
 			// #endif
 			// #ifdef MP-ALIPAY
 			this.getAliPay(sn);
 			// #endif
-			// uni.reLaunch({
-			//     url: 'loanSuccess'
-			// });
-			// } else {
-			// 	uni.showToast({
-			// 		title:'请勾选协议'
-			// 	});
-			// }
+			} else {
+				uni.showToast({
+					title:'请勾选协议'
+				});
+			}
 		},
 		getWechart(sn) {
 			let _this = this;
 			post('wxpay/payscore', {
 				sn: sn
 			}).then(res => {
-				console.info('step1',res.data)
+				console.info('step1',res.data);
 				if (res.code === 200) {
 					wx.openBusinessView({
 						businessType: 'wxpayScoreUse',
@@ -109,11 +112,15 @@ export default {
 						},
 						fail() {
 							//dosomething
-							console.info('失败');
+							uni.showToast({
+								title:'授权失败'
+							})
+							uni.navigateTo({
+								url: "index"
+							});
 						},
 						complete() {
 							//dosomething
-							console.info('complete1')
 							uni.navigateTo({
 								url: "index"
 							});
@@ -128,24 +135,36 @@ export default {
 			}).then(res => {
 				if(res.code === 200){
 					// #ifdef MP-ALIPAY
+					console.log(res)
 					my.tradePay({
 					  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
-					  orderStr: res.data.orderStr'
+					  orderStr: res.data.orderStr,
 					  success: (res) => {
-					    my.alert({
-					      content: JSON.stringify(res),
-					    });
+						  uni.navigateTo({
+						  	url: `loaning?orderNum=${res.data.orderNum}`,
+						  });
 					  },
 					  fail: (res) => {
-					    my.alert({
-					      content: JSON.stringify(res),
-					    });
+					    uni.showToast({
+					    	title:'授权失败'
+					    })
+						uni.navigateTo({
+							url: "index"
+						});
 					  }
 					});
 					// #endif
 				}
 			});
 		},
+		getOrderTips(sn){
+			post('/order/bill', {
+				sn: sn
+			}).then(res => {
+				this.tips = res.data;
+			})
+			
+		}
 	}
 };
 </script>
@@ -209,7 +228,7 @@ export default {
 			width: 30rpx;
 			height: 30rpx;
 			position: relative;
-			margin-right: 10rpx;
+			margin-right: 20rpx;
 			.wx-checkbox-input {
 				width: 30rpx;
 				height: 30rpx;

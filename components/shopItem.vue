@@ -14,7 +14,7 @@
         class="post"
         :src="item.shopImage"
       />
-      <view class="info" @click="goShopDetails">
+      <view class="info" @click="goShopDetails(item.stringId)">
         <view class="name">{{item.shopName}}</view>
         <view class="address">地址：{{item.address || ''}}</view>
         <view class="time">营业时间：{{`${item.startTime}-${item.endTime}`}}</view>
@@ -24,16 +24,16 @@
     <view class="bottom">
       <view class="data-item">
         可租借：
-        <text class="num">2</text>
+        <text class="num">{{item.canBorrowQuantity}}</text>
       </view>
       <view class="data-item">
         可归还：
-        <text class="num">2</text>
+        <text class="num">{{item.returnableQuantity}}</text>
       </view>
 
       <view class="data-item">
         距离：
-        <text class="num">2</text>
+        <text class="num">{{item.distance}}</text>
       </view>
     </view>
   </view>
@@ -53,7 +53,6 @@ export default {
   methods: {
     goMap() {
       let that = this;
-      console.log(that.item);
       uni.openLocation({
         latitude: parseFloat(that.item.latitude),
         longitude: parseFloat(that.item.longitude),
@@ -68,8 +67,9 @@ export default {
       });
     },
 	goShopDetails(e) {
+		let stringId = e || "";
 		uni.navigateTo({
-		  url: "shopDetail"
+		  url: "shopDetail?stringId=" + stringId
 		});
 	}
   }

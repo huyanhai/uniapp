@@ -39,6 +39,7 @@ export default {
 		  post('shop/nearby',{
 			"lat": this.latitude,
 			"lng": this.longitude,
+			"range":10000000
 		  }).then(res=>{
 			  if(res.code === 200){
 				  this.shopData = res.data;

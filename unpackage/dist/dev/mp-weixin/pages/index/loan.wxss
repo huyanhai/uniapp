@@ -100,7 +100,7 @@
   width: 30rpx;
   height: 30rpx;
   position: relative;
-  margin-right: 10rpx;
+  margin-right: 20rpx;
 }
 .loan-content .check-agreement .check .wx-checkbox-input {
   width: 30rpx;

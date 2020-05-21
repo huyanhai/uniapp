@@ -1,21 +1,21 @@
 <template>
 	<view class="question-content">
-		<input class="ui-input" placeholder="请输入设备编号" />
+		<input class="ui-input" v-model="feedback.deviceId" placeholder="请输入设备编号" />
 		<view class="category">
 			<text class="label">分类标签</text>
 			<view class="item-box">
 				<radio-group @change="changed" class="group">
-						<label class="ui-radio" :class="{active:item.checked}" v-for="(item,index) in items" :key="index">
-							<radio :value="item.value" :checked="item.checked"/>
-							<text class="text">{{item.name}}</text>
-						</label>
+					<label class="ui-radio" :class="{active:item.checked}" v-for="(item,index) in items" :key="index">
+						<radio :value="item.value" :checked="item.checked"/>
+						<text class="text">{{item.name}}</text>
+					</label>
 				</radio-group>
 			</view>
 		</view>
 		<view class="upload-img">
 			<text class="label">我要反馈</text>
 			<view class="form">
-				<textarea class="textarea" placeholder="请输入问题或意见"></textarea>
+				<textarea class="textarea" v-model="feedback.remarks" placeholder="请输入问题或意见"></textarea>
 				<view class="lists">
 					<view class="upload" @click="uploadImg"></view>
 					<view class="list" v-for="(item,index) in imgList" :key="index">
@@ -27,13 +27,16 @@
 		</view>
 		<view class="call-us">
 			<text class="label">联系方式</text>
-			<input class="ui-input" placeholder="请输入联系电话" type="number" />
+			<input class="ui-input" v-model="feedback.phone" placeholder="请输入联系电话" type="number" />
 		</view>
-		<view class="submit">提交</view>
+		<view class="submit" @click="feedbackFn">提交</view>
 	</view>
 </template>
 
 <script>
+	import { get, post } from '../../libs/request.js';
+	
+	import {BASE_URL} from "../../config/index.js"
 	export default {
 		data() {
 			return {
@@ -54,16 +57,24 @@
 						checked:false
 					},{
 						value:"4",
-						name:"客服问题",
+						name:"客户问题",
 						checked:false
 					},
 					{
 						value:"5",
+						name:"订单问题",
+						checked:false
+					},
+					{
+						value:"6",
 						name:"其他问题",
 						checked:false
 					}
 				],
-				imgList:[]
+				imgList:[],
+				feedback:{
+					type:"1"
+				}
 			};
 		},
 		methods:{
@@ -74,22 +85,55 @@
 					item['checked'] = item.value === data
 				}
 				this.items = items;
+				this.feedback.type = data;
 			},
 			uploadImg(){
 				let that = this;
+				let authCode = String(uni.getStorageSync("authCode"))
 				uni.chooseImage({
 				    count: 6, //默认9
-				    sizeType: ['compressed'], //可以指定是原图还是压缩图，默认二者都有
+				    sizeType: ['copressed'], //可以指定是原图还是压缩图，默认二者都有
 				    sourceType: ['album'], //从相册选择
 				    success: function (res) {
-						for(let item of res.tempFilePaths){
-							that.imgList.push(item);
-						}
+						let img = res.tempFilePaths[0];
+						uni.uploadFile({
+							url: BASE_URL + "commonn/upload",
+							header:{
+								authCode:authCode
+							},
+							filePath: img,
+							name: 'file',
+							success: function (uploadFileRes) {
+								let data = JSON.parse(uploadFileRes.data)
+								console.log(data.code)
+							    if(data.code === 200){
+									that.imgList.push(data.data);
+								}
+							}
+						})
 				    }
 				});
 			},
 			delImg(index) {
 				this.imgList.splice(index,1);
+			},
+			feedbackFn() {
+				if(!this.feedback.deviceId || !this.feedback.phone || !this.feedback.remarks){
+					return uni.showToast({
+						title:"设备编号、备注或手机号为空",
+						icon:"none"
+					})
+				}
+				this.feedback['type'] = Number(this.feedback['type']);
+				let data = Object.assign({attachment:""},this.feedback);
+				for(let item of this.imgList){
+					data['attachment'] += item +','
+				}
+				post('user/feedback', data).then(res => {
+					if (res.code === 200) {
+						uni.navigateBack()
+					}
+				});
 			}
 		}
 	}

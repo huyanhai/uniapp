@@ -11,11 +11,11 @@
 		<view class="info line-color">
 			<view class="top">
 				<view class="post">
-					<image :src="userInfo.avatarUrl" class="img"></image>
+					<image :src="moreInfo.headUrl" class="img"></image>
 				</view>
 				<view class="user">
-					<text class="name">{{userInfo.nickName}}</text>
-					<text class="id">ID：{{moreInfo.stringId}}</text>
+					<text class="name">{{moreInfo.nickname}}</text>
+					<text class="id">ID：{{moreInfo.id}}</text>
 				</view>
 			</view>
 			<view class="bottom">
@@ -70,7 +70,6 @@
 	export default {
 		data(){
 			return {
-				userInfo:null,
 				showSheet:false,
 				moreInfo:{}
 			}
@@ -84,14 +83,15 @@
 		methods:{
 			async checkAuth() {
 			  let that = this;
-			  this.userInfo = uni.getStorageSync("user_info") || null;
-			  if (!this.userInfo) {
+			  this.authCode = uni.getStorageSync("authCode") || null;
+			  if (!this.authCode) {
 			    that.showSheet = true;
+			  } else {
+				  this.getUserInfo()
 			  }
-			  this.getUserInfo();
 			},
 			authSuccess(e) {
-			  this.userInfo = uni.getStorageSync("user_info") || null;
+			  this.authCode = uni.getStorageSync("authCode") || null;
 			  this.showSheet = false;
 			  this.getUserInfo();
 			},

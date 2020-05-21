@@ -130,63 +130,94 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  methods: {
-    goMap: function goMap() {
-      uni.openLocation({
-        latitude: that.item.latitude,
-        longitude: that.item.longitude,
-        name: "黄龙万科中心",
-        address: "学院路77号",
-        success: function success() {
-          console.log("success");
-        },
-        fail: function fail(e) {
-          console.log(e);
-        } });
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _request = __webpack_require__(/*! ../../libs/request.js */ 25); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { stringId: '', sn: '', shopDetials: {} };}, onLoad: function onLoad(e) {this.stringId = e.stringId;this.sn = e.sn;if (this.stringId) {this.getShopdetails('shop/detail', { sid: this.stringId });} else {this.getShopdetails('driver/shop/info', { sn: this.sn });}}, methods: { goMap: function goMap() {console.log(this.shopDetials);uni.openLocation({ latitude: Number(this.shopDetials.latitude), longitude: Number(this.shopDetials.longitude), name: this.shopDetials.name, address: this.shopDetials.address, success: function success() {console.log('success');}, fail: function fail(e) {console.log(e);} });
     },
-    call: function call() {
+    call: function call(no) {
       uni.makePhoneCall({
-        phoneNumber: "4008123277" //仅为示例
+        phoneNumber: no //仅为示例
+      });
+    },
+    getShopdetails: function getShopdetails(url, data) {var _this = this;
+      (0, _request.post)(url, data).then(function (res) {
+        if (res.code === 200) {
+          _this.shopDetials = res.data;
+          console.log(res.data);
+        }
       });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))

@@ -48,6 +48,14 @@
 			}
 		},
 		{
+			"path": "pages/index/loanFail",
+			"style": {
+				"navigationBarTitleText": "免押租借",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"backgroundColor": "#F8F8F9"
+			}
+		},
+		{
 			"path": "pages/index/userInfo",
 			"style": {
 				"navigationBarTitleText": "个人中心",

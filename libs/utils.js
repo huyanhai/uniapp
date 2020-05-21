@@ -19,7 +19,8 @@ export function scan() {
       },
       fail(e) {
         uni.showToast({
-			title:"扫码失败"
+			title:"扫码失败",
+			icon:"none"
 		});
         reject(e);
       },

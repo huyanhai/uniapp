@@ -195,16 +195,19 @@ var _request = __webpack_require__(/*! ../../libs/request.js */ 25); //
 //
 //
 //
-var _default = { data: function data() {return { checked: [] };}, methods: { changed: function changed(e) {this.checked = e.detail.value;}, submit: function submit(e) {var sn = '88c12dc1c96f4ed1846454691ad74e77'; // if(this.checked.length > 0){
-      this.getWechart(sn); // uni.reLaunch({
-      //     url: 'loanSuccess'
-      // });
-      // } else {
-      // 	uni.showToast({
-      // 		title:'请勾选协议'
-      // 	});
-      // }
-    }, getWechart: function getWechart(sn) {var _this = this;(0, _request.post)('wxpay/payscore', { sn: sn }).then(function (res) {console.info('step1', res.data);if (res.code === 200) {wx.openBusinessView({ businessType: 'wxpayScoreUse', extraData: { mch_id: res.data.mchId, package: res.data.packageInfo, timestamp: res.data.timestamp,
+var _default = { data: function data() {return { checked: [], tips: "", sn: "" };}, onLoad: function onLoad(e) {this.sn = e.sn;this.getOrderTips(this.sn);}, methods: { changed: function changed(e) {this.checked = e.detail.value;}, submit: function submit(e) {var sn = this.sn;if (this.checked.length > 0) {this.getWechart(sn);} else {uni.showToast({ title: '请勾选协议' });}}, getWechart: function getWechart(sn) {
+      var _this = this;
+      (0, _request.post)('wxpay/payscore', {
+        sn: sn }).
+      then(function (res) {
+        console.info('step1', res.data);
+        if (res.code === 200) {
+          wx.openBusinessView({
+            businessType: 'wxpayScoreUse',
+            extraData: {
+              mch_id: res.data.mchId,
+              package: res.data.packageInfo,
+              timestamp: res.data.timestamp,
               nonce_str: res.data.nonceStr,
               sign_type: res.data.signType,
               sign: res.data.sign },
@@ -241,11 +244,15 @@ var _default = { data: function data() {return { checked: [] };}, methods: { cha
             },
             fail: function fail() {
               //dosomething
-              console.info('失败');
+              uni.showToast({
+                title: '授权失败' });
+
+              uni.navigateTo({
+                url: "index" });
+
             },
             complete: function complete() {
               //dosomething
-              console.info('complete1');
               uni.navigateTo({
                 url: "index" });
 
@@ -275,8 +282,20 @@ var _default = { data: function data() {return { checked: [] };}, methods: { cha
 
 
 
+
+
+
+
         }
       });
+    },
+    getOrderTips: function getOrderTips(sn) {var _this2 = this;
+      (0, _request.post)('/order/bill', {
+        sn: sn }).
+      then(function (res) {
+        _this2.tips = res.data;
+      });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

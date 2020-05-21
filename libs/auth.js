@@ -34,15 +34,17 @@ export function userLogin() {
 							headUrl: data.avatar,
 							nickname: data.nickName
 						}).then(res=>{
-							console.log('res',res);
 							if(res.code === 200) {
+								uni.setStorageSync('user_info',data);
 								uni.setStorageSync('authCode',res.data)
 							} else {
 								uni.showToast({
 									title: res.msg,
-									icon: 'none'
+									icon: 'none',
+									duration: 3000
 								})
 							}
+							resolve(res.data);
 						})
 						// #endif
 						// #ifdef MP-WEIXIN
@@ -51,19 +53,19 @@ export function userLogin() {
 							encryptedData: data.encryptedData,
 							iv: data.iv
 						}).then(res=>{
-							console.log('res',res);
 							if(res.code === 200) {
+								uni.setStorageSync('user_info',data);
 								uni.setStorageSync('authCode',res.data)
-								console.log('res',res);
 							} else {
 								uni.showToast({
 									title: res.msg,
-									icon: 'none'
+									icon: 'none',
+									duration: 3000
 								})
 							}
+							resolve(res.data);
 						})
 						// #endif
-                        resolve(data);
                     },
                     fail(err) {
                         reject(err);
@@ -83,6 +85,7 @@ export function getLocation() {
         uni.getLocation({
             success: function(res) {
                 uni.setStorageSync('user_address', res);
+				console.log("this.addressInfo1",res)
                 resolve(res);
             },
             fail(e) {

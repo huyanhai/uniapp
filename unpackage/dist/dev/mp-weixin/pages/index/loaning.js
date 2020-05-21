@@ -148,9 +148,8 @@ var _request = __webpack_require__(/*! ../../libs/request.js */ 25); //
 var _default = { data: function data() {return { timer: null };}, onLoad: function onLoad(res) {
     var _this = this;
     var orderNum = res.orderNum;
-    console.log('orderNum', orderNum);
     if (orderNum) {
-      setInterval(function () {
+      _this.timer = setInterval(function () {
         _this.checkOrder(orderNum);
       }, 1000);
     }
@@ -171,10 +170,12 @@ var _default = { data: function data() {return { timer: null };}, onLoad: functi
             uni.navigateTo({
               url: "loanSuccess" });
 
+            clearInterval(_this.timer);
           } else if (res.data.status === 1) {
             uni.navigateTo({
-              url: "index" });
+              url: "loanFail" });
 
+            clearInterval(_this.timer);
           }
         }
       });

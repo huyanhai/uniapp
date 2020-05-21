@@ -9249,7 +9249,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "defaultTitle": "起电", "titleBarColor": "#FFFFFF" }, "pages/index/nearShop": { "defaultTitle": "附件门店", "titleBarColor": "#FFFFFF", "backgroundColor": "#F8F8F9" }, "pages/index/shopDetail": { "defaultTitle": "商家详情", "titleBarColor": "#22A6F1", "backgroundColor": "#F8F8F9" }, "pages/index/loan": { "defaultTitle": "免押租借", "titleBarColor": "#FFFFFF", "backgroundColor": "#F8F8F9" }, "pages/index/loaning": { "defaultTitle": "免押租借", "titleBarColor": "#FFFFFF" }, "pages/index/loanSuccess": { "defaultTitle": "免押租借", "titleBarColor": "#FFFFFF", "backgroundColor": "#F8F8F9" }, "pages/index/userInfo": { "defaultTitle": "个人中心", "titleBarColor": "#22A6F1" }, "pages/index/order": { "defaultTitle": "我的订单", "titleBarColor": "#FFFFFF" }, "pages/index/orderDetail": { "defaultTitle": "订单详情", "titleBarColor": "#FFFFFF" }, "pages/index/joinIn": { "defaultTitle": "合作加盟", "titleBarColor": "#22A6F1", "backgroundColor": "#F8F8F9" }, "pages/index/question": { "defaultTitle": "问题或意见", "titleBarColor": "#FFFFFF" }, "pages/index/aboutUs": { "defaultTitle": "关于我们", "titleBarColor": "#FFFFFF" }, "pages/index/balance": { "defaultTitle": "余额", "titleBarColor": "#FFFFFF" }, "pages/index/reflect": { "defaultTitle": "提现", "titleBarColor": "#FFFFFF" }, "pages/index/reflectSuccess": { "defaultTitle": "提现成功", "titleBarColor": "#FFFFFF" }, "pages/index/reflectFail": { "defaultTitle": "提现失败", "titleBarColor": "#FFFFFF" }, "pages/index/recharge": { "defaultTitle": "充值", "titleBarColor": "#FFFFFF" }, "pages/index/history": { "defaultTitle": "交易记录", "titleBarColor": "#FFFFFF" } }, "globalStyle": { "defaultTitle": "起电", "titleBarColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "defaultTitle": "起电", "titleBarColor": "#FFFFFF" }, "pages/index/nearShop": { "defaultTitle": "附件门店", "titleBarColor": "#FFFFFF", "backgroundColor": "#F8F8F9" }, "pages/index/shopDetail": { "defaultTitle": "商家详情", "titleBarColor": "#22A6F1", "backgroundColor": "#F8F8F9" }, "pages/index/loan": { "defaultTitle": "免押租借", "titleBarColor": "#FFFFFF", "backgroundColor": "#F8F8F9" }, "pages/index/loaning": { "defaultTitle": "免押租借", "titleBarColor": "#FFFFFF" }, "pages/index/loanSuccess": { "defaultTitle": "免押租借", "titleBarColor": "#FFFFFF", "backgroundColor": "#F8F8F9" }, "pages/index/loanFail": { "defaultTitle": "免押租借", "titleBarColor": "#FFFFFF", "backgroundColor": "#F8F8F9" }, "pages/index/userInfo": { "defaultTitle": "个人中心", "titleBarColor": "#22A6F1" }, "pages/index/order": { "defaultTitle": "我的订单", "titleBarColor": "#FFFFFF" }, "pages/index/orderDetail": { "defaultTitle": "订单详情", "titleBarColor": "#FFFFFF" }, "pages/index/joinIn": { "defaultTitle": "合作加盟", "titleBarColor": "#22A6F1", "backgroundColor": "#F8F8F9" }, "pages/index/question": { "defaultTitle": "问题或意见", "titleBarColor": "#FFFFFF" }, "pages/index/aboutUs": { "defaultTitle": "关于我们", "titleBarColor": "#FFFFFF" }, "pages/index/balance": { "defaultTitle": "余额", "titleBarColor": "#FFFFFF" }, "pages/index/reflect": { "defaultTitle": "提现", "titleBarColor": "#FFFFFF" }, "pages/index/reflectSuccess": { "defaultTitle": "提现成功", "titleBarColor": "#FFFFFF" }, "pages/index/reflectFail": { "defaultTitle": "提现失败", "titleBarColor": "#FFFFFF" }, "pages/index/recharge": { "defaultTitle": "充值", "titleBarColor": "#FFFFFF" }, "pages/index/history": { "defaultTitle": "交易记录", "titleBarColor": "#FFFFFF" } }, "globalStyle": { "defaultTitle": "起电", "titleBarColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -10234,16 +10234,17 @@ function userLogin() {
               headUrl: data.avatar,
               nickname: data.nickName }).
             then(function (res) {
-              console.log('res', res);
               if (res.code === 200) {
+                uni.setStorageSync('user_info', data);
                 uni.setStorageSync('authCode', res.data);
-                console.log('res', res);
               } else {
                 uni.showToast({
                   title: res.msg,
-                  icon: 'none' });
+                  icon: 'none',
+                  duration: 3000 });
 
               }
+              resolve(res.data);
             });
 
 
@@ -10264,7 +10265,7 @@ function userLogin() {
 
 
 
-            resolve(data);
+
           },
           fail: function fail(err) {
             reject(err);
@@ -10284,6 +10285,7 @@ function getLocation() {
     uni.getLocation({
       success: function success(res) {
         uni.setStorageSync('user_address', res);
+        console.log("this.addressInfo1", res);
         resolve(res);
       },
       fail: function fail(e) {
@@ -10324,16 +10326,33 @@ function getSetting() {
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.get = get;exports.post = post;var _index = __webpack_require__(/*! ../config/index.js */ 26);
 
 function get(url, data) {
+  var authCode = String(uni.getStorageSync("authCode"));
   return new Promise(function (resolve, reject) {
     uni.showLoading();
     uni.request({
       method: 'GET',
       url: _index.BASE_URL + url,
       header: {
-        authCode: String(_index.HEADER) },
+        authCode: authCode },
 
       timeout: _index.TIMEOUT,
       success: function success(res) {
+        if (res.data.code === 600) {
+          uni.showToast({
+            title: res.data.msg,
+            icon: "none" });
+
+          uni.clearStorageSync();
+          uni.redirectTo({
+            path: '/index' });
+
+        }
+        if (res.data.code !== 200) {
+          uni.showToast({
+            title: res.data.msg,
+            icon: "none" });
+
+        }
         resolve(res.data);
       },
       fail: function fail(err) {
@@ -10351,7 +10370,8 @@ function get(url, data) {
 }
 
 function post(url, data) {
-  console.log(_index.HEADER);
+  var authCode = String(uni.getStorageSync("authCode"));
+  console.log('开始请求post，authCode:', authCode);
   return new Promise(function (resolve, reject) {
     uni.showLoading();
     uni.request({
@@ -10359,10 +10379,26 @@ function post(url, data) {
       url: _index.BASE_URL + url,
       timeout: _index.TIMEOUT,
       header: {
-        authCode: String(_index.HEADER) },
+        authCode: authCode },
 
       data: data,
       success: function success(res) {
+        if (res.data.code === 600) {
+          uni.showToast({
+            title: res.data.msg,
+            icon: "none" });
+
+          uni.clearStorageSync();
+          uni.redirectTo({
+            path: '/index' });
+
+        }
+        if (res.data.code !== 200) {
+          uni.showToast({
+            title: res.data.msg,
+            icon: "none" });
+
+        }
         resolve(res.data);
       },
       fail: function fail(err) {
@@ -10389,10 +10425,9 @@ function post(url, data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.HEADER = exports.TIMEOUT = exports.BASE_URL = void 0;var BASE_URL = "http://112.74.109.251:7000/"; //请求地址
+Object.defineProperty(exports, "__esModule", { value: true });exports.TIMEOUT = exports.BASE_URL = void 0;var BASE_URL = "https://user.1in100.cn/"; //请求地址
 exports.BASE_URL = BASE_URL;var TIMEOUT = 30000; // ms
-exports.TIMEOUT = TIMEOUT;var HEADER = uni.getStorageSync("authCode") || null;exports.HEADER = HEADER;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
+exports.TIMEOUT = TIMEOUT;
 
 /***/ }),
 /* 27 */
@@ -10424,7 +10459,8 @@ function scan() {
       },
       fail: function fail(e) {
         uni.showToast({
-          title: "扫码失败" });
+          title: "扫码失败",
+          icon: "none" });
 
         reject(e);
       } });

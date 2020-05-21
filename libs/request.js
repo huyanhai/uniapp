@@ -12,6 +12,22 @@ export function get(url,data) {
 			},
 			timeout:TIMEOUT,
 			success:function(res){
+				if(res.data.code === 600) {
+					uni.showToast({
+						title:res.data.msg,
+						icon:"none"
+					})
+					uni.clearStorageSync();
+					uni.redirectTo({
+						path: '/index'
+					})
+				}
+				if(res.data.code !== 200) {
+					uni.showToast({
+						title:res.data.msg,
+						icon:"none"
+					})
+				}
 				resolve(res.data);
 			},
 			fail:function(err){
@@ -30,7 +46,7 @@ export function get(url,data) {
 
 export function post(url,data) {
 	let authCode = String(uni.getStorageSync("authCode"))
-	
+	console.log('开始请求post，authCode:',authCode);
 	return new Promise((resolve, reject)=>{
 		uni.showLoading();
 		uni.request({
@@ -42,6 +58,22 @@ export function post(url,data) {
 			},
 			data:data,
 			success:function(res){
+				if(res.data.code === 600) {
+					uni.showToast({
+						title:res.data.msg,
+						icon:"none"
+					})
+					uni.clearStorageSync();
+					uni.redirectTo({
+						path: '/index'
+					})
+				}
+				if(res.data.code !== 200) {
+					uni.showToast({
+						title:res.data.msg,
+						icon:"none"
+					})
+				}
 				resolve(res.data);
 			},
 			fail:function(err){

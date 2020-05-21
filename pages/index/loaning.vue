@@ -16,11 +16,10 @@
 		onLoad(res){
 			let _this = this;
 			let orderNum = res.orderNum;
-			console.log('orderNum',orderNum)
 			if(orderNum){
-				setInterval(function(){
+				_this.timer = setInterval(function(){
 					_this.checkOrder(orderNum);
-				},1000);
+				}, 1000);
 			}
 		},
 		methods: {
@@ -39,10 +38,12 @@
 							uni.navigateTo({
 								url: "loanSuccess"
 							});
+							clearInterval(_this.timer);
 						} else if(res.data.status === 1) {
 							uni.navigateTo({
-								url: "index"
+								url: "loanFail"
 							});
+							clearInterval(_this.timer);
 						}
 					}
 				})

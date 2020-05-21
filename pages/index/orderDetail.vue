@@ -9,13 +9,13 @@
 <template>
 	<view class="order-detail-content">
 		<view class="order-status">
-			<view class="stadus error warning ok">故障单</view>
-			<view class="order-no">订单号：8439348934893</view>
+			<view class="stadus error warning ok">{{orderStatus[item.orderStatus]}}</view>
+			<view class="order-no">订单号：{{item.stringId}}</view>
 		</view>
 		<view class="detail">
 			<view class="item">
 				<view class="name">租借时长：</view>
-				<view class="info blue">1小时</view>
+				<view class="info blue">{{}}</view>
 			</view>
 			<view class="item">
 				<view class="name">租借费用：</view>
@@ -35,34 +35,18 @@
 			</view>
 			<view class="item">
 				<view class="name">租借押金：</view>
-				<view class="info">￥2.00</view>
+				<view class="info">{{item.foregiftMoney}}</view>
 			</view>
 			<view class="item btn-20">
 				<view class="name">免费时长：</view>
-				<view class="info">￥2.00</view>
+				<view class="info">{{item.freeTime}}</view>
 			</view>
 			<view class="item">
 				<view class="name">租借商家：</view>
-				<view class="info">￥2.00</view>
-			</view>
-			<view class="item">
-				<view class="name">租借商家：</view>
-				<view class="info">￥2.00</view>
+				<view class="info">{{item.shopName}}</view>
 			</view>
 			<view class="item">
 				<view class="name">归还商家：</view>
-				<view class="info">￥2.00</view>
-			</view>
-			<view class="item">
-				<view class="name">设备类型：</view>
-				<view class="info">￥2.00</view>
-			</view>
-			<view class="item">
-				<view class="name">机柜编号：</view>
-				<view class="info">￥2.00</view>
-			</view>
-			<view class="item">
-				<view class="name">电池编号：</view>
 				<view class="info">￥2.00</view>
 			</view>
 		</view>
@@ -72,9 +56,19 @@
 <script>
 	export default {
 		data() {
-			return {};
+			return {
+				item:{},
+				orderStatus:{
+					1:"待付款",
+					2:"已付款",
+					3:"取消付款"
+				}
+			};
 		},
-		onLoad() {},
+		onLoad(e) {
+			this.item = JSON.parse(e.item)
+			console.log(this.item)
+		},
 	};
 </script>
 

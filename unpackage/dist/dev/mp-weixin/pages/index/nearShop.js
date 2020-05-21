@@ -146,7 +146,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-var _request = __webpack_require__(/*! ../../libs/request.js */ 25);var shopItem = function shopItem() {__webpack_require__.e(/*! require.ensure | components/shopItem */ "components/shopItem").then((function () {return resolve(__webpack_require__(/*! ../../components/shopItem */ 173));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _request = __webpack_require__(/*! ../../libs/request.js */ 25);var shopItem = function shopItem() {__webpack_require__.e(/*! require.ensure | components/shopItem */ "components/shopItem").then((function () {return resolve(__webpack_require__(/*! ../../components/shopItem */ 181));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 {
   data: function data() {
@@ -170,7 +170,8 @@ var _request = __webpack_require__(/*! ../../libs/request.js */ 25);var shopItem
     getNearData: function getNearData() {var _this = this;
       (0, _request.post)('shop/nearby', {
         "lat": this.latitude,
-        "lng": this.longitude }).
+        "lng": this.longitude,
+        "range": 10000000 }).
       then(function (res) {
         if (res.code === 200) {
           _this.shopData = res.data;

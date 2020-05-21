@@ -130,21 +130,57 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
+
+
+
+
+
+var _request = __webpack_require__(/*! ../../libs/request.js */ 25); //
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { timer: null };}, onLoad: function onLoad(res) {
+    var _this = this;
+    var orderNum = res.orderNum;
+    if (orderNum) {
+      _this.timer = setInterval(function () {
+        _this.checkOrder(orderNum);
+      }, 1000);
+    }
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    checkOrder: function checkOrder(orderNum) {
+      if (this.timer) {
+        clearInterval(this.timer);
+      }
+      var status = {
+        "-2": "订单不存在",
+        "-1": "设备未上传",
+        "1": "失败" };
+
+      (0, _request.get)("/order/status/".concat(orderNum)).then(function (res) {
+        if (res.code === 200) {
+          if (res.data.status === 0) {
+            uni.navigateTo({
+              url: "loanSuccess" });
+
+            clearInterval(_this.timer);
+          } else if (res.data.status === 1) {
+            uni.navigateTo({
+              url: "loanFail" });
+
+            clearInterval(_this.timer);
+          }
+        }
+      });
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

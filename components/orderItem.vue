@@ -7,9 +7,9 @@
  * @Description: 订单item
  -->
 <template>
-	<view class="order-item-content" @click="goDetail">
+	<view class="order-item-content" @click="goDetail(item)">
 		<view class="top">
-			<view class="stadus error warning ok">{{item.orderType}}</view>
+			<view class="stadus error warning ok">{{orderStatus[item.orderType]}}</view>
 			<view class="order-no">订单号：{{item.stringId}}</view>
 		</view>
 		<view class="info">
@@ -23,7 +23,7 @@
 			</view>
 			<view class="item">
 				<text class="name">租借费用：</text>
-				<text class="detail num">￥{{item.price}}.00</text>
+				<text class="detail num">￥{{item.totalMoney}}.00</text>
 			</view>
 		</view>
 	</view>
@@ -31,6 +31,15 @@
 
 <script>
 	export default {
+		data(){
+			return {
+				orderStatus:{
+					1:"待付款",
+					2:"已付款",
+					3:"取消付款"
+				}
+			}
+		},
 		props: {
 			item: {
 				type: Object
@@ -39,7 +48,7 @@
 		methods: {
 			goDetail(e) {
 				uni.navigateTo({
-					url: "orderDetail"
+					url: "orderDetail?item=" + JSON.stringify(e)
 				});
 			}
 		}

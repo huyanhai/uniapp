@@ -6,6 +6,7 @@
     "pages/index/loan",
     "pages/index/loaning",
     "pages/index/loanSuccess",
+    "pages/index/loanFail",
     "pages/index/userInfo",
     "pages/index/order",
     "pages/index/orderDetail",

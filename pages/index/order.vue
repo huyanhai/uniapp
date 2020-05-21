@@ -9,7 +9,6 @@
 <template>
   <view class="order-content">
     <orderItem :item="item" v-for="(item,index) in orderData" :key="index"/>
-    <orderItem />
   </view>
 </template>
 

@@ -92,13 +92,13 @@
 }
 .joinin-content .top-bg .title {
   font-size: 32rpx;
-  color: #FFFFFF;
+  color: #ffffff;
   bottom: 70rpx;
   position: absolute;
 }
 .joinin-content .top-bg .tips {
   font-size: 28rpx;
-  color: #FFFFFF;
+  color: #ffffff;
   bottom: 25rpx;
   position: absolute;
 }
@@ -107,13 +107,14 @@
           box-sizing: border-box;
   padding: 30rpx;
 }
-.joinin-content .form .ui-input, .joinin-content .form .ui-textarea {
+.joinin-content .form .ui-input,
+.joinin-content .form .ui-textarea {
   height: 90rpx;
   line-height: 90rpx;
   padding-left: 20rpx;
   font-size: 28rpx;
   border-radius: 4rpx;
-  background: #F2F4F6;
+  background: #f2f4f6;
   margin-bottom: 20rpx;
 }
 .joinin-content .form .ui-textarea {
@@ -126,8 +127,8 @@
 .joinin-content .form .submit {
   height: 90rpx;
   border-radius: 90rpx;
-  background: #22A6F1;
-  color: #FFFFFF;
+  background: #22a6f1;
+  color: #ffffff;
   font-size: 30rpx;
   text-align: center;
   line-height: 90rpx;
