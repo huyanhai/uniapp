@@ -10,7 +10,8 @@
 	export default {
 		data() {
 			return {
-				timer:null
+				timer:null,
+				time:0
 			}
 		},
 		onLoad(res){
@@ -18,8 +19,15 @@
 			let orderNum = res.orderNum;
 			if(orderNum){
 				_this.timer = setInterval(function(){
+					_this.time ++;
 					_this.checkOrder(orderNum);
-				}, 1000);
+					if(_this.time >= 20){
+						clearInterval(_this.timer);
+						uni.navigateTo({
+							url: "loanFail"
+						});
+					}
+				}, 3000);
 			}
 		},
 		methods: {

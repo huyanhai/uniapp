@@ -1,1 +1,1 @@
-<view class="order-content"><block a:for="{{orderData}}" a:for-item="item" a:for-index="index" a:key="index"><order-item vue-id="{{'8cd0a318-1-'+index}}" item="{{item}}" onVueInit="__l"></order-item></block></view>
+<view class="order-content"><block a:if="{{orderData.length<1}}"><text class="no-order">近期暂无订单</text></block><block a:else><block a:for="{{orderData}}" a:for-item="item" a:for-index="index" a:key="index"><order-item vue-id="{{'8cd0a318-1-'+index}}" item="{{item}}" onVueInit="__l"></order-item></block></block></view>

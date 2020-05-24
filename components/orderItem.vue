@@ -9,21 +9,36 @@
 <template>
 	<view class="order-item-content" @click="goDetail(item)">
 		<view class="top">
-			<view class="stadus error warning ok">{{orderStatus[item.orderType]}}</view>
-			<view class="order-no">订单号：{{item.stringId}}</view>
+			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus]}}</view>
+			<view class="order-no">订单编号：{{item.stringId}}</view>
 		</view>
 		<view class="info">
 			<view class="item">
-				<text class="name">租借时间：</text>
-				<text class="detail">{{item.updateDate}}</text>
+				<text class="name">租借费用：</text>
+				<template v-if="item.foregiftStatus === 2">
+					<text class="detail num" v-if="item.totalMoney">
+						{{item.totalMoney}}元
+					</text>
+					<text class="detail num" v-else>
+						99元
+					</text>
+				</template>
+				<template v-else>
+					<text class="detail num" v-if="item.totalMoney">
+						{{item.totalMoney}}元
+					</text>
+					<text class="detail num" v-else>
+						未付款
+					</text>
+				</template>
 			</view>
 			<view class="item">
-				<text class="name">租借商家：</text>
+				<text class="name">设备商家：</text>
 				<text class="detail">{{item.shopName}}</text>
 			</view>
 			<view class="item">
-				<text class="name">租借费用：</text>
-				<text class="detail num">￥{{item.totalMoney}}.00</text>
+				<text class="name">租借时间：</text>
+				<text class="detail">{{item.updateDate}}</text>
 			</view>
 		</view>
 	</view>
@@ -34,9 +49,12 @@
 		data(){
 			return {
 				orderStatus:{
-					1:"待付款",
-					2:"已付款",
-					3:"取消付款"
+					1:"等待弹出",
+					2:"租借中",
+					3:"租借完成",
+					4:"已撤销",
+					5:"超时订单",
+					6:"扣款失败"
 				}
 			}
 		},

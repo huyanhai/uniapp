@@ -31,9 +31,10 @@ export default {
 		joinUs() {
 			post('/user/joinus', this.joinData).then(res => {
 				if (res.code === 200) {
-					uni.navigateTo({
-						url: 'userInfo'
-					});
+					uni.showToast({
+						title:"信息提交成功",
+						icon:"none"
+					})
 				} else {
 					uni.showToast({
 						title:res.msg,
@@ -81,6 +82,7 @@ export default {
 			border-radius: 4rpx;
 			background: #f2f4f6;
 			margin-bottom: 20rpx;
+			display: block;
 		}
 		.ui-textarea {
 			width: 100%;

@@ -13,19 +13,23 @@
 		<view class="rule">
 			<view class="title">计费规则：</view>
 			<text class="item">
-				1.
-				<text class="num">{{tips.hourMoney}}</text>
-				元/小时;\n2. 租借{{tips.freeTime}}分钟内免费，日封顶{{tips.dayMoney}}元，总封顶{{tips.dayMoney}}元； <!-- 3. 押金99.00元，支持免押服务。 -->
+				<text class="num">{{tips.hourMoney}}元/小时</text>。
+				租借{{tips.freeTime}}分钟内免费，日封顶{{tips.dayMoney}}元，总封顶99元。 \n押金99.00元，支持免押服务。
 			</text>
 		</view>
 		<view class="submit" @click="submit">
 			<text class="b">免押金租借</text>
+			<!-- #ifdef MP-WEIXIN -->
 			<text class="s">（微信支付分550分以上有机会）</text>
+			<!-- #endif -->
+			<!-- #ifdef MP-ALIPAY -->
+			<text class="s">（芝麻分550分以上有机会）</text>
+			<!-- #endif -->
 		</view>
 		<view class="check-agreement">
-			<checkbox-group @change="changed"><checkbox class="check" value="1"></checkbox></checkbox-group>
+			<checkbox-group @change="changed"><checkbox class="check" value="1" checked="checked"></checkbox></checkbox-group>
 			同意
-			<text class="agreement">《委托扣款授权书》</text>
+			<text class="agreement" @click="toAgreement">《委托扣款授权书》</text>
 		</view>
 	</view>
 </template>
@@ -35,7 +39,7 @@ import { get, post } from '../../libs/request.js';
 export default {
 	data() {
 		return {
-			checked: [],
+			checked: [1],
 			tips:"",
 			sn:""
 		};
@@ -47,6 +51,11 @@ export default {
 	methods: {
 		changed(e) {
 			this.checked = e.detail.value;
+		},
+		toAgreement(){
+			uni.navigateTo({
+				url: `agreement`,
+			});
 		},
 		submit(e) {
 			let sn = this.sn;
@@ -96,34 +105,40 @@ export default {
 								},
 								success() {
 									console.info('step3')
-									
+									uni.navigateTo({
+										url: `loaning?orderNum=${res.data.orderNum}`,
+									});
 								},
-								fail() {
+								fail(result) {
 									//dosomething
 								},
 								complete() {
 									//dosomething
 									console.info('complete')
-									uni.navigateTo({
-										url: `loaning?orderNum=${res.data.orderNum}`,
-									});
 								}
 							});
 						},
-						fail() {
+						fail(err) {
 							//dosomething
-							uni.showToast({
-								title:'授权失败'
-							})
-							uni.navigateTo({
-								url: "index"
+							uni.showModal({
+							    title: '提示',
+							    content: '获取免押失败，是否交押金使用？',
+								confirmText:"确定",
+								cancelText:"取消",
+							    success: function (res) {
+							        if (res.confirm) {
+							            _this.payWechart(sn);
+							        } else if (res.cancel) {
+										uni.navigateTo({
+											url: "index"
+										});
+							        }
+							    }
 							});
+							
 						},
 						complete() {
 							//dosomething
-							uni.navigateTo({
-								url: "index"
-							});
 						}
 					});
 				}
@@ -135,16 +150,18 @@ export default {
 			}).then(res => {
 				if(res.code === 200){
 					// #ifdef MP-ALIPAY
-					console.log(res)
+					console.log('orderStr',res.data.orderStr)
 					my.tradePay({
 					  // 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
 					  orderStr: res.data.orderStr,
-					  success: (res) => {
+					  success: (rs) => {
+						  console.log('授权成功',res.data.orderNum)
 						  uni.navigateTo({
 						  	url: `loaning?orderNum=${res.data.orderNum}`,
 						  });
 					  },
 					  fail: (res) => {
+						  console.log('授权失败',res)
 					    uni.showToast({
 					    	title:'授权失败'
 					    })
@@ -156,6 +173,29 @@ export default {
 					// #endif
 				}
 			});
+		},
+		payWechart(sn){
+			post('/wxpay/prepay', {
+				sn: sn
+			}).then(res => {
+				wx.requestPayment({
+				  timeStamp: res.data.timeStamp,
+				  nonceStr: res.data.nonceStr,
+				  package: res.data.package,
+				  signType: res.data.signType,
+				  paySign: res.data.paySign,
+				  success () {
+					  uni.navigateTo({
+					  	url: `loaning?orderNum=${res.data.orderNum}`,
+					  });
+				  },
+				  fail (res) { 
+					  uni.navigateTo({
+					  	url: "index"
+					  });
+				  }
+				})
+			})
 		},
 		getOrderTips(sn){
 			post('/order/bill', {

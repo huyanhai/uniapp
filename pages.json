@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "起电",
+				"navigationBarTitleText": "起电宝",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
@@ -142,11 +142,17 @@
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		}
-        
+        ,{
+            "path" : "pages/index/agreement",
+            "style" : {
+				"navigationBarTitleText": "委托扣款授权书",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+        }
     ],
 	"permission": {
 		"userLocation": {
-			"desc": "你的位置信息将用于小程序位置接口的效果展示"
+			"desc": "基于你的位置信息推荐最优的起电宝门店"
 		}
 	},
 	"barButtonTheme": "default",

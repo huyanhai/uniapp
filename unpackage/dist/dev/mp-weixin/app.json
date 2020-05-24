@@ -18,7 +18,8 @@
     "pages/index/reflectSuccess",
     "pages/index/reflectFail",
     "pages/index/recharge",
-    "pages/index/history"
+    "pages/index/history",
+    "pages/index/agreement"
   ],
   "subPackages": [],
   "window": {

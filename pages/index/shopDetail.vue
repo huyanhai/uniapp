@@ -10,7 +10,7 @@
 	<view class="shop-detail-content">
 		<view class="top line-color">
 			<view class="shop-info">
-				<image class="post" :src="shopDetials.shopImage"></image>
+				<image class="post" :src="shopDetials.headImg"></image>
 				<view class="info">
 					<view class="name">{{ shopDetials.shopName }}</view>
 					<view class="address">营业时间：{{ `${shopDetials.startTime} - ${shopDetials.endTime}` }}</view>
@@ -24,13 +24,13 @@
 				<view class="item">距离：{{shopDetials.distance}}米</view>
 			</view>
 		</view>
-		<!-- <view class="img-list">
-			<image src="../../static/logo.png" class="left"></image>
+		<view class="img-list">
+			<image class="left" :src="shopDetials.shopImage[0]"></image>
 			<view class="right">
-				<image src="../../static/logo.png" class="t"></image>
-				<image src="../../static/logo.png" class="b"></image>
+				<image :src="shopDetials.shopImage[1]" class="t" v-if="shopDetials.shopImage[1]"></image>
+				<image :src="shopDetials.shopImage[2]" class="b" v-if="shopDetials.shopImage[2]"></image>
 			</view>
-		</view> -->
+		</view>
 		<view class="go-map" @click="goMap">去这里</view>
 	</view>
 </template>
@@ -83,8 +83,11 @@ export default {
 		getShopdetails(url, data) {
 			post(url, data).then(res => {
 				if (res.code === 200) {
+						
+					if(res.data['shopImage']){
+						res.data['shopImage'] = res.data['shopImage'].split(',')
+					}
 					this.shopDetials = res.data;
-					console.log(res.data);
 				}
 			});
 		}

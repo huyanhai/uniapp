@@ -3,6 +3,7 @@
   "navigationBarBackgroundColor": "#22A6F1",
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "login-sheet": "/components/loginSheet"
+    "login-sheet": "/components/loginSheet",
+    "call-us": "/components/callUs"
   }
 }

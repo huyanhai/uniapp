@@ -8,6 +8,7 @@
  -->
 <template>
   <view class="near-shop">
+	<text class="no-order" v-if="shopData.length<1">近期暂无商家</text>
     <shopItem v-for="(item,index) in shopData" :key="index" :item="item.shopInfo"/>
   </view>
 </template>
@@ -39,7 +40,7 @@ export default {
 		  post('shop/nearby',{
 			"lat": this.latitude,
 			"lng": this.longitude,
-			"range":10000000
+			"range":2000
 		  }).then(res=>{
 			  if(res.code === 200){
 				  this.shopData = res.data;
@@ -60,6 +61,12 @@ export default {
 		box-sizing: border-box;
 		.stores-content{
 			margin-bottom: 30rpx;
+		}
+		.no-order{
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  transform: translate(-50%,-50%);
 		}
 	}
 </style>

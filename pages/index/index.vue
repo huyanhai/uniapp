@@ -37,9 +37,10 @@
 			@regionchange="regionchange"
 			@markertap="makertap"
 			@tap="hideShop"
+			:scale="scale"
 		/>
-		<cover-image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-lo.png" class="map-center"></cover-image>
 		<callUs :show.sync="showCallUs" />
+		<cover-image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-lo.png" class="map-center"></cover-image>
 		<view class="store-box"><shopItem :show="showShopItem" :item="shopItemData" /></view>
 	</view>
 </template>
@@ -62,7 +63,8 @@ export default {
 			showShopItem: false,
 			showCallUs: false,
 			orders: {}, // 是否有租借中的订单
-			outSn:""
+			outSn:"",
+			scale:14
 		};
 	},
 	onLoad(e) {
@@ -71,7 +73,12 @@ export default {
 			let code = datas.split('/');
 			this.outSn = code[code.length - 1] || "";
 		}
+	},
+	onShow(){
 		this.checkAuth();
+	},
+	onHide(){
+		this.outSn = '';
 	},
 	components: {
 		loginSheet,
@@ -105,14 +112,14 @@ export default {
 				that.getNearDevice({
 					lat: that.addressInfo['latitude'],
 					lng: that.addressInfo['longitude'],
-					range: 10000000
+					range: 2000
 				});
 			} else {
 				that.addressInfo = await getLocation();
 				that.getNearDevice({
 					lat: that.addressInfo['latitude'],
 					lng: that.addressInfo['longitude'],
-					range: 10000000
+					range: 2000
 				});
 			}
 		},
@@ -135,10 +142,10 @@ export default {
 			});
 		},
 		makertap(e) {
+			console.log(e);
 			let id = e.markerId;
-			let sn = this.markers[id]['title'];
-			post('driver/shop/info', {
-				sn: sn
+			post('shop/detail', {
+				sid: id
 			}).then(res => {
 				if (res.code === 200) {
 					let data = res.data;
@@ -190,7 +197,9 @@ export default {
 		},
 		regionchange(e) {
 			let that = this;
+			console.log(e.scale,e)
 			if (e.type === 'end' && e.causedBy === 'drag') {
+				that.scale = e.scale;
 				let content = uni.createMapContext('map', this);
 				content.getCenterLocation({
 					success(res) {
@@ -199,9 +208,7 @@ export default {
 						that.getNearDevice({
 							lat: that.addressInfo['latitude'],
 							lng: that.addressInfo['longitude'],
-							range: 10000000
-							// lat:29.587185,
-							// lng:106.569563
+							range: 2000
 						});
 						console.log('拖拽后的经纬度：' + res);
 					},
@@ -241,21 +248,22 @@ export default {
 		getNearDevice(data) {
 			// 获取附件的设备
 			let that = this;
-			post('driver/nearby', data).then(res => {
+			post('shop/nearby', data).then(res => {
 				console.log(res.msg)
 				if (res.code === 200) {
 					let data = res.data;
 					if (data.length > 0) {
 						that.markers = [];
 						data.map((item, index) => {
+							console.log(item.shopInfo['shopName'])
 							that.markers.push({
-								id: index,
+								id: item.shopInfo['stringId'],
 								iconPath: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-maker.png',
 								width: 30,
 								height: 30,
-								title: item['driverNum'],
-								latitude: item['lat'],
-								longitude: item['lng']
+								title: item.shopInfo['shopName'],
+								latitude: item.shopInfo['latitude'],
+								longitude: item.shopInfo['longitude']
 							});
 						});
 					}

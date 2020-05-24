@@ -23,7 +23,8 @@
 					<text class="name">押金</text>
 					<text class="money">￥{{moreInfo.balance}}</text>
 				</view>
-				<view class="right" @click="goPage('balance')">
+				<!-- <view class="right" @click="goPage('balance')"> -->
+				<view class="right">
 					<text class="name">余额</text>
 					<text class="money">￥{{moreInfo.useNumber}}</text>
 				</view>
@@ -45,7 +46,7 @@
 				<text class="name">问题或意见</text>
 				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-more.png" class="more"></image>
 			</view>
-			<view class="item" @click="goPage('order')">
+			<view class="item" @click="showCall">
 				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-kf.png" class="label"></image>
 				<text class="name">客服中心</text>
 				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-more.png" class="more"></image>
@@ -57,13 +58,15 @@
 			</view>
 		</view>
 		<text class="copyright">
-			当前版本2.0.3 \n Copyright@2019 起电租电
+			当前版本2.0.3 \n Copyright@2019 起电宝租电
 		</text>
+		<callUs :show.sync="showCallUs" />
 		<loginSheet :show="showSheet" @authSuccess="authSuccess"/>
 	</view>
 </template>
 
 <script>
+	import callUs from '../../components/callUs';
 	import loginSheet from "../../components/loginSheet";
 	import { get,post } from "../../libs/request.js"
 	
@@ -71,6 +74,7 @@
 		data(){
 			return {
 				showSheet:false,
+				showCallUs:false,
 				moreInfo:{}
 			}
 		},
@@ -78,7 +82,8 @@
 			this.checkAuth();
 		},
 		components:{
-			loginSheet
+			loginSheet,
+			callUs
 		},
 		methods:{
 			async checkAuth() {
@@ -99,6 +104,9 @@
 				uni.navigateTo({
 				  url: path
 				});
+			},
+			showCall(){
+				this.showCallUs = true;
 			},
 			getUserInfo(){
 				get('/login/info').then(res => {

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "起电",
+  "navigationBarTitleText": "起电宝",
   "navigationBarBackgroundColor": "#FFFFFF",
   "usingComponents": {
     "login-sheet": "/components/loginSheet",

@@ -3,19 +3,19 @@
 		<view class="lists">
 			<view class="list">
 				<text class="name">客服热线</text>
-				<text class="value">4008123277</text>
+				<text class="value">18183045955</text>
 			</view>
 			<view class="list">
 				<text class="name">商户合作微信</text>
-				<text class="value">we12333</text>
+				<text class="value">qmz13167885777</text>
 			</view>
 			<view class="list">
 				<text class="name">公司官网</text>
-				<text class="value">http://www.womry.com/</text>
+				<text class="value">http://qdb88.cn</text>
 			</view>
 		</view>
 		<text class="copyright">
-			当前版本2.0.3 \n Copyright@2019 起电租电
+			当前版本2.0.3 \n Copyright@2019 起电宝租电
 		</text>
 	</view>
 </template>

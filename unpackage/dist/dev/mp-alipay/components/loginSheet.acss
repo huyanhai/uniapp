@@ -24,6 +24,62 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+/* $BASE_URL: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-battery.png'; */
+.icon-battery {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-battery.gif")
+    no-repeat;
+  background-size: cover;
+}
+.icon-call {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-call.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-close {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-close.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-go {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-go.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-local {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-local.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-location {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-location.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-maker {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-maker.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-scan {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-scan.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-shop {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-shop.png")
+    no-repeat;
+  background-size: cover;
+}
+.icon-tel {
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-tel.png")
+    no-repeat;
+  background-size: cover;
+}
+.line-color{
+	background: -webkit-linear-gradient(bottom, #1EA1F0, #22A6F1);
+	background: linear-gradient(bottom, #1EA1F0, #22A6F1);
+	background: -webkit-gradient(linear, top, bottom, from(#1EA1F0), to(#22A6F1));
+}
 .login-sheet {
   background: rgba(0, 0, 0, 0.2);
   position: absolute;
@@ -35,30 +91,41 @@
   overflow: hidden;
 }
 .login-sheet .model {
-  width: 100%;
-  bottom: 0;
-  background: #ffffff;
-  position: absolute;
-  padding: 20rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  z-index: 110;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    padding: 50rpx;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 110;
+    background: #FFFFFF;
 }
 .login-sheet .model .title {
-  font-size: 30rpx;
-  color: #333;
+      font-size: 40rpx;
+      color: #333;
+      margin-top: 70rpx;
+      text-align: center;
+}
+.login-sheet .model .img-s {
+      width: 428rpx;
+      height: 350rpx;
+      margin: 120rpx auto 80rpx auto;
+      display: block;
 }
 .login-sheet .model .box .text {
-  display: block;
-  color: #9d9d9d;
-  font-size: 12px;
-  margin-top: 10rpx;
-  margin-bottom: 30rpx;
+      display: block;
+      color: #9d9d9d;
+      font-size: 12px;
+      margin-top: 10rpx;
+      margin-bottom: 30rpx;
+      text-align: center;
 }
 .login-sheet .model .auth-button {
-  border-radius: 10rpx;
-  font-size: 30rpx;
-  height: 50px;
-  line-height: 50px;
+      border-radius: 10rpx;
+      font-size: 30rpx;
+      height: 50px;
+      line-height: 50px;
+      background: #22A6F1;
+      border-radius: 50px;
 }
 

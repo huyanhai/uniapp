@@ -10,9 +10,10 @@
   <cover-view class="login-sheet" v-if="show" disable-scroll="true">
     <cover-view class="model">
       <cover-view class="box">
-        <cover-view class="title">申请获取以下权限</cover-view>
-        <cover-view class="text">获得你的公开信息(昵称，头像、地区等)</cover-view>
+        <cover-view class="title">免押租借来啦</cover-view>
+        <cover-view class="text">支付分550及以上有机会</cover-view>
       </cover-view>
+	  <cover-image class="img-s" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-zjtips.png"></cover-image>
       <!-- #ifdef MP-ALIPAY -->
       <cover-view>
         <button
@@ -22,7 +23,7 @@
           onerror="onAuthError"
           scope="userInfo"
           class="auth-button"
-        >获取用户信息</button>
+        >授权登录</button>
       </cover-view>
       <!-- #endif -->
       <!-- #ifdef MP-WEIXIN -->
@@ -32,7 +33,7 @@
         lang="zh_CN"
         @getuserinfo="onGetAuthorize"
         class="auth-button"
-      >获取用户信息</button>
+      >授权登录</button>
       <!-- #endif -->
     </cover-view>
   </cover-view>
@@ -69,6 +70,8 @@ export default {
 </script>
 
 <style lang="scss">
+	@import url("../assets/scss/icon.scss");
+	
 .login-sheet {
   background: rgba($color: #000000, $alpha: 0.2);
   position: absolute;
@@ -81,21 +84,32 @@ export default {
   .model {
     width: 100%;
     bottom: 0;
-    background: #ffffff;
     position: absolute;
-    padding: 20rpx;
+    padding: 50rpx;
+	height: 100vh;
     box-sizing: border-box;
     z-index: 110;
+	background: #FFFFFF;
+	
     .title {
-      font-size: 30rpx;
+      font-size: 40rpx;
       color: #333;
+	  margin-top: 70rpx;
+	  text-align: center;
     }
+	.img-s{
+		width: 428rpx;
+		height: 350rpx;
+		margin: 120rpx auto 80rpx auto;
+		display: block;
+	}
     .box .text {
       display: block;
       color: #9d9d9d;
       font-size: 12px;
       margin-top: 10rpx;
       margin-bottom: 30rpx;
+	  text-align: center;
     }
 
     .auth-button {
@@ -103,6 +117,8 @@ export default {
       font-size: 30rpx;
       height: 50px;
       line-height: 50px;
+	  background: #22A6F1;
+	  border-radius: 50px;
     }
   }
 }

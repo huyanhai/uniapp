@@ -7,15 +7,15 @@
  * @Description: 联系客服
  -->
 <template>
-  <view class="call-us-content" v-if="show">
-    <view class="call-us-layer">
-      <view class="close icon-close" @click="close"></view>
-      <view class="tel-icon icon-tel"></view>
+  <cover-view class="call-us-content" v-if="show">
+    <cover-view class="call-us-layer">
+      <cover-view class="close icon-close" @click="close"></cover-view>
+      <cover-view class="tel-icon icon-tel"></cover-view>
       <cover-view class="tips">欢迎使用起电共享充电宝！</cover-view>
-      <cover-view class="tel">客服热线：4008123277</cover-view>
+      <cover-view class="tel">客服热线：18183045955</cover-view>
       <button class="call" @click="call">联系客服</button>
-    </view>
-  </view>
+    </cover-view>
+  </cover-view>
 </template>
 
 <script>
@@ -32,7 +32,7 @@ export default {
     },
     call() {
       uni.makePhoneCall({
-        phoneNumber: "4008123277" //仅为示例
+        phoneNumber: "18183045955" //仅为示例
       });
     }
   }

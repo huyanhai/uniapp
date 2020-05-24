@@ -124,6 +124,13 @@
 						icon:"none"
 					})
 				}
+				let myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+				if(!myreg.test(this.feedback.phone)){
+					return uni.showToast({
+						title:"手机号格式错误",
+						icon:"none"
+					})
+				}
 				this.feedback['type'] = Number(this.feedback['type']);
 				let data = Object.assign({attachment:""},this.feedback);
 				for(let item of this.imgList){
@@ -131,7 +138,10 @@
 				}
 				post('user/feedback', data).then(res => {
 					if (res.code === 200) {
-						uni.navigateBack()
+						uni.showToast({
+							title:"信息提交成功",
+							icon:"none"
+						})
 					}
 				});
 			}
@@ -149,8 +159,9 @@
 		background: #F2F4F6;
 		border-radius: 4rpx;
 		font-size: 28rpx;
-		color: #C9C9C9;
+		color: #333333;
 		padding-left: 20rpx;
+		display: block;
 	}
 	.category{
 		margin-top: 40rpx;
@@ -217,7 +228,7 @@
 				background: #F2F4F6;
 				height: 260rpx;
 				font-size: 28rpx;
-				color: #C9C9C9;
+				color: #333333;
 				width: 100%;
 				border-radius: 4rpx;
 				box-sizing: border-box;

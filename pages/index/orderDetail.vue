@@ -9,37 +9,53 @@
 <template>
 	<view class="order-detail-content">
 		<view class="order-status">
-			<view class="stadus error warning ok">{{orderStatus[item.orderStatus]}}</view>
+			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus]}}</view>
 			<view class="order-no">订单号：{{item.stringId}}</view>
 		</view>
 		<view class="detail">
 			<view class="item">
-				<view class="name">租借时长：</view>
-				<view class="info blue">{{}}</view>
-			</view>
-			<view class="item">
 				<view class="name">租借费用：</view>
-				<view class="info red">￥2.00</view>
+				<template v-if="item.foregiftStatus === 2">
+					<view class="info red" v-if="item.totalMoney">
+						￥{{item.totalMoney}}元
+					</view>
+					<view class="info red" v-else>
+						99元
+					</view>
+				</template>
+				<template v-else>
+					<view class="info red" v-if="item.totalMoney">
+						￥{{item.totalMoney}}元
+					</view>
+					<view class="info red" v-else>
+						未付款
+					</view>
+				</template>
+				
 			</view>
 			<view class="item">
 				<view class="name">租借时间：</view>
-				<view class="info">￥2.00</view>
+				<view class="info">{{item.leaseStartTime}}</view>
 			</view>
 			<view class="item btn-20">
 				<view class="name">归还时间：</view>
-				<view class="info">￥2.00</view>
+				<view class="info">{{item.leaseFinishTime || ''}}</view>
 			</view>
 			<view class="item">
 				<view class="name">收费标准：</view>
-				<view class="info">￥2.00</view>
+				<view class="info">{{item.price}}元/小时</view>
 			</view>
 			<view class="item">
 				<view class="name">租借押金：</view>
-				<view class="info">{{item.foregiftMoney}}</view>
+				<view class="info">99元</view>
+			</view>
+			<view class="item">
+				<view class="name">免费时长：</view>
+				<view class="info">{{item.freeTime}}分钟</view>
 			</view>
 			<view class="item btn-20">
-				<view class="name">免费时长：</view>
-				<view class="info">{{item.freeTime}}</view>
+				<view class="name">每日封顶：</view>
+				<view class="info">{{item.dayMoney}}元</view>
 			</view>
 			<view class="item">
 				<view class="name">租借商家：</view>
@@ -47,7 +63,7 @@
 			</view>
 			<view class="item">
 				<view class="name">归还商家：</view>
-				<view class="info">￥2.00</view>
+				<view class="info">{{item.returnShopName}}</view>
 			</view>
 		</view>
 	</view>
@@ -59,9 +75,12 @@
 			return {
 				item:{},
 				orderStatus:{
-					1:"待付款",
-					2:"已付款",
-					3:"取消付款"
+					1:"等待弹出",
+					2:"租借中",
+					3:"租借完成",
+					4:"已撤销",
+					5:"超时订单",
+					6:"扣款失败"
 				}
 			};
 		},

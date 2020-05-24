@@ -25,9 +25,6 @@ export function userLogin() {
                         uni.setStorageSync('user_info', infoRes.userInfo);
 						let data = Object.assign(loginRes,infoRes)
 						// #ifdef MP-ALIPAY
-						uni.showModal({
-							content:JSON.stringify(data)
-						})
 						console.log('data',data)
 						post('login/alipay',{
 							code: data.code,

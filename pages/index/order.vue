@@ -8,7 +8,8 @@
  -->
 <template>
   <view class="order-content">
-    <orderItem :item="item" v-for="(item,index) in orderData" :key="index"/>
+	<text class="no-order" v-if="orderData.length<1">近期暂无订单</text>
+    <orderItem :item="item" v-for="(item,index) in orderData" :key="index" v-else/>
   </view>
 </template>
 
@@ -51,6 +52,12 @@ export default {
   box-sizing: border-box;
   .order-item-content {
     margin-bottom: 30rpx;
+  }
+  .no-order{
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%,-50%);
   }
 }
 </style>

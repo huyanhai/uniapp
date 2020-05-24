@@ -3,7 +3,7 @@ import { BASE_URL,TIMEOUT,HEADER } from "../config/index.js"
 export function get(url,data) {
 	let authCode = String(uni.getStorageSync("authCode"))
 	return new Promise((resolve, reject)=>{
-		uni.showLoading();
+		// uni.showLoading();
 		uni.request({
 			method: 'GET',
 			url:BASE_URL + url,
@@ -38,7 +38,7 @@ export function get(url,data) {
 				reject(err);
 			},
 			complete:function(){
-				uni.hideLoading();
+				// uni.hideLoading();
 			}
 		})
 	})
@@ -48,7 +48,7 @@ export function post(url,data) {
 	let authCode = String(uni.getStorageSync("authCode"))
 	console.log('开始请求post，authCode:',authCode);
 	return new Promise((resolve, reject)=>{
-		uni.showLoading();
+		// uni.showLoading();
 		uni.request({
 			method: 'POST',
 			url:BASE_URL + url,
@@ -84,7 +84,7 @@ export function post(url,data) {
 				reject(err);
 			},
 			complete:function(){
-				uni.hideLoading();
+				// uni.hideLoading();
 			}
 		})
 	})
