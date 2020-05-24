@@ -41,7 +41,7 @@
 		/>
 		<callUs :show.sync="showCallUs" />
 		<cover-image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-lo.png" class="map-center"></cover-image>
-		<view class="store-box"><shopItem :show="showShopItem" :item="shopItemData" /></view>
+		<view class="store-box"><shopItem :show="showShopItem" :item="shopItemData" :latitude.sync="addressInfo.latitude" :longitude.sync="addressInfo.longitude"/></view>
 	</view>
 </template>
 
@@ -145,7 +145,9 @@ export default {
 			console.log(e);
 			let id = e.markerId;
 			post('shop/detail', {
-				sid: id
+				sid: id,
+				lat: this.addressInfo['latitude'],
+				lng: this.addressInfo['longitude'],
 			}).then(res => {
 				if (res.code === 200) {
 					let data = res.data;
@@ -242,7 +244,7 @@ export default {
 		goShopDetail(e) {
 			// 商户详情
 			uni.navigateTo({
-				url: 'orderDetail?item=' + JSON.stringify(e)
+				url: `shopDetail?stringId=${e.stringId}&longitude=${this.addressInfo.longitude}&latitude=${this.addressInfo.latitude}`
 			});
 		},
 		getNearDevice(data) {

@@ -21,7 +21,7 @@
 			<view class="detail">
 				<view class="item">可租借：{{shopDetials.canBorrowQuantity}}</view>
 				<view class="item">可归还：{{shopDetials.returnableQuantity}}</view>
-				<view class="item">距离：{{shopDetials.distance}}米</view>
+				<view class="item">距离：{{parseInt(shopDetials.distance || 0)}}米</view>
 			</view>
 		</view>
 		<view class="img-list">
@@ -43,15 +43,21 @@ export default {
 		return {
 			stringId: '',
 			sn: '',
-			shopDetials: {}
+			shopDetials: {},
+			lon:null,
+			lat:null
 		};
 	},
 	onLoad(e) {
 		this.stringId = e.stringId;
 		this.sn = e.sn;
+		this.longitude = e.longitude;
+		this.latitude = e.latitude;
 		if (this.stringId) {
 			this.getShopdetails('shop/detail', {
-				sid: this.stringId
+				sid: this.stringId,
+				lng: this.longitude,
+				lat: this.latitude
 			});
 		} else {
 			this.getShopdetails('driver/shop/info', {

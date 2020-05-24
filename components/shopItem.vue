@@ -29,7 +29,7 @@
 
       <view class="data-item">
         距离：
-        <text class="num">{{item.distance}}米</text>
+        <text class="num">{{parseInt(item.distance || 0)}}米</text>
       </view>
     </view>
   </view>
@@ -44,7 +44,13 @@ export default {
     show: {
       type: Boolean,
       default: true
-    }
+    },
+	latitude:{
+		type:Number
+	},
+	longitude:{
+		type:Number
+	}
   },
   methods: {
     goMap() {
@@ -65,7 +71,7 @@ export default {
 	goShopDetails(e) {
 		let stringId = e || "";
 		uni.navigateTo({
-		  url: "shopDetail?stringId=" + stringId
+		  url: `shopDetail?stringId=${stringId}&longitude=${this.longitude}&latitude=${this.latitude}` 
 		});
 	}
   }
