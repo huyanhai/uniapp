@@ -106,22 +106,13 @@ export default {
 		},
 		async checkAddress() {
 			let that = this;
-			this.addressInfo = uni.getStorageSync('user_address') || null;
-			console.log("this.addressInfo",this.addressInfo)
-			if (this.addressInfo) {
-				that.getNearDevice({
-					lat: that.addressInfo['latitude'],
-					lng: that.addressInfo['longitude'],
-					range: 2000
-				});
-			} else {
-				that.addressInfo = await getLocation();
-				that.getNearDevice({
-					lat: that.addressInfo['latitude'],
-					lng: that.addressInfo['longitude'],
-					range: 2000
-				});
-			}
+			console.log('获取定位，每次执行')
+			that.addressInfo = await getLocation();
+			that.getNearDevice({
+				lat: that.addressInfo['latitude'],
+				lng: that.addressInfo['longitude'],
+				range: 2000
+			});
 		},
 		authSuccess(e) {
 			this.authCode = uni.getStorageSync('authCode') || null;
