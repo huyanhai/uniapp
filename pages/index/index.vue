@@ -5,7 +5,7 @@
 			<view class="text">欢迎使用起电！</view>
 			<button class="shop" @click="goNearShop">
 				<view class="icon icon-shop"></view>
-				附件商家
+				附近商家
 			</button>
 		</view>
 		<view class="task" v-if="orders.length > 0">
@@ -14,7 +14,7 @@
 				<view class="top">{{ orders.length }}个订单租借中……</view>
 				<view class="bottom">可归还至其他商家</view>
 			</view>
-			<button class="more" @click="goShopDetail(orders[0])">查看详情</button>
+			<button class="more" @click="goOrderDetails(orders[0])">查看详情</button>
 		</view>
 		<view class="option-scan" @click="scanCode">
 			<view class="icon icon-scan"></view>
@@ -232,10 +232,11 @@ export default {
 				this.checkAuth();
 			}
 		},
-		goShopDetail(e) {
+		goOrderDetails(e) {
+			console.log(e)
 			// 商户详情
 			uni.navigateTo({
-				url: `shopDetail?stringId=${e.stringId}&longitude=${this.addressInfo.longitude}&latitude=${this.addressInfo.latitude}`
+				url: `orderDetail?item=${JSON.stringify(e)}`
 			});
 		},
 		getNearDevice(data) {
@@ -311,7 +312,8 @@ button {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	margin-top: -40rpx;
+	transform: translateX(-50%);
 	z-index: 50;
 }
 .user-layer {

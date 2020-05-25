@@ -24,7 +24,8 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-/* $BASE_URL: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-battery.png'; */
+/* $BASE_URL: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-battery.png';
+ */
 .icon-battery {
   background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-battery.gif")
     no-repeat;
@@ -76,6 +77,7 @@
   background-size: cover;
 }
 .line-color{
+	background: -webkit-gradient(linear, left bottom, left top, from(#1EA1F0), to(#22A6F1));
 	background: -webkit-linear-gradient(bottom, #1EA1F0, #22A6F1);
 	background: linear-gradient(bottom, #1EA1F0, #22A6F1);
 	background: -webkit-gradient(linear, top, bottom, from(#1EA1F0), to(#22A6F1));
@@ -85,16 +87,17 @@
   height: 100vh;
   background: #f8f8f9;
   padding: 30rpx;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .order-content .order-item-content {
-    margin-bottom: 30rpx;
+  margin-bottom: 30rpx;
 }
 .order-content .no-order {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 

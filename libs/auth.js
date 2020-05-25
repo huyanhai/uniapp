@@ -80,6 +80,7 @@ export function userLogin() {
 export function getLocation() {
     return new Promise((resolve, reject) => {
         uni.getLocation({
+			type:"gcj02",
             success: function(res) {
                 uni.setStorageSync('user_address', res);
 				console.log("this.addressInfo1",res)

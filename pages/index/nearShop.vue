@@ -8,7 +8,7 @@
  -->
 <template>
   <view class="near-shop">
-	<text class="no-order" v-if="shopData.length<1">近期暂无商家</text>
+	<text class="no-order" v-if="shopData.length<1">附近暂无商家</text>
     <shopItem v-for="(item,index) in shopData" :key="index" :item="item.shopInfo" :latitude.sync="latitude" :longitude.sync="longitude"/>
   </view>
 </template>

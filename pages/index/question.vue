@@ -15,7 +15,7 @@
 		<view class="upload-img">
 			<text class="label">我要反馈</text>
 			<view class="form">
-				<textarea class="textarea" v-model="feedback.remarks" placeholder="请输入问题或意见"></textarea>
+				<textarea class="textarea" v-model="feedback.describe" placeholder="请输入问题或意见"></textarea>
 				<view class="lists">
 					<view class="upload" @click="uploadImg"></view>
 					<view class="list" v-for="(item,index) in imgList" :key="index">
@@ -118,7 +118,7 @@
 				this.imgList.splice(index,1);
 			},
 			feedbackFn() {
-				if(!this.feedback.deviceId || !this.feedback.phone || !this.feedback.remarks){
+				if(!this.feedback.deviceId || !this.feedback.phone || !this.feedback.describe){
 					return uni.showToast({
 						title:"设备编号、备注或手机号为空",
 						icon:"none"

@@ -10,7 +10,7 @@
 	<view class="order-detail-content">
 		<view class="order-status">
 			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus]}}</view>
-			<view class="order-no">订单号：{{item.stringId}}</view>
+			<view class="order-no">订单号：{{item.stringId || ''}}</view>
 		</view>
 		<view class="detail">
 			<view class="item">
@@ -20,7 +20,7 @@
 						￥{{item.totalMoney}}元
 					</view>
 					<view class="info red" v-else>
-						99元
+						已付押金99元
 					</view>
 				</template>
 				<template v-else>
@@ -35,7 +35,7 @@
 			</view>
 			<view class="item">
 				<view class="name">租借时间：</view>
-				<view class="info">{{item.leaseStartTime}}</view>
+				<view class="info">{{item.leaseStartTime || ''}}</view>
 			</view>
 			<view class="item btn-20">
 				<view class="name">归还时间：</view>
@@ -43,7 +43,7 @@
 			</view>
 			<view class="item">
 				<view class="name">收费标准：</view>
-				<view class="info">{{item.price}}元/小时</view>
+				<view class="info">{{item.price || 0}}元/小时</view>
 			</view>
 			<view class="item">
 				<view class="name">租借押金：</view>
@@ -51,19 +51,19 @@
 			</view>
 			<view class="item">
 				<view class="name">免费时长：</view>
-				<view class="info">{{item.freeTime}}分钟</view>
+				<view class="info">{{item.freeTime || 0}}分钟</view>
 			</view>
 			<view class="item btn-20">
 				<view class="name">每日封顶：</view>
-				<view class="info">{{item.dayMoney}}元</view>
+				<view class="info">{{item.dayMoney || 0}}元</view>
 			</view>
 			<view class="item">
 				<view class="name">租借商家：</view>
-				<view class="info">{{item.shopName}}</view>
+				<view class="info">{{item.shopName || ''}}</view>
 			</view>
 			<view class="item">
 				<view class="name">归还商家：</view>
-				<view class="info">{{item.returnShopName}}</view>
+				<view class="info">{{item.returnShopName || ''}}</view>
 			</view>
 		</view>
 	</view>
@@ -85,8 +85,8 @@
 			};
 		},
 		onLoad(e) {
+			console.log(e)
 			this.item = JSON.parse(e.item)
-			console.log(this.item)
 		},
 	};
 </script>

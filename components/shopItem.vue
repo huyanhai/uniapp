@@ -9,7 +9,7 @@
 <template>
   <view class="stores-content" v-if="show">
     <view class="top">
-	 <image :src="item.headImg" @click="goShopDetails" class="post"></image>
+	 <image :src="item.headImg" @click="goShopDetails(item.stringId)" class="post"></image>
       <view class="info" @click="goShopDetails(item.stringId)">
         <view class="name">{{item.shopName}}</view>
         <view class="address">地址：{{item.address || ''}}</view>

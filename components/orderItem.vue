@@ -20,7 +20,7 @@
 						{{item.totalMoney}}元
 					</text>
 					<text class="detail num" v-else>
-						99元
+						已付押金99元
 					</text>
 				</template>
 				<template v-else>
