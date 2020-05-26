@@ -15,22 +15,9 @@
 		<view class="info">
 			<view class="item">
 				<text class="name">租借费用：</text>
-				<template v-if="item.foregiftStatus === 2">
-					<text class="detail num" v-if="item.totalMoney">
-						{{item.totalMoney}}元
-					</text>
-					<text class="detail num" v-else>
-						已付押金99元
-					</text>
-				</template>
-				<template v-else>
-					<text class="detail num" v-if="item.totalMoney">
-						{{item.totalMoney}}元
-					</text>
-					<text class="detail num" v-else>
-						未付款
-					</text>
-				</template>
+				<text class="detail num" v-if="item.totalMoney && item.totalMoney !== 'null' || item.totalMoney === 0">
+					{{item.totalMoney}}元
+				</text>
 			</view>
 			<view class="item">
 				<text class="name">设备商家：</text>

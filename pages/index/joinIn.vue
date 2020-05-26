@@ -8,7 +8,7 @@
 			<input type="text" v-model="joinData.shopName" class="ui-input" placeholder="请输入店铺名称" />
 			<input type="text" class="ui-input" v-model="joinData.name" placeholder="请输入联系人" />
 			<input type="text" class="ui-input" v-model="joinData.phone" placeholder="请输入联系电话" />
-			<textarea class="ui-textarea" v-model="joinData.describe" placeholder="请输入您要合作的信息"></textarea>
+			<textarea class="ui-textarea" v-model="joinData.content" placeholder="请输入您要合作的信息"></textarea>
 			<view class="submit" @click="joinUs">提交</view>
 		</view>
 	</view>
@@ -23,7 +23,7 @@ export default {
 				shopName:"",
 				name:"",
 				phone:"",
-				describe:""
+				content:""
 			}
 		};
 	},

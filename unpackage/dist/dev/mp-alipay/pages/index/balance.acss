@@ -28,52 +28,52 @@
   height: 100vh;
 }
 .balance-content .balance-icon {
-  width: 148rpx;
-  height: 148rpx;
-  margin: 70rpx auto 0 auto;
-  display: block;
+    width: 148rpx;
+    height: 148rpx;
+    margin: 70rpx auto 0 auto;
+    display: block;
 }
 .balance-content .label {
-  font-size: 28rpx;
-  color: #333333;
-  width: 100%;
-  text-align: center;
+    font-size: 28rpx;
+    color: #333333;
+    width: 100%;
+    text-align: center;
 }
 .balance-content .money {
-  font-size: 50rpx;
-  color: #333333;
-  text-align: center;
+    font-size: 50rpx;
+    color: #333333;
+    text-align: center;
 }
 .balance-content .operation {
-  margin: 100rpx 30rpx 0 30rpx;
+    margin: 100rpx 30rpx 0 30rpx;
 }
 .balance-content .operation .recharge {
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
-  border-radius: 90rpx;
-  background: #22A6F1;
-  font-size: 30rpx;
-  color: #FFFFFF;
+      height: 90rpx;
+      line-height: 90rpx;
+      text-align: center;
+      border-radius: 90rpx;
+      background: #22A6F1;
+      font-size: 30rpx;
+      color: #FFFFFF;
 }
 .balance-content .operation .reflect {
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
-  border-radius: 90rpx;
-  color: #22A6F1;
-  font-size: 30rpx;
-  border: 2rpx solid #22A6F1;
-  margin-top: 40rpx;
+      height: 90rpx;
+      line-height: 90rpx;
+      text-align: center;
+      border-radius: 90rpx;
+      color: #22A6F1;
+      font-size: 30rpx;
+      border: 2rpx solid #22A6F1;
+      margin-top: 40rpx;
 }
 .balance-content .history {
-  position: absolute;
-  bottom: 120rpx;
-  text-align: center;
-  font-size: 28rpx;
-  color: #22A6F1;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+    position: absolute;
+    bottom: 120rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #22A6F1;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
 }
 

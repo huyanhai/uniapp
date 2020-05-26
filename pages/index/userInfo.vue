@@ -21,12 +21,13 @@
 			<view class="bottom">
 				<view class="left">
 					<text class="name">押金</text>
-					<text class="money">￥{{moreInfo.balance}}</text>
+					<text class="money">￥{{moreInfo.margin}}</text>
 				</view>
+				
 				<!-- <view class="right" @click="goPage('balance')"> -->
 				<view class="right">
 					<text class="name">余额</text>
-					<text class="money">￥{{moreInfo.useNumber}}</text>
+					<text class="money">￥{{moreInfo.balance}}</text>
 				</view>
 			</view>
 		</view>
