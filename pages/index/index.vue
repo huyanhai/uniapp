@@ -67,6 +67,18 @@ export default {
 			scale:14
 		};
 	},
+	// #ifdef MP-ALIPAY
+	onLaunch(options){
+		if (options.query && options.query.qrCode) {
+		  let datas = options.query.qrCode;
+		  if(datas && datas !== "undefined"){
+		  	let code = datas.split('/');
+		  	this.outSn = code[code.length - 1] || "";
+		  }
+		}		
+	},
+	// #endif
+	// #ifdef MP-WEIXIN
 	onLoad(e) {
 		let datas = decodeURIComponent((e || {}).q);
 		if(datas && datas !== "undefined"){
@@ -74,6 +86,7 @@ export default {
 			this.outSn = code[code.length - 1] || "";
 		}
 	},
+	// #endif
 	onShow(){
 		this.checkAuth();
 	},

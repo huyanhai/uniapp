@@ -17,7 +17,7 @@ export function userLogin() {
     return new Promise((resolve, reject) => {
         uni.login({
             provider: name,
-            scopes: 'auth_user',
+            scopes: 'auth_base',
             success: function(loginRes) {
                 uni.getUserInfo({
                     provider: name,

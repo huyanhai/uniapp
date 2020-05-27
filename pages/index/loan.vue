@@ -41,12 +41,18 @@ export default {
 		return {
 			checked: [1],
 			tips:"",
-			sn:""
+			sn:"",
+			orders:null
 		};
 	},
 	onLoad(e){
 		this.sn = e.sn;
 		this.getOrderTips(this.sn);
+	},
+	onShow(){
+		this.getUserOrder({
+			leaseStatus: 2
+		});
 	},
 	methods: {
 		changed(e) {
@@ -57,15 +63,30 @@ export default {
 				url: `agreement`,
 			});
 		},
+		getUserOrder(data) {
+			// 获取用户订单
+			post('order/list', data).then(res => {
+				if (res.code === 200) {
+					this.orders = res.data;
+				}
+			});
+		},
 		submit(e) {
 			let sn = this.sn;
 			if(this.checked.length > 0){
-			// #ifdef MP-WEIXIN
-			this.getWechart(sn);
-			// #endif
-			// #ifdef MP-ALIPAY
-			this.getAliPay(sn);
-			// #endif
+				if(this.orders && this.orders.length > 0){
+					return uni.showToast({
+						title:"存在租借中的订单",
+						icon:"none"
+					})
+				} else {
+					// #ifdef MP-WEIXIN
+					this.getWechart(sn);
+					// #endif
+					// #ifdef MP-ALIPAY
+					this.getAliPay(sn);
+					// #endif
+		}
 			} else {
 				uni.showToast({
 					title:'请勾选协议'
@@ -104,17 +125,16 @@ export default {
 									sign: res.data.sign
 								},
 								success() {
-									console.info('step3')
 									uni.navigateTo({
 										url: `loaning?orderNum=${res.data.orderNum}`,
 									});
 								},
-								fail(result) {
-									//dosomething
-								},
+								fail(result) {},
 								complete() {
 									//dosomething
-									console.info('complete')
+									uni.navigateTo({
+										url: `loaning?orderNum=${res.data.orderNum}`,
+									});
 								}
 							});
 						},

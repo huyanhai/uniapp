@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import App from './App'
+import Index from './pages/index/index'
 
 Vue.config.productionTip = false
 
-App.mpType = 'app'
+Index.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...Index
 })
 app.$mount()
