@@ -40,12 +40,12 @@
           justify-content: center;
 }
 .order-loaning .loading {
-  width: 428rpx;
-  height: 364rpx;
-  margin: 82rpx 0 36rpx 0;
+    width: 428rpx;
+    height: 364rpx;
+    margin: 82rpx 0 36rpx 0;
 }
 .order-loaning .text {
-  font-size: 26rpx;
-  color: #333333;
+    font-size: 26rpx;
+    color: #333333;
 }
 

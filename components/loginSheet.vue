@@ -23,7 +23,7 @@
           onerror="onAuthError"
           scope="userInfo"
           class="auth-button"
-        >授权登录</button>
+        >授权免押</button>
       </cover-view>
       <!-- #endif -->
       <!-- #ifdef MP-WEIXIN -->
@@ -33,7 +33,7 @@
         lang="zh_CN"
         @getuserinfo="onGetAuthorize"
         class="auth-button"
-      >授权登录</button>
+      >授权免押</button>
       <!-- #endif -->
     </cover-view>
   </cover-view>

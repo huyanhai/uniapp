@@ -28,84 +28,82 @@
   height: 100vh;
 }
 .balance-content .balance-box {
-  margin: 0 30rpx;
+    margin: 0 30rpx;
 }
 .balance-content .label {
-  font-size: 28rpx;
-  color: #333333;
-  width: 100%;
-  text-align: center;
-  margin-top: 70rpx;
+    font-size: 28rpx;
+    color: #333333;
+    width: 100%;
+    text-align: center;
+    margin-top: 70rpx;
 }
 .balance-content .form .group {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-          flex-wrap: wrap;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
 }
 .balance-content .form .ui-radio {
-  border: 1px solid #F2F4F6;
-  background: #F2F4F6;
-  border-radius: 8rpx;
-  width: calc((100% - 80rpx)/3);
-  height: 90rpx;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 26rpx;
-  line-height: 90rpx;
-  margin-top: 30rpx;
-  margin-right: 40rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+    border: 1px solid #F2F4F6;
+    background: #F2F4F6;
+    border-radius: 8rpx;
+    width: calc((100% - 80rpx)/3);
+    height: 90rpx;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 26rpx;
+    line-height: 90rpx;
+    margin-top: 30rpx;
+    margin-right: 40rpx;
+    box-sizing: border-box;
 }
 .balance-content .form .ui-radio:nth-child(3n + 3) {
-  margin-right: 0;
+      margin-right: 0;
 }
 .balance-content .form .ui-radio .text {
-  color: #22A6F1;
-  font-size: 26rpx;
+      color: #22A6F1;
+      font-size: 26rpx;
 }
 .balance-content .form .ui-radio.active {
-  border: 1px solid #22A6F1;
-  background: #22A6F1;
-  border-radius: 8rpx;
-  width: calc((100% - 80rpx)/3);
-  height: 90rpx;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 26rpx;
-  line-height: 90rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+      border: 1px solid #22A6F1;
+      background: #22A6F1;
+      border-radius: 8rpx;
+      width: calc((100% - 80rpx)/3);
+      height: 90rpx;
+      text-align: center;
+      white-space: nowrap;
+      font-size: 26rpx;
+      line-height: 90rpx;
+      box-sizing: border-box;
 }
 .balance-content .form .ui-radio.active .text {
-  color: #fff;
-  font-size: 26rpx;
+        color: #fff;
+        font-size: 26rpx;
 }
 .balance-content .form radio {
-  display: none;
+    display: none;
 }
 .balance-content .operation {
-  margin: 100rpx 30rpx 0 30rpx;
+    margin: 100rpx 30rpx 0 30rpx;
 }
 .balance-content .operation .recharge {
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
-  border-radius: 90rpx;
-  background: #22A6F1;
-  font-size: 30rpx;
-  color: #FFFFFF;
+      height: 90rpx;
+      line-height: 90rpx;
+      text-align: center;
+      border-radius: 90rpx;
+      background: #22A6F1;
+      font-size: 30rpx;
+      color: #FFFFFF;
 }
 .balance-content .history {
-  position: absolute;
-  bottom: 120rpx;
-  text-align: center;
-  font-size: 28rpx;
-  color: #22A6F1;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+    position: absolute;
+    bottom: 120rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #22A6F1;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
 }
 

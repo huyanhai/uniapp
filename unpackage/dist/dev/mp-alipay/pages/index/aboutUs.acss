@@ -38,41 +38,39 @@
           justify-content: space-between;
 }
 .about-us-content .lists {
-  background: #FFFFFF;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0 30rpx;
-  -webkit-box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
 }
 .about-us-content .lists .list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
-  height: 90rpx;
-  border-bottom: 2rpx solid #E8EAEC;
-  line-height: 90rpx;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+      height: 90rpx;
+      border-bottom: 2rpx solid #E8EAEC;
+      line-height: 90rpx;
 }
 .about-us-content .lists .list:last-child {
-  border-bottom: 0;
+        border-bottom: 0;
 }
 .about-us-content .lists .list .name {
-  font-size: 28rpx;
-  color: #333333;
+        font-size: 28rpx;
+        color: #333333;
 }
 .about-us-content .lists .list .value {
-  font-size: 28rpx;
-  color: #666666;
+        font-size: 28rpx;
+        color: #666666;
 }
 .about-us-content .copyright {
-  position: absolute;
-  bottom: 40rpx;
-  text-align: center;
-  font-size: 26rpx;
-  color: #999999;
-  width: 100%;
+    position: absolute;
+    bottom: 40rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #999999;
+    width: 100%;
 }
 

@@ -28,109 +28,109 @@
   height: 100vh;
 }
 .balance-content .label {
-  font-size: 28rpx;
-  color: #333333;
-  width: 100%;
-  text-align: center;
-  margin-top: 70rpx;
+    font-size: 28rpx;
+    color: #333333;
+    width: 100%;
+    text-align: center;
+    margin-top: 70rpx;
 }
 .balance-content .money {
-  font-size: 50rpx;
-  color: #333333;
-  text-align: center;
+    font-size: 50rpx;
+    color: #333333;
+    text-align: center;
 }
 .balance-content .form {
-  padding: 0 30rpx;
+    padding: 0 30rpx;
 }
 .balance-content .form .label {
-  font-size: 28rpx;
-  color: #333333;
-  margin-bottom: 10rpx;
-  display: block;
-  text-align: left;
+      font-size: 28rpx;
+      color: #333333;
+      margin-bottom: 10rpx;
+      display: block;
+      text-align: left;
 }
 .balance-content .form .check-box {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
 }
 .balance-content .form .check-box .check-label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  font-size: 28rpx;
-  color: #333333;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+                align-items: center;
+        font-size: 28rpx;
+        color: #333333;
 }
 .balance-content .form .check-box .check-label .icon {
-  width: 40rpx;
-  height: 40rpx;
-  margin-right: 20rpx;
+          width: 40rpx;
+          height: 40rpx;
+          margin-right: 20rpx;
 }
 .balance-content .form .check-box .check-item {
-  width: 32rpx;
-  height: 32rpx;
+        width: 32rpx;
+        height: 32rpx;
 }
 .balance-content .form .check-box .check-item .wx-checkbox-input {
-  width: 32rpx;
-  height: 32rpx;
-  border-radius: 32rpx;
+          width: 32rpx;
+          height: 32rpx;
+          border-radius: 32rpx;
 }
 .balance-content .form .check-box .check-item .wx-checkbox-input.wx-checkbox-input-checked {
-  border-color: #40f1b9;
-  width: 32rpx;
-  height: 32rpx;
-  border-radius: 32rpx;
-  background: #40f1b9;
-  color: #FFFFFF;
+          border-color: #40f1b9;
+          width: 32rpx;
+          height: 32rpx;
+          border-radius: 32rpx;
+          background: #40f1b9;
+          color: #FFFFFF;
 }
 .balance-content .form .input-box {
-  height: 90rpx;
-  background: #F2F4F6;
-  border-radius: 4rpx;
-  position: relative;
+      height: 90rpx;
+      background: #F2F4F6;
+      border-radius: 4rpx;
+      position: relative;
 }
 .balance-content .form .input-box .input {
-  width: 100%;
-  height: 100%;
-  padding-left: 60rpx;
-  color: #333333;
-  font-size: 28rpx;
+        width: 100%;
+        height: 100%;
+        padding-left: 60rpx;
+        color: #333333;
+        font-size: 28rpx;
 }
 .balance-content .form .input-box .money-type {
-  width: 36rpx;
-  height: 36rpx;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  left: 15rpx;
+        width: 36rpx;
+        height: 36rpx;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        left: 15rpx;
 }
 .balance-content .operation {
-  margin: 100rpx 30rpx 0 30rpx;
+    margin: 100rpx 30rpx 0 30rpx;
 }
 .balance-content .operation .recharge {
-  height: 90rpx;
-  line-height: 90rpx;
-  text-align: center;
-  border-radius: 90rpx;
-  background: #22A6F1;
-  font-size: 30rpx;
-  color: #FFFFFF;
+      height: 90rpx;
+      line-height: 90rpx;
+      text-align: center;
+      border-radius: 90rpx;
+      background: #22A6F1;
+      font-size: 30rpx;
+      color: #FFFFFF;
 }
 .balance-content .history {
-  position: absolute;
-  bottom: 120rpx;
-  text-align: center;
-  font-size: 28rpx;
-  color: #22A6F1;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+    position: absolute;
+    bottom: 120rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #22A6F1;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
 }
 
