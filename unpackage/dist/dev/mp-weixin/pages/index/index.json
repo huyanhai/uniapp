@@ -2,8 +2,6 @@
   "navigationBarTitleText": "起电宝",
   "navigationBarBackgroundColor": "#FFFFFF",
   "usingComponents": {
-    "login-sheet": "/components/loginSheet",
-    "shop-item": "/components/shopItem",
-    "call-us": "/components/callUs"
+    "shop-item": "/components/shopItem"
   }
 }

@@ -1,21 +1,12 @@
 <template>
 	<view class="about-us-content">
 		<view class="lists">
-			<view class="list">
-				<text class="name">客服热线</text>
-				<text class="value">18183045955</text>
-			</view>
-			<view class="list">
-				<text class="name">商户合作微信</text>
-				<text class="value">qmz13167885777</text>
-			</view>
-			<view class="list">
-				<text class="name">公司官网</text>
-				<text class="value">http://qdb88.cn</text>
-			</view>
+			<image class="logo" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/logo.png"></image>
+			<text class="text">起电宝V1.2.0</text>
 		</view>
 		<text class="copyright">
-			当前版本2.0.3 \n Copyright@2019 起电宝租电
+			<text class="text">服务协议</text>|<text class="text">隐私申明</text> \n
+			版权所有 2011-2020 重庆淘电科技有限公司
 		</text>
 	</view>
 </template>
@@ -37,28 +28,20 @@
 	flex-direction: column;
 	justify-content: space-between;
 	.lists{
-		background: #FFFFFF;
-		box-sizing: border-box;
-		padding: 0 30rpx;
-		box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
-		
-		.list{
-			display: flex;
-			justify-content: space-between;
-			height: 90rpx;
-			border-bottom: 2rpx solid #E8EAEC;
-			line-height: 90rpx;
-			&:last-child{
-				border-bottom: 0;
-			}
-			.name{
-				font-size: 28rpx;
-				color: #333333;
-			}
-			.value{
-				font-size: 28rpx;
-				color: #666666;
-			}
+		width: 200rpx;
+		height: 200rpx;
+		margin: 100rpx auto 0 auto;
+		text-align: center;
+		.logo{
+			background: #FFFFFF;
+			box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
+			width: 100%;
+			height: 100%;
+			border-radius: 10rpx;
+		}
+		.text{
+			font-size: 32rpx;
+			color: #666666;
 		}
 	}
 	.copyright{
@@ -68,6 +51,9 @@
 		font-size: 26rpx;
 		color: #999999;
 		width: 100%;
+		.text{
+			margin: 0 10rpx;
+		}
 	}
 }
 </style>

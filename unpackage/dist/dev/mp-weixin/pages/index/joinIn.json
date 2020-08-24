@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "合作加盟",
-  "backgroundColor": "#F8F8F9",
-  "navigationBarBackgroundColor": "#22A6F1",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "usingComponents": {
+    "lotus-address": "/components/Winglau14-lotusAddress/Winglau14-lotusAddress"
+  }
 }

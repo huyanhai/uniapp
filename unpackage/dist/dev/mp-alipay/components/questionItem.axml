@@ -1,0 +1,1 @@
+<view class="{{(('items')+' '+((active)?'active':''))}}"><view data-event-opts="{{[['tap',[['change',['$event']]]]]}}" class="tips" onTap="__e">{{question.title}}</view><block a:if="{{active}}"><view class="contents">{{question.text}}</view></block></view>

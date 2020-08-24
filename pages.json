@@ -19,9 +19,8 @@
 			"path": "pages/index/shopDetail",
 			"style": {
 				"navigationBarTitleText": "商家详情",
-				"backgroundColor": "#F8F8F9",
-				"navigationBarBackgroundColor": "#22A6F1",
-				"navigationBarTextStyle": "white"
+				"navigationBarTextStyle": "white",
+				"navigationStyle":"custom"
 			}
 		},
 		{
@@ -40,14 +39,6 @@
 			}
 		},
 		{
-			"path": "pages/index/loanSuccess",
-			"style": {
-				"navigationBarTitleText": "免押租借",
-				"navigationBarBackgroundColor": "#FFFFFF",
-				"backgroundColor": "#F8F8F9"
-			}
-		},
-		{
 			"path": "pages/index/loanFail",
 			"style": {
 				"navigationBarTitleText": "免押租借",
@@ -59,8 +50,7 @@
 			"path": "pages/index/userInfo",
 			"style": {
 				"navigationBarTitleText": "个人中心",
-				"navigationBarBackgroundColor": "#22A6F1",
-				"navigationBarTextStyle": "white"
+				"navigationBarBackgroundColor": "#FFFFFF"
 			}
 		},
 		{
@@ -74,22 +64,13 @@
 			"path": "pages/index/orderDetail",
 			"style": {
 				"navigationBarTitleText": "订单详情",
-				"navigationBarBackgroundColor": "#FFFFFF"
-			}
-		},
-		{
-		    "path" : "pages/index/joinIn",
-		    "style" : {
-				"navigationBarTitleText": "合作加盟",
-				"backgroundColor": "#F8F8F9",
-				"navigationBarBackgroundColor": "#22A6F1",
-				"navigationBarTextStyle": "white"
+				"navigationBarBackgroundColor": "#E5E5E5"
 			}
 		},
         {
             "path" : "pages/index/question",
             "style" : {
-        		"navigationBarTitleText": "问题或意见",
+        		"navigationBarTitleText": "常见问题",
         		"navigationBarBackgroundColor": "#FFFFFF"
         	}
         },
@@ -141,12 +122,54 @@
 				"navigationBarTitleText": "交易记录",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
-		}
-        ,{
+		},{
             "path" : "pages/index/agreement",
             "style" : {
 				"navigationBarTitleText": "委托扣款授权书",
 				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+        },{
+		    "path" : "pages/index/login",
+		   "style" : {
+		   	"navigationBarTitleText": "登录",
+		   	"navigationBarBackgroundColor": "#FFFFFF"
+		   }
+		},
+		{
+		    "path" : "pages/index/use",
+		    "style" : {
+				"navigationBarTitleText": "使用指南",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/joinIn",
+		    "style" : {
+				"navigationBarTitleText": "合作加盟",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+		    "path" : "pages/index/rechargeCz",
+		    "style" : {
+				"navigationBarTitleText": "充押金租借",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+			"path": "pages/index/loanSuccess",
+			"style": {
+				"navigationBarTitleText": "租借成功",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"backgroundColor": "#F8F8F9"
+			}
+		},
+		{
+            "path" : "pages/index/feedback",
+            "style" : {
+				"navigationBarTitleText": "意见反馈",
+				"navigationBarBackgroundColor": "#FFFFFF",
+				"backgroundColor": "#F8F8F9"
 			}
         }
     ],

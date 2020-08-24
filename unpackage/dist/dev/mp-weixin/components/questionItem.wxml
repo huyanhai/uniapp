@@ -1,0 +1,1 @@
+<view class="{{['items',(active)?'active':'']}}"><view data-event-opts="{{[['tap',[['change',['$event']]]]]}}" class="tips" bindtap="__e">{{question.title}}</view><block wx:if="{{active}}"><view class="contents">{{question.text}}</view></block></view>

@@ -26,7 +26,7 @@
 			},
 			call(){
 				uni.makePhoneCall({
-				  phoneNumber: "4008123277" //仅为示例
+				  phoneNumber: "17783847895" //仅为示例
 				});
 			}
 		}

@@ -12,7 +12,7 @@ export function getOauthName() {
 }
 
 // 用户登录
-export function userLogin() {
+export function userLogin(agentId) {
     let name = getOauthName();
     return new Promise((resolve, reject) => {
         uni.login({
@@ -29,7 +29,8 @@ export function userLogin() {
 						post('login/alipay',{
 							code: data.code,
 							headUrl: data.avatar,
-							nickname: data.nickName
+							nickname: data.nickName,
+							agentId: agentId
 						}).then(res=>{
 							if(res.code === 200) {
 								uni.setStorageSync('user_info',data);
@@ -45,10 +46,12 @@ export function userLogin() {
 						})
 						// #endif
 						// #ifdef MP-WEIXIN
+						console.log(infoRes)
 						post('login/weixin',{
 							code: data.code,
 							encryptedData: data.encryptedData,
-							iv: data.iv
+							iv: data.iv,
+							agentId: agentId
 						}).then(res=>{
 							if(res.code === 200) {
 								uni.setStorageSync('user_info',data);

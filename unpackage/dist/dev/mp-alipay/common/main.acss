@@ -24,7 +24,8 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-/* $BASE_URL: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-battery.png'; */
+/* $BASE_URL: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-battery.png';
+ */
 .icon-battery {
   background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-battery.gif")
     no-repeat;
@@ -84,7 +85,33 @@ button {
   border: none;
 }
 button::after {
-    display: none;
+  display: none;
+}
+.search {
+  position: fixed;
+  top: 120rpx;
+  background: #FFFFFF;
+  height: 66rpx;
+  left: 30rpx;
+  right: 30rpx;
+  border-radius: 80rpx;
+  z-index: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  font-size: 24rpx;
+  color: #999999;
+}
+.search .img {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
 }
 .content {
   height: 100vh;
@@ -98,12 +125,12 @@ button::after {
   left: 0;
 }
 .map-center {
-  width: 24rpx;
-  height: 44rpx;
+  width: 36rpx;
+  height: 60rpx;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-top: -40rpx;
+  margin-top: -56rpx;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   z-index: 50;
@@ -113,9 +140,54 @@ button::after {
   top: 0;
   width: 100%;
   height: 100rpx;
-  background: #ffffff;
+  background: #ffffff !important;
   z-index: 100;
   overflow: hidden;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  border-radius: 0 !important;
+}
+.user-layer .user-post {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+          flex: 0 0 auto;
+  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/mrtx.png") no-repeat;
+  background-size: cover;
+}
+.user-layer .text {
+  font-size: 28rpx;
+  color: #FFC600;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+          flex: 1 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 20rpx;
+  text-align: left;
+}
+.user-layer .shop {
+  height: 60rpx;
+  border-radius: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #FFDD00;
+  background: #303030;
+  font-size: 24rpx;
+  padding: 0 20rpx;
+  border: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -125,64 +197,22 @@ button::after {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
           justify-content: space-between;
-  box-sizing: border-box;
-  padding: 0 30rpx;
-}
-.user-layer .user-post {
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 80rpx;
-    border: 4rpx solid #22a6f1;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-            flex: 0 0 auto;
-}
-.user-layer .text {
-    font-size: 28rpx;
-    color: #333333;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 0 auto;
-            flex: 1 0 auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-left: 20rpx;
-}
-.user-layer .shop {
-    height: 60rpx;
-    border-radius: 60rpx;
-    text-align: center;
-    line-height: 60rpx;
-    color: #fff;
-    background: #22a6f1;
-    font-size: 28rpx;
-    padding: 0 20rpx;
-    border: 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-            justify-content: space-between;
 }
 .user-layer .shop .icon {
-      width: 30rpx;
-      height: 30rpx;
-      margin-right: 4rpx;
+  width: 24rpx;
+  height: 22rpx;
+  margin-right: 4rpx;
 }
 .option-scan {
   position: fixed;
-  bottom: 120rpx;
+  bottom: 60rpx;
   z-index: 90;
-  height: 90rpx;
-  line-height: 90rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   text-align: center;
   font-size: 30rpx;
-  color: #ffffff;
-  background: #22a6f1;
+  color: #FFDD00 !important;
+  background: #303030 !important;
   border-radius: 90rpx;
   display: -webkit-box;
   display: -webkit-flex;
@@ -193,16 +223,17 @@ button::after {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;
-  width: 360rpx;
+  width: 380rpx;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  z-index: 10000;
 }
 .option-scan .icon {
-    width: 44rpx;
-    height: 44rpx;
-    margin-right: 20rpx;
-    background-size: cover;
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 20rpx;
+  background-size: cover;
 }
 .task {
   width: 560rpx;
@@ -211,7 +242,7 @@ button::after {
   background: #ffffff;
   box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
   position: fixed;
-  top: 120rpx;
+  top: 210rpx;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -229,105 +260,111 @@ button::after {
   padding: 0 30rpx;
 }
 .task .battery {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 auto;
-            flex: 0 0 auto;
-    width: 24rpx;
-    height: 44rpx;
-    background-size: cover;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 24rpx;
+  height: 44rpx;
+  background-size: cover;
 }
 .task .info {
-    width: 100rpx;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 0 auto;
-            flex: 1 0 auto;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    margin: 0 20rpx;
+  width: 100rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+          flex: 1 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  margin: 0 20rpx;
 }
 .task .info .top {
-      font-size: 28rpx;
-      color: #333333;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+  font-size: 28rpx;
+  color: #333333;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .task .info .bottom {
-      font-size: 24rpx;
-      color: #999;
+  font-size: 24rpx;
+  color: #999;
 }
 .task .more {
-    height: 60rpx;
-    line-height: 60rpx;
-    border-radius: 60rpx;
-    text-align: center;
-    background: none;
-    border: 2rpx solid #22a6f1;
-    font-size: 28rpx;
-    color: #22a6f1;
-    padding: 0 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 60rpx;
+  text-align: center;
+  background: none;
+  border: 2rpx solid #303030;
+  font-size: 28rpx;
+  color: #303030;
+  padding: 0 20rpx;
 }
 .right-option {
-  width: 72rpx;
+  width: 100%;
   position: fixed;
-  right: 30rpx;
+  left: 0rpx;
   z-index: 100;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  bottom: 68rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 40rpx;
 }
 .right-option .location {
-    width: 72rpx;
-    height: 72rpx;
-    border-radius: 72rpx;
-    background: #ffffff;
-    box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
-    margin-bottom: 20rpx;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 64rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .right-option .location .icon-location {
-      width: 48rpx;
-      height: 48rpx;
-      background-size: cover;
+  width: 64rpx;
+  height: 64rpx;
+  background-size: cover;
 }
 .right-option .call-me {
-    width: 72rpx;
-    height: 72rpx;
-    border-radius: 72rpx;
-    background: #ffffff;
-    box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-            justify-content: center;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 64rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .right-option .call-me .icon {
-      width: 48rpx;
-      height: 48rpx;
-      background-size: cover;
+  width: 64rpx;
+  height: 64rpx;
+  background-size: cover;
 }
 .store-box {
   position: fixed;
-  z-index: 100;
-  bottom: 120rpx;
+  z-index: 10000;
+  bottom: 160rpx;
   margin: 0 30rpx;
   left: 0;
   right: 0;

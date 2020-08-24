@@ -25,81 +25,95 @@
 /* 透明度 */
 /* 文章场景相关 */
 .order-detail-content {
-  height: 100vh;
+  margin: 40rpx;
+  border-radius: 10rpx;
+  background: #FFFFFF;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 .order-detail-content .order-status {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-            align-items: center;
-    font-size: 28rpx;
-    color: #333333;
-    padding: 0 30rpx;
-    height: 104rpx;
-    line-height: 104rpx;
-    background: #FFFFFF;
-    position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 28rpx;
+  color: #333333;
+  padding: 0 30rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  background: #FFFFFF;
+  position: relative;
+}
+.order-detail-content .order-status .order-no {
+  position: absolute;
+  right: 30rpx;
+  font-size: 28rpx;
+  color: #333333;
 }
 .order-detail-content .order-status::before {
-      content: "";
-      position: absolute;
-      bottom: 1rpx;
-      left: 30rpx;
-      right: 30rpx;
-      background: #E8EAEC;
-      height: 1rpx;
-      display: block;
+  content: "";
+  position: absolute;
+  bottom: 1rpx;
+  left: 30rpx;
+  right: 30rpx;
+  background: #E8EAEC;
+  height: 2rpx;
+  display: block;
 }
 .order-detail-content .order-status .stadus {
-      width: 132rpx;
-      height: 44rpx;
-      text-align: center;
-      line-height: 44rpx;
-      border-radius: 44rpx;
-      font-size: 24rpx;
-      margin-right: 20rpx;
-      position: relative;
+  height: 44rpx;
+  text-align: center;
+  line-height: 44rpx;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  position: relative;
 }
 .order-detail-content .order-status .stadus.error {
-        background: #FDE1DC;
-        color: #F14322;
+  color: #F14322;
 }
 .order-detail-content .order-status .stadus.warning {
-        background: #FCEED3;
-        color: #F1A921;
+  color: #F1A921;
 }
 .order-detail-content .order-status .stadus.ok {
-        background: #D3FCF1;
-        color: #49F3C1;
+  color: #49F3C1;
 }
 .order-detail-content .detail {
-    line-height: 60rpx;
-    padding: 30rpx;
-    background: #FFFFFF;
-    box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+  line-height: 60rpx;
+  padding: 0 30rpx;
+  background: #FFFFFF;
+}
+.order-detail-content .detail .list {
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #E8EAEC;
+}
+.order-detail-content .detail .list .title {
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #333333;
+  font-size: 24rpx;
+}
+.order-detail-content .detail .list:last-child {
+  border: 0;
 }
 .order-detail-content .detail .item {
-      font-size: 28rpx;
-      color: #555555;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-              align-items: center;
-}
-.order-detail-content .detail .item.btn-20 {
-        margin-bottom: 20rpx;
+  font-size: 24rpx;
+  color: #999999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .order-detail-content .detail .item .info {
-        color: #777777;
+  color: #999999;
 }
 .order-detail-content .detail .item .info.blue {
-          color: #22A6F1;
+  color: #22A6F1;
 }
 .order-detail-content .detail .item .info.red {
-          color: #F14322;
+  color: #F14322;
 }
 

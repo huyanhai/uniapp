@@ -8,12 +8,18 @@
  -->
 <template>
 	<view class="loan-content">
+		<view class="top-title">自带<text class="yellow">三线</text>快充</view>
+		<view class="top-types">
+			<view class="item">安卓线</view>
+			<view class="item">苹果线</view>
+			<view class="item">Type-c线</view>
+		</view>
 		<image class="studus-img" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-zjtips.png"></image>
-		<text class="tips">充电线自带Aandroid、IOS、Type-C三种充电线</text>
 		<view class="rule">
 			<view class="title">计费规则：</view>
 			<text class="item">
-				<text class="num">{{tips.hourMoney}}元/小时</text>。
+				<text class="num" v-if="tips.cycle === 1">{{tips.hourMoney/2}}元/半小时</text>
+				<text class="num" v-if="tips.cycle === 2">{{tips.hourMoney}}元/小时</text>。
 				租借{{tips.freeTime}}分钟内免费，日封顶{{tips.dayMoney}}元，总封顶99元。 \n押金99.00元，支持免押服务。
 			</text>
 		</view>
@@ -86,19 +92,20 @@
 				let formId = e.detail.formId || "";
 				// #endif
 				if (this.checked.length > 0) {
-					if (this.orders && this.orders.length > 0) {
-						return uni.showToast({
-							title: "存在租借中的订单",
-							icon: "none"
-						})
-					} else {
-						// #ifdef MP-WEIXIN
-						this.getWechart(sn);
-						// #endif
-						// #ifdef MP-ALIPAY
-						this.getAliPay(sn,formId);
-						// #endif
-					}
+					// if (this.orders && this.orders.length > 0) {
+					// 	return uni.showToast({
+					// 		title: "存在租借中的订单",
+					// 		icon: "none"
+					// 	})
+					// } else {
+						
+					// }
+					// #ifdef MP-WEIXIN
+					this.getWechart(sn);
+					// #endif
+					// #ifdef MP-ALIPAY
+					this.getAliPay(sn,formId);
+					// #endif
 				} else {
 					uni.showToast({
 						title: '请勾选协议'
@@ -182,6 +189,10 @@
 										//dosomething
 									}
 								});
+							} else {
+								uni.showToast({
+									title: res.message
+								});
 							}
 						});
 					}
@@ -196,7 +207,6 @@
 				}).then(res => {
 					if (res.code === 200) {
 						// #ifdef MP-ALIPAY
-						console.log('orderStr', res.data.orderStr)
 						my.tradePay({
 							// 调用统一收单交易创建接口（alipay.trade.create），获得返回字段支付宝交易号trade_no
 							orderStr: res.data.orderStr,
@@ -252,9 +262,13 @@
 				post('/order/bill', {
 					sn: sn
 				}).then(res => {
+					if(!res.data){
+						return uni.redirectTo({
+							url:"index"
+						})
+					}
 					this.tips = res.data;
 				})
-
 			}
 		}
 	};
@@ -264,10 +278,31 @@
 	.loan-content {
 		padding: 30rpx;
 		box-sizing: border-box;
-
+		.top-title{
+			font-size: 48rpx;
+			color: #333333;
+			margin-bottom: 50rpx;
+			.yellow{
+				color: #FFDD00;
+			}
+		}
+		.top-types{
+			display: flex;
+			justify-content: space-between;
+			padding: 0 50rpx;
+			.item{
+				border-radius: 10rpx;
+				border: 2rpx solid #999999;
+				font-size: 28rpx;
+				color: #333333;
+				height: 50rpx;
+				line-height: 50rpx;
+				padding: 0 30rpx;
+			}
+		}
 		.studus-img {
-			width: 428rpx;
-			height: 350rpx;
+			width: 491rpx;
+			height: 355rpx;
 			margin: 60rpx auto 40rpx auto;
 			display: block;
 		}
@@ -280,8 +315,11 @@
 		}
 
 		.rule {
-			margin-top: 80rpx;
-
+			margin-top: 20rpx;
+			box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.2);
+			border-radius: 10rpx;
+			box-sizing: border-box;
+			padding: 20rpx;
 			.title {
 				font-size: 28rpx;
 				color: #333333;
@@ -293,7 +331,7 @@
 				line-height: 48rpx;
 
 				.num {
-					color: #22a6f1;
+					color: #FFC600;
 				}
 			}
 		}
@@ -301,8 +339,8 @@
 		.submit {
 			height: 90rpx;
 			margin: 70rpx 0 0 0;
-			background: #22a6f1;
-			color: #ffffff;
+			background: #303030;
+			color: #FFDD00;
 			border-radius: 90rpx;
 			display: flex;
 			flex-direction: column;
@@ -325,25 +363,34 @@
 			font-size: 24rpx;
 			color: #333333;
 			align-items: center;
-
-			.check {
-				width: 30rpx;
-				height: 30rpx;
-				position: relative;
-				margin-right: 20rpx;
-
-				.wx-checkbox-input {
-					width: 30rpx;
-					height: 30rpx;
-					// box-sizing: border-box;
-					// position: absolute;
-					// top: 0;
-				}
-			}
-
 			.agreement {
-				color: #22a6f1;
+				color: #FFDD00;
 			}
+		}
+		/* 重写 checkbox 样式 */
+		/* 未选中的 背景样式 */
+		checkbox .wx-checkbox-input{
+		  border-radius: 50%;/* 圆角 */
+		  width: 30rpx; /* 背景的宽 */
+		  height: 30rpx; /* 背景的高 */
+		}
+		/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+		checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+		  border: 1rpx solid #FFDD00;
+		  background: #FFDD00;
+		}
+		/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+		checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+		  border-radius: 50%;/* 圆角 */
+		  width: 30rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+		  height: 30rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+		  line-height: 30rpx;
+		  text-align: center;
+		  font-size:20rpx; /* 对勾大小 30rpx */
+		  color:#fff; /* 对勾颜色 白色 */
+		  background: transparent;
+		  transform:translate(-50%, -50%) scale(1);
+		  -webkit-transform:translate(-50%, -50%) scale(1);
 		}
 	}
 </style>

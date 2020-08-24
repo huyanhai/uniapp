@@ -8,67 +8,80 @@
  -->
 <template>
 	<view class="user-info-content">
-		<view class="info line-color">
+		<view class="info">
 			<view class="top">
 				<view class="post">
 					<image :src="moreInfo.headUrl" class="img"></image>
 				</view>
 				<view class="user">
-					<text class="name">{{moreInfo.nickname}}</text>
-					<text class="id">ID：{{moreInfo.id}}</text>
+					{{moreInfo.nickname}}
 				</view>
 			</view>
 			<view class="bottom">
 				<view class="left">
-					<text class="name">押金</text>
-					<text class="money">￥{{moreInfo.margin}}</text>
-				</view>
-				
-				<!-- <view class="right" @click="goPage('balance')"> -->
-				<view class="right">
+					<text class="money"><text class="fh">￥</text>{{moreInfo.balance}}</text>
 					<text class="name">余额</text>
-					<text class="money">￥{{moreInfo.balance}}</text>
+				</view>
+				<view class="right">
+					<text class="money"><text class="fh">￥</text>{{moreInfo.margin}}</text>
+					<text class="name">押金</text>
 				</view>
 			</view>
 		</view>
-		<view class="list">
-			<view class="item" @click="goPage('order')">
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-order.png" class="label"></image>
-				<text class="name">我的订单</text>
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-more.png" class="more"></image>
-			</view>
-			<view class="item" @click="goPage('joinIn')">
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-jm.png" class="label"></image>
-				<text class="name">合作加盟</text>
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-more.png" class="more"></image>
-			</view>
-			<view class="item" @click="goPage('question')">
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-question.png" class="label"></image>
-				<text class="name">问题或意见</text>
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-more.png" class="more"></image>
-			</view>
-			<view class="item" @click="showCall">
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-kf.png" class="label"></image>
-				<text class="name">客服中心</text>
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-more.png" class="more"></image>
-			</view>
-			<view class="item" @click="goPage('aboutUs')">
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-gywm.png" class="label"></image>
-				<text class="name">关于我们</text>
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-more.png" class="more"></image>
+		<view class="box">
+			<view class="title">服务</view>
+			<view class="list">
+				<view class="item" @click="goPage('recharge')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-qb.png" class="label"></image>
+					<text class="name">充值</text>
+				</view>
+				<view class="item" @click="goPage('reflect')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-tx.png" class="label"></image>
+					<text class="name">提现</text>
+				</view>
+				<view class="item" @click="goPage('question')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-wt.png" class="label"></image>
+					<text class="name">常见问题</text>
+				</view>
 			</view>
 		</view>
-		<text class="copyright">
-			当前版本2.0.3 \n Copyright@2019 起电宝租电
-		</text>
-		<callUs :show.sync="showCallUs" />
-		<loginSheet :show="showSheet" @authSuccess="authSuccess"/>
+		<view class="box">
+			<view class="title">其他</view>
+			<view class="list">
+				<view class="item" @click="goPage('order')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-bj.png" class="label"></image>
+					<text class="name">我的订单</text>
+				</view>
+				<view class="item" @click="goPage('joinIn')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-hz.png" class="label"></image>
+					<text class="name">合作加盟</text>
+				</view>
+				<view class="item" @click="goPage('feedback')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-fk.png" class="label"></image>
+					<text class="name">意见反馈</text>
+				</view>
+				<view class="item" @click="goPage('use')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-zn.png" class="label"></image>
+					<text class="name">使用指南</text>
+				</view>
+				<view class="item" @click="goPage('aboutUs')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-gy.png" class="label"></image>
+					<text class="name">关于我们</text>
+				</view>
+				<view class="item" @click="goPage('history')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-zb.png" class="label"></image>
+					<text class="name">交易明细</text>
+				</view>
+				<view class="item" @click="goPage('aboutUs')">
+					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-d.png" class="label"></image>
+					<text class="name">代理商</text>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
-	import callUs from '../../components/callUs';
-	import loginSheet from "../../components/loginSheet";
 	import { get,post } from "../../libs/request.js"
 	
 	export default {
@@ -82,26 +95,21 @@
 		onLoad(){
 			this.checkAuth();
 		},
-		components:{
-			loginSheet,
-			callUs
-		},
 		methods:{
 			async checkAuth() {
 			  let that = this;
 			  this.authCode = uni.getStorageSync("authCode") || null;
 			  if (!this.authCode) {
-			    that.showSheet = true;
+			    uni.navigateTo({
+			    	url:'login'
+			    })
 			  } else {
 				  this.getUserInfo()
 			  }
 			},
-			authSuccess(e) {
-			  this.authCode = uni.getStorageSync("authCode") || null;
-			  this.showSheet = false;
-			  this.getUserInfo();
-			},
 			goPage(path){
+				const nopage = ['recharge','reflect','history']
+				if(nopage.indexOf(path) > -1) return uni.showToast({icon:"none",title:"系统开发中"})
 				uni.navigateTo({
 				  url: path
 				});
@@ -124,73 +132,48 @@
 	@import url("../../assets/scss/icon.scss");
 
 	.user-info-content {
+		background: #FFFFFF;
 		.info {
 			overflow: hidden;
-
+			background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/user-bg.png") no-repeat center -100rpx;
+			width: 750rpx;
+			height: 340rpx;
+			background-size: 100% auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 100rpx;
+			box-sizing: border-box;
 			.top {
 				display: flex;
 				align-items: center;
-				margin: 0 30rpx;
-
+				flex-direction: column;
+				width: 120rpx;
 				.post {
-					width: 138rpx;
-					height: 138rpx;
+					width: 120rpx;
+					height: 120rpx;
 					position: relative;
-
-					&::before {
-						width: 128rpx;
-						height: 128rpx;
-						border-radius: 128rpx;
-						content: "";
-						position: absolute;
-						left: 50%;
-						top: 50%;
-						transform: translate(-50%, -50%);
-						border: 2rpx solid rgba($color: #fff, $alpha: 0.1);
-					}
-
-					&::after {
-						width: 108rpx;
-						height: 108rpx;
-						border-radius: 108rpx;
-						content: "";
-						position: absolute;
-						left: 50%;
-						top: 50%;
-						transform: translate(-50%, -50%);
-						border: 2rpx solid rgba($color: #fff, $alpha: 0.2);
-					}
-
+					margin-bottom: 10rpx;
 					.img {
-						width: 90rpx;
-						height: 90rpx;
-						border-radius: 90rpx;
-						content: "";
-						position: absolute;
-						left: 50%;
-						top: 50%;
-						transform: translate(-50%, -50%);
+						width: 120rpx;
+						height: 120rpx;
+						border-radius: 120rpx;
 					}
 				}
 
 				.user {
 					display: flex;
 					flex-direction: column;
-					margin-left: 30rpx;
-
-					.name {
-						font-size: 34rpx;
-						color: #FFFFFF;
-						margin-bottom: 10rpx;
-					}
-
-					.id {
-						font-size: 26rpx;
-						color: #FFFFFF;
-					}
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					font-size: 34rpx;
+					color: #FFFFFF;
+					margin-bottom: 10rpx;
+					text-align: center;
 				}
 			}
-
+			
 			.bottom {
 				display: flex;
 				justify-content: space-between;
@@ -204,67 +187,59 @@
 					width: 50%;
 					text-align: center;
 					position: relative;
-
+					
 					.name {
-						font-size: 28rpx;
-						color: #FFFFFF;
+						font-size: 24rpx;
+						color: #FFDD00;
 					}
 
 					.money {
-						font-size: 50rpx;
-						color: #FFFFFF;
+						font-size: 60rpx;
+						color: #FFDD00;
+						.fh{
+							font-size: 24rpx;
+						}
 					}
 				}
-
-				.left {
-					&::before {
-						content: '';
-						position: absolute;
-						height: 40rpx;
-						width: 2rpx;
-						right: 0;
-						top: 50%;
-						transform: translateY(-50%);
-						background: #FFFFFF;
-					}
+				.left{
+					margin-right: 100rpx;
 				}
 			}
 		}
-
+		.box{
+			margin-bottom: 40rpx;
+			.title{
+				font-size: 28rpx;
+				color: #333333;
+				margin: 0 40rpx 40rpx 40rpx;
+			}
 		.list {
 			background: #FFFFFF;
 			padding: 0 30rpx;
-			margin-top: 20rpx;
-			box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
-			
+			display: flex;
+			flex-wrap: wrap;
 			.item {
+				width: calc(100%/3);
 				display: flex;
-				height: 90rpx;
-				border-bottom: 2rpx solid #E8EAEC;
+				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				&:last-child{
-					border: none;
-				}
+				margin-bottom: 40rpx;
 				.label {
-					width: 52rpx;
-					height: 52rpx;
+					width: 60rpx;
+					height: 60rpx;
 					flex: 0 0 auto;
+					margin-bottom: 20rpx;
 				}
 
 				.name {
-					font-size: 28rpx;
+					font-size: 24rpx;
 					color: #333333;
 					flex: 1 0 auto;
 					margin: 0 30rpx;
 				}
-
-				.more {
-					width: 16rpx;
-					height: 29rpx;
-					flex: 0 0 auto;
-				}
 			}
+		}
 		}
 		.copyright{
 			position: absolute;

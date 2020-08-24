@@ -9,48 +9,59 @@
 <template>
 	<view class="order-detail-content">
 		<view class="order-status">
-			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus]}}</view>
-			<view class="order-no">订单号：{{item.stringId || ''}}</view>
+			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus] || "暂无状态"}}</view>
+			<view class="order-no">{{item.foregiftMoney}}</view>
 		</view>
 		<view class="detail">
-			<view class="item">
-				<view class="name">租借费用：</view>
-				<view class="info red" v-if="item.totalMoney && item.totalMoney !== 'null' || item.totalMoney === 0">
-					{{item.totalMoney}}元
+			<view class="list">
+				<view class="title">使用详情</view>
+				<view class="item">
+					<view class="name">订单号：</view>
+					<view class="info">
+						{{item.stringId || ''}}
+					</view>
 				</view>
-				
+				<view class="item">
+					<view class="name">租借费用：</view>
+					<view class="info red" v-if="item.totalMoney && item.totalMoney !== 'null' || item.totalMoney === 0">
+						{{item.totalMoney}}元
+					</view>
+				</view>
+				<view class="item">
+					<view class="name">租借时间：</view>
+					<view class="info">{{item.leaseStartTime || ''}}</view>
+				</view>
+				<view class="item">
+					<view class="name">归还时间：</view>
+					<view class="info">{{item.leaseFinishTime || ''}}</view>
+				</view>
 			</view>
-			<view class="item">
-				<view class="name">租借时间：</view>
-				<view class="info">{{item.leaseStartTime || ''}}</view>
-			</view>
-			<view class="item btn-20">
-				<view class="name">归还时间：</view>
-				<view class="info">{{item.leaseFinishTime || ''}}</view>
-			</view>
-			<view class="item">
-				<view class="name">收费标准：</view>
-				<view class="info">{{item.price || 0}}元/小时</view>
-			</view>
-			<view class="item">
-				<view class="name">租借押金：</view>
-				<view class="info">99元</view>
-			</view>
-			<view class="item">
-				<view class="name">免费时长：</view>
-				<view class="info">{{item.freeTime || 0}}分钟</view>
-			</view>
-			<view class="item btn-20">
-				<view class="name">每日封顶：</view>
-				<view class="info">{{item.dayMoney || 0}}元</view>
-			</view>
-			<view class="item">
-				<view class="name">租借商家：</view>
-				<view class="info">{{item.shopName || ''}}</view>
-			</view>
-			<view class="item">
-				<view class="name">归还商家：</view>
-				<view class="info">{{item.returnShopName || ''}}</view>
+			<view class="list">
+				<view class="title">使用详情</view>
+				<view class="item">
+					<view class="name">收费标准：</view>
+					<view class="info">{{item.price || 0}}元/小时</view>
+				</view>
+				<view class="item">
+					<view class="name">租借押金：</view>
+					<view class="info">99元</view>
+				</view>
+				<view class="item">
+					<view class="name">免费时长：</view>
+					<view class="info">{{item.freeTime || 0}}分钟</view>
+				</view>
+				<view class="item">
+					<view class="name">每日封顶：</view>
+					<view class="info">{{item.dayMoney || 0}}元</view>
+				</view>
+				<view class="item">
+					<view class="name">租借商家：</view>
+					<view class="info">{{item.shopName || ''}}</view>
+				</view>
+				<view class="item">
+					<view class="name">归还商家：</view>
+					<view class="info">{{item.returnShopName || ''}}</view>
+				</view>
 			</view>
 		</view>
 	</view>
@@ -80,7 +91,11 @@
 
 <style lang="scss">
 	.order-detail-content {
-		height: 100vh;
+		margin: 40rpx;
+		border-radius: 10rpx;
+		background: #FFFFFF;
+		 box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.2);
+		 overflow: hidden;
 		.order-status {
 			display: flex;
 			align-items: center;
@@ -91,7 +106,12 @@
 			line-height: 104rpx;
 			background: #FFFFFF;
 			position: relative;
-
+			.order-no{
+				position: absolute;
+				right: 30rpx;
+				font-size: 28rpx;
+				color: #333333;
+			}
 			&::before {
 				content: "";
 				position: absolute;
@@ -99,32 +119,27 @@
 				left: 30rpx;
 				right: 30rpx;
 				background: #E8EAEC;
-				height: 1rpx;
+				height: 2rpx;
 				display: block;
 			}
 
 			.stadus {
-				width: 132rpx;
 				height: 44rpx;
 				text-align: center;
 				line-height: 44rpx;
 				border-radius: 44rpx;
-				font-size: 24rpx;
-				margin-right: 20rpx;
+				font-size: 28rpx;
 				position: relative;
 
 				&.error {
-					background: #FDE1DC;
 					color: #F14322;
 				}
 
 				&.warning {
-					background: #FCEED3;
 					color: #F1A921;
 				}
 
 				&.ok {
-					background: #D3FCF1;
 					color: #49F3C1;
 				}
 			}
@@ -132,20 +147,28 @@
 
 		.detail {
 			line-height: 60rpx;
-			padding: 30rpx;
+			padding: 0 30rpx;
 			background: #FFFFFF;
-			box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
-			
+			.list{
+				padding-bottom: 20rpx;
+				border-bottom: 2rpx solid #E8EAEC;
+				.title{
+					height: 60rpx;
+					line-height: 60rpx;
+					color: #333333;
+					font-size: 24rpx;
+				}
+				&:last-child{
+					border: 0;
+				}
+			}
 			.item {
-				font-size: 28rpx;
-				color: #555555;
+				font-size: 24rpx;
+				color: #999999;
 				display: flex;
 				align-items: center;
-				&.btn-20{
-					margin-bottom: 20rpx;
-				}
 				.info {
-					color: #777777;
+					color: #999999;
 
 					&.blue {
 						color: #22A6F1;

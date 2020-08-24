@@ -5,12 +5,10 @@
     "pages/index/shopDetail",
     "pages/index/loan",
     "pages/index/loaning",
-    "pages/index/loanSuccess",
     "pages/index/loanFail",
     "pages/index/userInfo",
     "pages/index/order",
     "pages/index/orderDetail",
-    "pages/index/joinIn",
     "pages/index/question",
     "pages/index/aboutUs",
     "pages/index/balance",
@@ -19,7 +17,13 @@
     "pages/index/reflectFail",
     "pages/index/recharge",
     "pages/index/history",
-    "pages/index/agreement"
+    "pages/index/agreement",
+    "pages/index/login",
+    "pages/index/use",
+    "pages/index/joinIn",
+    "pages/index/rechargeCz",
+    "pages/index/loanSuccess",
+    "pages/index/feedback"
   ],
   "subPackages": [],
   "window": {

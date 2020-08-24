@@ -9,10 +9,15 @@
 <template>
 	<view class="order-item-content" @click="goDetail(item)">
 		<view class="top">
-			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus]}}</view>
-			<view class="order-no">订单编号：{{item.stringId}}</view>
+			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus] || '无状态'}}</view>
 		</view>
 		<view class="info">
+			<view class="item">
+				<text class="name">订单编号：</text>
+				<text class="detail num">
+					{{item.stringId}}
+				</text>
+			</view>
 			<view class="item">
 				<text class="name">租借费用：</text>
 				<text class="detail num" v-if="item.totalMoney && item.totalMoney !== 'null' || item.totalMoney === 0">
@@ -28,6 +33,7 @@
 				<text class="detail">{{item.updateDate}}</text>
 			</view>
 		</view>
+		<view class="pro-name">充电宝</view>
 	</view>
 </template>
 
@@ -67,30 +73,38 @@
 		box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
 		box-sizing: border-box;
 		padding: 30rpx 20rpx;
+		position: relative;
+		.pro-name{
+			width: 110rpx;
+			height: 40rpx;
+			background: #303030;
+			border-radius: 10rpx;
+			text-align: center;
+			line-height: 40rpx;
+			font-size: 22rpx;
+			color: #FFDD00;
+			position: absolute;
+			top: 30rpx;
+			right: 30rpx;
+		}
 		.top{
 			display: flex;
 			align-items: center;
 			font-size: 28rpx;
 			color: #333333;
 			.stadus{
-				width: 132rpx;
 				height: 44rpx;
-				text-align: center;
 				line-height: 44rpx;
 				border-radius: 44rpx;
-				font-size: 24rpx;
-				margin-right: 20rpx;
+				font-size: 32rpx;
 				&.error{
-					background: #FDE1DC;
 					color: #F14322;
 				}
 				&.warning{
-					background: #FCEED3;
-					color: #F1A921;
+					color: #FFC600;
 				}
 				&.ok{
-					background: #D3FCF1;
-					color: #49F3C1;
+					color: #333333;
 				}
 			}
 		}

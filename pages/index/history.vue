@@ -1,6 +1,7 @@
 <template>
 	<view class="about-us-content">
 		<view class="lists">
+			<view class="title">交易明细</view>
 			<view class="list">
 				<view class="l">
 					<text class="order-no">单号：232008387499</text>
@@ -45,17 +46,19 @@
 		background: #FFFFFF;
 		box-sizing: border-box;
 		padding: 0 30rpx;
-		box-shadow: 0 0 10rpx rgba($color: #000000, $alpha: 0.1);
-		
+		.title{
+			font-size: 32rpx;
+			color: #333333;
+			height: 100rpx;
+			line-height: 100rpx;
+		}
 		.list{
 			display: flex;
 			justify-content: space-between;
-			border-bottom: 2rpx solid #E8EAEC;
+			top: 2rpx solid #E8EAEC;
 			align-items: center;
 			padding: 20rpx 0;
-			&:last-child{
-				border-bottom: 0;
-			}
+			border-top: 2rpx solid #F2F2F2;
 			.l{
 				display: flex;
 				flex-direction: column;
@@ -74,19 +77,11 @@
 				font-size: 28rpx;
 				color: #333333;
 				font-weight: bold;
-				.add{
-					color: #F1A921;
+				&.add{
+					color: #FFC600;
 				}
 			}
 		}
-	}
-	.copyright{
-		position: absolute;
-		bottom: 40rpx;
-		text-align: center;
-		font-size: 26rpx;
-		color: #999999;
-		width: 100%;
 	}
 }
 </style>

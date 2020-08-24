@@ -30,10 +30,10 @@
   color: #777777;
 }
 .agreement .title {
-    font-size: 24rpx;
-    color: #777777;
-    display: block;
-    margin: 0 auto 20rpx auto;
-    font-weight: bold;
+  font-size: 24rpx;
+  color: #777777;
+  display: block;
+  margin: 0 auto 20rpx auto;
+  font-weight: bold;
 }
 

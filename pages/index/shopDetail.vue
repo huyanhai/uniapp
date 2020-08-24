@@ -8,27 +8,22 @@
  -->
 <template>
 	<view class="shop-detail-content">
-		<view class="top line-color">
+		<menus :title="title"/>
+		<image class="bg-img" :src="shopDetials.headImg"></image>
+		<view class="top">
 			<view class="shop-info">
-				<image class="post" :src="shopDetials.headImg"></image>
 				<view class="info">
 					<view class="name">{{ shopDetials.shopName }}</view>
-					<view class="address">营业时间：{{ `${shopDetials.startTime} - ${shopDetials.endTime}` }}</view>
+					<view class="address">地址：{{ shopDetials.address || '' }}</view>
+					<view class="address" @click="call(shopDetials.phone)">电话：{{ `${shopDetials.phone}` }}</view>
+					<view class="address">营业时间：{{ `${shopDetials.startTime || ''} - ${shopDetials.endTime || ''}` }}</view>
 				</view>
-				<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-calling.png" class="tell" @click="call(shopDetials.phone)"></image>
+				<image class="post" :src="shopDetials.shopImage"></image>
 			</view>
-			<view class="shop-address">地址：{{ shopDetials.address || '' }}</view>
 			<view class="detail">
 				<view class="item">可租借：{{shopDetials.canBorrowQuantity}}</view>
 				<view class="item">可归还：{{shopDetials.returnableQuantity}}</view>
 				<view class="item">距离：{{parseInt(shopDetials.distance || 0)}}米</view>
-			</view>
-		</view>
-		<view class="img-list">
-			<image class="left" :src="shopDetials.shopImage[0]"></image>
-			<view class="right">
-				<image :src="shopDetials.shopImage[1]" class="t" v-if="shopDetials.shopImage[1]"></image>
-				<image :src="shopDetials.shopImage[2]" class="b" v-if="shopDetials.shopImage[2]"></image>
 			</view>
 		</view>
 		<view class="go-map" @click="goMap">去这里</view>
@@ -37,7 +32,7 @@
 
 <script>
 import { get, post } from '../../libs/request.js';
-
+import menus from "../../components/menus.vue";
 export default {
 	data() {
 		return {
@@ -45,7 +40,8 @@ export default {
 			sn: '',
 			shopDetials: {},
 			lon:null,
-			lat:null
+			lat:null,
+			title:null
 		};
 	},
 	onLoad(e) {
@@ -97,6 +93,9 @@ export default {
 				}
 			});
 		}
+	},
+	components:{
+		menus
 	}
 };
 </script>
@@ -106,16 +105,29 @@ export default {
 .shop-detail-content {
 	display: flex;
 	flex-direction: column;
+	.bg-img{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 400rpx;
+	}
 	.top {
+		margin-top: 220rpx;
+		border-top-left-radius: 20rpx;
+		border-top-right-radius: 20rpx;
+		overflow: hidden;
+		position: relative;
+		z-index: 100;
+		background: #FFFFFF;
 		.shop-info {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: 0 30rpx;
+			padding: 50rpx 30rpx 30rpx 30rpx;
 			.post {
-				width: 136rpx;
-				height: 136rpx;
-				border-radius: 136rpx;
+				width: 160rpx;
+				height: 160rpx;
+				border-radius: 10rpx;
 				float: 0 0 auto;
 				display: block;
 			}
@@ -124,19 +136,20 @@ export default {
 				width: 100rpx;
 				margin: 0 30rpx;
 				.name {
-					font-size: 34rpx;
-					color: #ffffff;
+					font-size: 32rpx;
+					color: #333333;
 					margin-bottom: 22rpx;
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: normal;
 				}
 				.address {
-					font-size: 26rpx;
-					color: #ffffff;
+					font-size: 24rpx;
+					color: #999999;
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: normal;
+					line-height: 50rpx;
 				}
 			}
 			.tell {
@@ -156,8 +169,13 @@ export default {
 			display: flex;
 			justify-content: space-between;
 			font-size: 26rpx;
-			color: #ffffff;
+			color: #333333;
 			margin: 0 55rpx 30rpx 55rpx;
+			background: #F2F2F2;
+			border-radius: 10rpx;
+			height: 70rpx;
+			line-height: 70rpx;
+			padding: 0 20rpx;
 		}
 	}
 	.img-list {
@@ -196,9 +214,9 @@ export default {
 		height: 90rpx;
 		line-height: 90rpx;
 		border-radius: 90rpx;
-		background: #22a6f1;
+		background: #303030;
 		font-size: 30rpx;
-		color: #ffffff;
+		color: #FFDD00;
 		margin: 30rpx;
 		text-align: center;
 	}

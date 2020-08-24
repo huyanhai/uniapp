@@ -1,6 +1,6 @@
 <template>
 	<view class="order-loaning">
-		<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/loaning.gif" class="loading"></image>
+		<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/loaning.png" class="loading"></image>
 		<text class="text">正在弹出充电宝，请稍等...</text>
 	</view>
 </template>
@@ -19,39 +19,42 @@
 			let orderNum = res.orderNum;
 			if(orderNum){
 				_this.timer = setInterval(function(){
-					_this.time ++;
-					_this.checkOrder(orderNum);
+					console.log("time",_this.time)
 					if(_this.time >= 20){
 						clearInterval(_this.timer);
 						uni.navigateTo({
 							url: "loanFail"
 						});
+					} else {
+						_this.time ++;
+						_this.checkOrder(orderNum);
 					}
 				}, 3000);
 			}
 		},
+		onHide(){
+			this.time = 0
+			clearInterval(this.timer)
+		},
 		methods: {
 			checkOrder(orderNum){
-				if(this.timer){
-					clearInterval(this.timer);
-				}
+				let _this = this;
 				let status = {
 					"-2":"订单不存在",
 					"-1":"设备未上传",
 					"1":"失败"
 				}
 				get(`/order/status/${orderNum}`).then(res=>{
+					console.log(res.data.cardSlot,res.data.number)
 					if(res.code === 200){
 						if(res.data.status === 0){
 							uni.navigateTo({
-								url: "loanSuccess"
+								url: `loanSuccess?orderNum=${orderNum}&cardSlot=${res.data.cardSlot}&number=${res.data.number}`
 							});
-							clearInterval(_this.timer);
 						} else if(res.data.status === 1) {
 							uni.navigateTo({
 								url: "loanFail"
 							});
-							clearInterval(_this.timer);
 						}
 					}
 				})

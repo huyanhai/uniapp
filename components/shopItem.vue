@@ -13,9 +13,9 @@
       <view class="info" @click="goShopDetails(item.stringId)">
         <view class="name">{{item.shopName}}</view>
         <view class="address">地址：{{item.address || ''}}</view>
-        <view class="time">营业时间：{{`${item.startTime}-${item.endTime}`}}</view>
+        <view class="time">营业时间：{{`${item.startTime || ''}-${item.endTime || ''}`}}</view>
       </view>
-      <view class="go icon-go" @click="goMap"></view>
+	  <text class="dis-num">{{parseInt(item.distance || 0)}}米</text>
     </view>
     <view class="bottom">
       <view class="data-item">
@@ -28,8 +28,10 @@
       </view>
 
       <view class="data-item">
-        距离：
-        <text class="num">{{parseInt(item.distance || 0)}}米</text>
+		  <view class="gos"  @click="goMap">
+			  <view class="go icon-go"></view>
+			  到这去
+		  </view>
       </view>
     </view>
   </view>
@@ -89,11 +91,19 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+	position: relative;
+	.dis-num{
+		position: absolute;
+		top: 0rpx;
+		right: 0rpx;
+		font-size: 22rpx;
+		color: #999999;
+	}
     .post {
       width: 120rpx;
       height: 120rpx;
 	  background: gary;
-      border-radius: 120rpx;
+      border-radius: 10rpx;
       overflow: hidden;
       flex: 0 0 auto;
     }
@@ -125,23 +135,30 @@ export default {
         white-space: nowrap;
       }
     }
-    .go {
-      width: 60rpx;
-      height: 60rpx;
-      background-size: cover;
-    }
   }
   .bottom {
     display: flex;
     justify-content: space-between;
     margin-top: 20rpx;
     .data-item {
-      font-size: 26rpx;
+      font-size: 24rpx;
       color: #666;
       .num {
-        color: #22a6f1;
-        font-size: 26rpx;
+        color: #FFC600;
+        font-size: 24rpx;
       }
+	  .gos{
+		  display: flex;
+		  align-items: center;
+		  font-size: 22rpx;
+		  color: #333333;
+		  .go {
+			width: 21rpx;
+			height: 21rpx;
+			background-size: cover;
+			margin-right: 10rpx;
+		  }
+	  }
     }
   }
 }

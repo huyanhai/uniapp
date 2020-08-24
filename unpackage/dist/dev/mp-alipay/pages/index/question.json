@@ -1,5 +1,7 @@
 {
-  "defaultTitle": "问题或意见",
+  "defaultTitle": "常见问题",
   "titleBarColor": "#FFFFFF",
-  "usingComponents": {}
+  "usingComponents": {
+    "question-item": "/components/questionItem"
+  }
 }

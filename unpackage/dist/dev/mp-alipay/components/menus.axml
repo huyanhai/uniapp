@@ -1,0 +1,1 @@
+<view class="menus" style="{{'margin-top:'+(statusBarHeight+'px')+';'}}"><view data-event-opts="{{[['tap',[['goBack',['$event']]]]]}}" class="back" onTap="__e"><image class="img" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/back.png"></image></view><block a:if="{{title}}"><view class="navbar">{{title}}</view></block></view>

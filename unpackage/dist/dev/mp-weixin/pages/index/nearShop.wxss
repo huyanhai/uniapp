@@ -24,7 +24,8 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-/* $BASE_URL: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-battery.png'; */
+/* $BASE_URL: 'http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Ficon-battery.png';
+ */
 .icon-battery {
   background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-battery.gif")
     no-repeat;
@@ -83,18 +84,50 @@
 .near-shop {
   width: 100vw;
   height: 100vh;
-  background: #F8F8F9;
+  background: #fff;
   padding: 30rpx;
   box-sizing: border-box;
 }
+.near-shop .searchs {
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #F2F2F2;
+  border-radius: 10rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 30rpx;
+  margin-right: 100rpx;
+  position: relative;
+  padding: 0 20rpx;
+}
+.near-shop .searchs .img {
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+.near-shop .searchs .btn {
+  position: absolute;
+  width: 80rpx;
+  height: 60rpx;
+  right: -100rpx;
+  text-align: center;
+  color: #303030;
+  border-radius: 10rpx;
+}
 .near-shop .stores-content {
-    margin-bottom: 30rpx;
+  margin-bottom: 30rpx;
 }
 .near-shop .no-order {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
