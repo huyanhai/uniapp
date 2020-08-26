@@ -261,12 +261,23 @@ var lotusAddress = function lotusAddress() {Promise.all(/*! require.ensure | com
     },
     getCode: function getCode() {
       var _this = this;
-      if (!this.mobile) return false;
-      (0, _request.post)('/user/send/sms/code', {
+      if (!this.mobile) {
+        uni.showToast({
+          title: "手机号码不能为空" });
+
+        return false;
+      };
+      var myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+      if (!myreg.test(this.mobile)) {
+        uni.showToast({
+          title: "手机号码格式错误" });
+
+        return false;
+      }
+      (0, _request.post)('user/send/sms/code', {
         mobile: this.mobile }).
       then(function (res) {
         if (res.code === 200) {
-          console.log(res.data);
           if (res.data) {
             _this.refreshImg();
             _this.msg = true;
@@ -288,7 +299,19 @@ var lotusAddress = function lotusAddress() {Promise.all(/*! require.ensure | com
     },
     // 图文验证码方式下发验证码
     getImgForCode: function getImgForCode() {var _this2 = this;
-      if (!this.mobile || !this.msgCode) return false;
+      if (!this.mobile || !this.msgCode) {
+        uni.showToast({
+          title: "手机号码和验证码不能为空" });
+
+        return false;
+      };
+      var myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+      if (!myreg.test(this.mobile)) {
+        uni.showToast({
+          title: "手机号码格式错误" });
+
+        return false;
+      }
       (0, _request.post)('/user/validate-code', {
         mobile: this.mobile,
         code: this.msgCode }).
@@ -305,8 +328,21 @@ var lotusAddress = function lotusAddress() {Promise.all(/*! require.ensure | com
       });
     },
     next: function next() {var _this3 = this;
-      if (!this.mobile || !this.code) return false;
-      (0, _request.post)('/user/send/sms/code', {
+      if (!this.mobile || !this.code) {
+        uni.showToast({
+          title: "手机号码和验证码不能为空" });
+
+        return false;
+      }
+      console.log(this.mobile);
+      var myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+      if (!myreg.test(this.mobile)) {
+        uni.showToast({
+          title: "手机号码格式错误" });
+
+        return false;
+      }
+      (0, _request.post)('user/sms-code', {
         mobile: this.mobile,
         code: this.code }).
       then(function (res) {

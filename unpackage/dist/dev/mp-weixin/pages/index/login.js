@@ -191,12 +191,15 @@ var _auth = __webpack_require__(/*! ../../libs/auth.js */ 13);function _interopR
 
 
   onLoad: function onLoad(e) {
-    var datas = decodeURIComponent((e || {}).agentid);
-    if (datas && datas !== "undefined") {
-      this.agentId = datas;
-    }
-  },
 
+    var datas = decodeURIComponent((e || {}).q);
+    if (datas && datas !== "undefined") {
+      var code = datas.split('/');
+      this.agentId = code[code.length - 1] || "";
+    }
+
+    uni.clearStorageSync('authCode');
+  },
   methods: {
     onGetAuthorize: function onGetAuthorize() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
 

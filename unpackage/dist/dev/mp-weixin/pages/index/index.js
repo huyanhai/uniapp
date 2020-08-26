@@ -261,8 +261,8 @@ var interstitialAd = null;var _default =
 
 
 
-
   onLoad: function onLoad(e) {
+
     var datas = decodeURIComponent((e || {}).q);
     if (datas && datas !== "undefined") {
       var code = datas.split('/');
@@ -276,10 +276,12 @@ var interstitialAd = null;var _default =
       interstitialAd.onError(function (err) {});
       interstitialAd.onClose(function () {});
     }
+
+    this.checkAuth();
   },
 
   onShow: function onShow() {
-    this.checkAuth();
+
   },
   onHide: function onHide() {
     this.outSn = '';

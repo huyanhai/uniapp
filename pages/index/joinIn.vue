@@ -124,12 +124,23 @@ export default {
 		},
 		getCode(){
 			let _this = this
-			if(!this.mobile) return false;
-			post('/user/send/sms/code',{
+			if(!this.mobile) {
+				uni.showToast({
+					title:"手机号码不能为空"
+				})
+				return false
+			};
+			let myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+			if(!myreg.test(this.mobile)){
+				uni.showToast({
+					title:"手机号码格式错误"
+				})  
+				return false; 
+			}
+			post('user/send/sms/code',{
 				mobile: this.mobile
 			}).then(res => {
 				if (res.code === 200) {
-				console.log(res.data)
 					if(res.data){
 						_this.refreshImg()
 						_this.msg = true
@@ -151,10 +162,22 @@ export default {
 		},
 		// 图文验证码方式下发验证码
 		getImgForCode(){
-			if(!this.mobile || !this.msgCode) return false;
+			if(!this.mobile || !this.msgCode) {
+				uni.showToast({
+					title:"手机号码和验证码不能为空"
+				})
+				return false
+			};
+			let myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+			if(!myreg.test(this.mobile)){
+				uni.showToast({
+					title:"手机号码格式错误"
+				})  
+				return false; 
+			}
 			post('/user/validate-code',{
 				mobile: this.mobile,
-				code:this.msgCode
+				code: this.msgCode
 			}).then(res => {
 				if (res.code === 200) {
 					this.getCode()
@@ -168,10 +191,23 @@ export default {
 			});
 		},
 		next(){
-			if(!this.mobile || !this.code) return false;
-			post('/user/send/sms/code',{
+			if(!this.mobile || !this.code) {
+				uni.showToast({
+					title:"手机号码和验证码不能为空"
+				})
+				return false;
+			}
+			console.log(this.mobile)
+			let myreg = /^[1][2,3,4,5,6,7,8,9][0-9]{9}$/;
+			if(!myreg.test(this.mobile)){
+				uni.showToast({
+					title:"手机号码格式错误"
+				})  
+				return false; 
+			}
+			post('user/sms-code',{
 				mobile: this.mobile,
-				code:this.code
+				code: this.code
 			}).then(res => {
 				if (res.code === 200) {
 					this.step = 2

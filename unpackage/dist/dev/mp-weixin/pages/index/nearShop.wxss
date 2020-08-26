@@ -106,6 +106,10 @@
   position: relative;
   padding: 0 20rpx;
 }
+.near-shop .searchs input {
+  background: none;
+  font-size: 24rpx;
+}
 .near-shop .searchs .img {
   width: 26rpx;
   height: 26rpx;

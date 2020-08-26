@@ -181,14 +181,16 @@ var _auth = __webpack_require__(/*! ../../libs/auth.js */ 13);function _interopR
   },
 
   onLaunch: function onLaunch(options) {
-    if (options.query && options.query.agentid) {
-      var datas = options.query.agentid;
+    if (options.query && options.query.qrCode) {
+      var datas = options.query.qrCode;
       if (datas && datas !== "undefined") {
-        this.agentId = datas;
+        var code = datas.split('/');
+        this.agentId = code[code.length - 1] || "";
       }
     }
   },
 
+  onLoad: function onLoad(e) {
 
 
 
@@ -196,7 +198,8 @@ var _auth = __webpack_require__(/*! ../../libs/auth.js */ 13);function _interopR
 
 
 
-
+    uni.clearStorageSync('authCode');
+  },
   methods: {
     onGetAuthorize: function onGetAuthorize() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
 

@@ -148,16 +148,16 @@
 				display: flex;
 				align-items: center;
 				flex-direction: column;
-				width: 120rpx;
+				width: 140rpx;
 				.post {
-					width: 120rpx;
-					height: 120rpx;
+					width: 140rpx;
+					height: 140rpx;
 					position: relative;
 					margin-bottom: 10rpx;
 					.img {
-						width: 120rpx;
-						height: 120rpx;
-						border-radius: 120rpx;
+						width: 140rpx;
+						height: 140rpx;
+						border-radius: 140rpx;
 					}
 				}
 
@@ -167,7 +167,7 @@
 					align-items: center;
 					justify-content: center;
 					width: 100%;
-					font-size: 34rpx;
+					font-size: 28rpx;
 					color: #FFFFFF;
 					margin-bottom: 10rpx;
 					text-align: center;

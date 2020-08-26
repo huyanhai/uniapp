@@ -145,8 +145,8 @@ export default {
 		}		
 	},
 	// #endif
-	// #ifdef MP-WEIXIN
 	onLoad(e) {
+		// #ifdef MP-WEIXIN
 		let datas = decodeURIComponent((e || {}).q);
 		if(datas && datas !== "undefined"){
 			let code = datas.split('/');
@@ -160,10 +160,12 @@ export default {
 		  interstitialAd.onError((err) => {})
 		  interstitialAd.onClose(() => {})
 		}
-	},
-	// #endif
-	onShow(){
+		// #endif
 		this.checkAuth();
+	},
+	
+	onShow(){
+		
 	},
 	onHide(){
 		this.outSn = '';

@@ -79,10 +79,15 @@ export default {
 			margin-right: 100rpx;
 			position: relative;
 			padding: 0 20rpx;
+			input{
+				background: none;
+				font-size: 24rpx;
+			}
 			.img{
 				width: 26rpx;
 				height: 26rpx;
 				margin-right: 10rpx;
+				
 			}
 			.btn{
 				position: absolute;

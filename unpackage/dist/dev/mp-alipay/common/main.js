@@ -282,6 +282,7 @@ var interstitialAd = null;var _default =
     }
   },
 
+  onLoad: function onLoad(e) {
 
 
 
@@ -297,10 +298,11 @@ var interstitialAd = null;var _default =
 
 
 
-
+    this.checkAuth();
+  },
 
   onShow: function onShow() {
-    this.checkAuth();
+
   },
   onHide: function onHide() {
     this.outSn = '';

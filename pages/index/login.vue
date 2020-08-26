@@ -10,8 +10,8 @@
   <cover-view class="login-sheet" disable-scroll="true">
     <cover-view class="model">
       <cover-view class="box">
-        <cover-view class="title">免押租借来啦</cover-view>
-        <cover-view class="text">支付分550及以上有机会</cover-view>
+        <cover-view class="title">白名单授权</cover-view>
+        <cover-view class="text">每单免费两小时</cover-view>
       </cover-view>
 	  <cover-image class="img-s" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-zjtips.png"></cover-image>
       <!-- #ifdef MP-ALIPAY -->
@@ -23,7 +23,7 @@
           onerror="onAuthError"
           scope="userInfo"
           class="auth-button"
-        >授权免押</button>
+        >授权</button>
       </cover-view>
       <!-- #endif -->
       <!-- #ifdef MP-WEIXIN -->
@@ -33,7 +33,7 @@
         lang="zh_CN"
         @getuserinfo="onGetAuthorize"
         class="auth-button"
-      >授权免押</button>
+      >授权</button>
       <!-- #endif -->
     </cover-view>
   </cover-view>
@@ -49,22 +49,25 @@ export default {
   },
   // #ifdef MP-ALIPAY
   onLaunch(options){
-  	if (options.query && options.query.agentid) {
-  	  let datas = options.query.agentid;
+  	if (options.query && options.query.qrCode) {
+  	  let datas = options.query.qrCode;
   	  if(datas && datas !== "undefined"){
-  	  	this.agentId = datas
+  	  	let code = datas.split('/');
+  	  	this.agentId = code[code.length - 1] || "";
   	  }
-  	}		
+  	}	
   },
   // #endif
-  // #ifdef MP-WEIXIN
   onLoad(e) {
-  	let datas = decodeURIComponent((e || {}).agentid);
-  	if(datas && datas !== "undefined"){
-  		this.agentId = datas
-  	}
-  },
+  // #ifdef MP-WEIXIN
+	let datas = decodeURIComponent((e || {}).q);
+	if(datas && datas !== "undefined"){
+		let code = datas.split('/');
+		this.agentId = code[code.length - 1] || "";
+	}
   // #endif
+	uni.clearStorageSync('authCode')
+  },
   methods: {
     async onGetAuthorize() {
       // 授权成功

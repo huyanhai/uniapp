@@ -48,10 +48,10 @@ export default {
       default: true
     },
 	latitude:{
-		type:Number
+		type:String || Number
 	},
 	longitude:{
-		type:Number
+		type:String || Number
 	}
   },
   methods: {

@@ -10,11 +10,11 @@
 	<view class="order-detail-content">
 		<view class="order-status">
 			<view class="stadus error warning ok">{{orderStatus[item.leaseStatus] || "暂无状态"}}</view>
-			<view class="order-no">{{item.foregiftMoney}}</view>
+			<!-- <view class="order-no">{{item.foregiftMoney}}</view> -->
 		</view>
 		<view class="detail">
 			<view class="list">
-				<view class="title">使用详情</view>
+				<view class="title">订单详情</view>
 				<view class="item">
 					<view class="name">订单号：</view>
 					<view class="info">
@@ -40,11 +40,12 @@
 				<view class="title">使用详情</view>
 				<view class="item">
 					<view class="name">收费标准：</view>
-					<view class="info">{{item.price || 0}}元/小时</view>
+					<view class="info" v-if="item.cycle === 1">{{item.price / 2 || 0}}元/小时</view>
+					<view class="info" v-if="item.cycle === 2">{{item.price || 0}}元/小时</view>
 				</view>
 				<view class="item">
 					<view class="name">租借押金：</view>
-					<view class="info">99元</view>
+					<view class="info">{{item.foregiftStatus === 1 ? "免押" : "99元"}}</view>
 				</view>
 				<view class="item">
 					<view class="name">免费时长：</view>
