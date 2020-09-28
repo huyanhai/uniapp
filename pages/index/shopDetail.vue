@@ -27,6 +27,11 @@
 			</view>
 		</view>
 		<view class="go-map" @click="goMap">去这里</view>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="adContainer">
+			<ad unit-id="adunit-b8c7a5f8556ce3fa"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -219,6 +224,11 @@ export default {
 		color: #FFDD00;
 		margin: 30rpx;
 		text-align: center;
+	}
+	.adContainer{
+		width: 100%;
+		position: fixed;
+		bottom: 0;
 	}
 }
 </style>

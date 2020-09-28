@@ -8,6 +8,7 @@
  -->
 <template>
 	<view class="loan-success-content">
+		<image @click="goJoin" class="zm" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/zj-bj.jpg" mode=""></image>
 		<view class="top-info">
 			<view class="tips">请取出亮灯闪烁的充电宝</view>
 			<view class="cdzt">
@@ -54,7 +55,6 @@
 			if(orderNum) this.orderNum = orderNum
 			if(cardSlot) this.cardSlot = Number(cardSlot)
 			if(number) this.number = Number(number)
-			console.log(e,cardSlot,number)
 			this.countdown()
 			this.getDetails()
 		},
@@ -62,6 +62,11 @@
 			clearInterval(this.timer)
 		},
 		methods:{
+			goJoin(){
+				uni.navigateTo({
+					url:"./joinIn"
+				})
+			},
 			countdown(){
 				let _this = this;
 				this.timer = setInterval(function(){
@@ -106,11 +111,10 @@
 	  }
 	}
 	.loan-success-content{
-		height: 100vh;
-		position: relative;
-		background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/zj-bj.png") no-repeat top center;
-		background-size:750rpx 490rpx;
-		overflow: hidden;
+		.zm{
+			width: 750rpx;
+			height: 400rpx;
+		}
 		.top-info{
 			display: flex;
 			align-items: center;

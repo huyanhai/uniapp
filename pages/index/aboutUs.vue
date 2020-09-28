@@ -5,7 +5,7 @@
 			<text class="text">起电宝V1.2.0</text>
 		</view>
 		<text class="copyright">
-			<text class="text">服务协议</text>|<text class="text">隐私申明</text> \n
+			<!-- <text class="text">服务协议</text>|<text class="text">隐私申明</text> \n -->
 			版权所有 2011-2020 重庆淘电科技有限公司
 		</text>
 	</view>

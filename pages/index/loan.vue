@@ -92,14 +92,6 @@
 				let formId = e.detail.formId || "";
 				// #endif
 				if (this.checked.length > 0) {
-					// if (this.orders && this.orders.length > 0) {
-					// 	return uni.showToast({
-					// 		title: "存在租借中的订单",
-					// 		icon: "none"
-					// 	})
-					// } else {
-						
-					// }
 					// #ifdef MP-WEIXIN
 					this.getWechart(sn);
 					// #endif
@@ -263,11 +255,21 @@
 					sn: sn
 				}).then(res => {
 					if(!res.data){
-						return uni.redirectTo({
-							url:"index"
+						let time = null
+						if(time) clearTimeout(time);
+						time = setTimeout(function(){
+							return uni.redirectTo({
+								url:"index"
+							})
+						},2000)
+						uni.showToast({
+							icon:"none",
+							title:res.msg
 						})
+					} else {
+						this.tips = res.data;
 					}
-					this.tips = res.data;
+					
 				})
 			}
 		}

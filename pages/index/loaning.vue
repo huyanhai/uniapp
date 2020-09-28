@@ -45,7 +45,6 @@
 					"1":"失败"
 				}
 				get(`/order/status/${orderNum}`).then(res=>{
-					console.log(res.data.cardSlot,res.data.number)
 					if(res.code === 200){
 						if(res.data.status === 0){
 							uni.navigateTo({

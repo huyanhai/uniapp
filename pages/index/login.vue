@@ -51,24 +51,40 @@ export default {
   onLaunch(options){
   	if (options.query && options.query.qrCode) {
   	  let datas = options.query.qrCode;
-  	  if(datas && datas !== "undefined"){
-  	  	let code = datas.split('/');
-  	  	this.agentId = code[code.length - 1] || "";
-  	  }
-  	}	
+  	  this.agentId = this.getId(datas,'id')
+  	  uni.clearStorageSync('authCode')
+  	}		
+	uni.showModal({
+		content: "onLaunch"+JSON.stringify(options)
+	})
   },
   // #endif
-  onLoad(e) {
   // #ifdef MP-WEIXIN
-	let datas = decodeURIComponent((e || {}).q);
-	if(datas && datas !== "undefined"){
-		let code = datas.split('/');
-		this.agentId = code[code.length - 1] || "";
-	}
-  // #endif
-	uni.clearStorageSync('authCode')
+  onLoad(options) {
+  	  let datas = decodeURIComponent(options.q);
+  	  this.agentId = this.getId(datas,'id')
+  	  uni.clearStorageSync('authCode')
   },
+  // #endif
+  // #ifdef MP-ALIPAY
+  onLoad(options) {
+  	  let datas = decodeURIComponent(options.q);
+  	  this.agentId = this.getId(datas,'id')
+  	  uni.clearStorageSync('authCode')
+	  uni.showModal({
+	  	content:"onLoad"+JSON.stringify(options)
+	  })
+  },
+  // #endif
   methods: {
+	  getId(url,name){
+		  var reg = new RegExp("[^\?&]?" + encodeURI(name) + "=[^&]+");
+		  var arr = url.match(reg);
+		  if (arr != null) {
+			return decodeURI(arr[0].substring(arr[0].search("=") + 1));
+		  }
+		  return "";
+	  },
     async onGetAuthorize() {
       // 授权成功
 	  let data = await userLogin(this.agentId);

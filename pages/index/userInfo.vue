@@ -72,10 +72,10 @@
 					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-zb.png" class="label"></image>
 					<text class="name">交易明细</text>
 				</view>
-				<view class="item" @click="goPage('aboutUs')">
+				<!-- <view class="item" @click="goPage('web')">
 					<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini%2Fuser-d.png" class="label"></image>
 					<text class="name">代理商</text>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>
@@ -83,7 +83,7 @@
 
 <script>
 	import { get,post } from "../../libs/request.js"
-	
+	let interstitialAd = null;
 	export default {
 		data(){
 			return {
@@ -94,6 +94,25 @@
 		},
 		onLoad(){
 			this.checkAuth();
+			if (wx.createInterstitialAd) {
+			  interstitialAd = wx.createInterstitialAd({
+			    adUnitId: 'adunit-5599b42df986bca2'
+			  })
+			  
+			  console.log("",interstitialAd)
+			  interstitialAd.onLoad(() => {
+				  console.log("广告加载成功")
+			  })
+			  interstitialAd.onError((err) => {
+				  console.log("广告加载失败")
+			  })
+			  interstitialAd.onClose(() => {
+				  console.log("广告加载关闭")
+			  })
+			  interstitialAd.show().catch((err) => {
+				  console.error(err)
+				})
+			}
 		},
 		methods:{
 			async checkAuth() {

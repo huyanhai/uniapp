@@ -1,5 +1,6 @@
 <template>
 	<view class="joinin-content">
+		<image class="joinin-img" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/join_bg.png"></image>
 		<template v-if="step === 1">
 			<view class="form">
 				<view class="item">
@@ -32,6 +33,11 @@
 				<view class="submit" @click="joinUs">提交</view>
 			</view>
 		</template>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="adContainer">
+			<ad unit-id="adunit-b8c7a5f8556ce3fa"></ad>
+		</view>
+		<!-- #endif -->
 		<lotus-address v-on:choseVal="choseValue" :lotusAddressData="lotusAddressData"></lotus-address>
 		<view class="layer" v-if="msg">
 			<view class="box">
@@ -101,6 +107,7 @@ export default {
 					title:"信息不完善"
 				})
 			}
+			this.joinData.phone = this.mobile
 			post('/user/joinus', this.joinData).then(res => {
 				if (res.code === 200) {
 					uni.showToast({
@@ -245,6 +252,10 @@ export default {
 <style lang="scss">
 @import url('../../assets/scss/icon.scss');
 .joinin-content {
+	.joinin-img{
+		width: 750rpx;
+		height: 438rpx;
+	}
 	.form {
 		box-sizing: border-box;
 		padding: 30rpx;
@@ -348,6 +359,11 @@ export default {
 				margin-top: 40rpx;
 			}
 		}
+	}
+	.adContainer{
+		width: 100%;
+		position: fixed;
+		bottom: 0;
 	}
 }
 </style>

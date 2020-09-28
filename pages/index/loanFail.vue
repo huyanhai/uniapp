@@ -9,8 +9,8 @@
 <template>
 	<view class="loan-success-content">
 		<image class="studus-img" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/icon-zjsuccess.png"></image>
-		<text class="tips">充电宝弹出失败</text>
-		<text class="info">如使用上有疑问，请联系客服</text>
+		<text class="tips">充电宝故障，弹出失败</text>
+		<text class="info">请重新扫码</text>
 		<view class="back-home" @click="goHome">返回首页</view>
 		<view class="call" @click="call">联系客服</view>
 	</view>

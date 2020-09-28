@@ -65,6 +65,11 @@
 				</view>
 			</view>
 		</view>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="adContainer">
+			<ad unit-id="adunit-b8c7a5f8556ce3fa"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -180,6 +185,12 @@
 					}
 				}
 			}
+		}
+		.adContainer{
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			left: 0
 		}
 	}
 </style>

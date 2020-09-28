@@ -156,16 +156,41 @@ export default {
 		  interstitialAd = wx.createInterstitialAd({
 		    adUnitId: 'adunit-5599b42df986bca2'
 		  })
-		  interstitialAd.onLoad(() => {})
-		  interstitialAd.onError((err) => {})
-		  interstitialAd.onClose(() => {})
+		  
+		  console.log("",interstitialAd)
+		  interstitialAd.onLoad(() => {
+			  console.log("广告加载成功")
+		  })
+		  interstitialAd.onError((err) => {
+			  console.log("广告加载失败")
+		  })
+		  interstitialAd.onClose(() => {
+			  console.log("广告加载关闭")
+		  })
+		  interstitialAd.show().catch((err) => {
+			  console.error(err)
+			})
 		}
 		// #endif
-		this.checkAuth();
-	},
-	
-	onShow(){
 		
+	},
+	async onShow(){
+		let client = 0;
+		// #ifdef MP-ALIPAY
+		client = 2
+		// #endif
+		// #ifdef MP-WEIXIN
+		client = 1
+		// #endif
+		if(this.outSn){
+			this.checkDevice({
+				client:client,
+				driverId: this.outSn
+			})
+		} else {
+			this.checkAuth();
+			this.addressInfo = await getLocation();
+		}
 	},
 	onHide(){
 		this.outSn = '';
@@ -196,6 +221,22 @@ export default {
 				});
 			}
 			
+		},
+		async checkDevice(data){
+			let _this = this
+			let datas = await post("driver/portal/certification",data).then(res=>{
+				if (res.code === 200 && !res.hasNext) {
+					uni.redirectTo({
+						url:"forAlipay"
+					})
+				} else {
+					return true
+				}
+			})
+			if(datas){
+				_this.checkAuth();
+				_this.addressInfo = await getLocation();
+			}
 		},
 		async checkAddress() {
 			let that = this;
@@ -281,8 +322,8 @@ export default {
 				let content = uni.createMapContext('map', this);
 				content.getCenterLocation({
 					success(res) {
-						that.addressInfo['latitude'] = res['latitude'];
-						that.addressInfo['longitude'] = res['longitude'];
+						that.addressInfo['latitude'] = (res || {}).latitude;
+						that.addressInfo['longitude'] =(res || {}).longitude;
 						that.getNearDevice({
 							lat: that.addressInfo['latitude'],
 							lng: that.addressInfo['longitude'],
@@ -406,7 +447,7 @@ export default {
 		  if(data){
 			this.authCode = data
 			let user = await this.getUserInfo()
-			let can = await this.canGet()
+			// let can = await this.canGet() || {}
 			let order = await this.getUserOrder({leaseStatus: 2})
 			if(type === 'code' && can.can){
 				_this.scanCode()
