@@ -18,9 +18,6 @@ export function get(url,data) {
 						icon:"none"
 					})
 					uni.clearStorageSync();
-					// uni.redirectTo({
-					// 	url:"index"
-					// })
 				}
 				if(res.data.code !== 200) {
 					uni.showToast({
@@ -64,9 +61,6 @@ export function post(url,data) {
 						icon:"none"
 					})
 					uni.clearStorageSync();
-					// uni.redirectTo({
-					// 	url:"index"
-					// })
 				}
 				if(res.data.code !== 200) {
 					uni.showToast({

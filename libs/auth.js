@@ -14,6 +14,7 @@ export function getOauthName() {
 // 用户登录
 export function userLogin(agentId) {
     let name = getOauthName();
+	uni.showLoading()
     return new Promise((resolve, reject) => {
         uni.login({
             provider: name,
@@ -74,7 +75,10 @@ export function userLogin(agentId) {
             },
             fail(err) {
                 reject(err);
-            }
+            },
+			complete() {
+				uni.hideLoading()
+			}
         });
     })
 }
@@ -89,11 +93,11 @@ export function getLocation() {
 				console.log("this.addressInfo1",res)
                 resolve(res);
             },
-            fail(e) {
+            fail(err) {
                 uni.showToast({
 					title:'获取定位失败'
 				});
-                reject(err);
+				reject(err)
             }
         });
     })
@@ -106,9 +110,9 @@ export function getSetting() {
             success: function(res) {
                 let data = res.authSetting;
             },
-            fail(e) {
-                uni.showToast('获取定位失败');
-                reject(err);
+            fail(err) {
+                uni.showToast('获取配置信息失败');
+				reject(err)
             }
         });
     })

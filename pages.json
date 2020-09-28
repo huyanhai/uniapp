@@ -171,6 +171,20 @@
 				"navigationBarBackgroundColor": "#FFFFFF",
 				"backgroundColor": "#F8F8F9"
 			}
+        },
+		{
+			"path": "pages/index/web",
+			"style": {
+				"navigationBarTitleText": "起电宝",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
+		},
+		{
+            "path" : "pages/index/forAlipay",
+            "style" : {
+				"navigationBarTitleText": "起电宝",
+				"navigationBarBackgroundColor": "#FFFFFF"
+			}
         }
     ],
 	"permission": {
