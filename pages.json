@@ -178,8 +178,8 @@
 				"navigationBarTitleText": "起电宝",
 				"navigationBarBackgroundColor": "#FFFFFF"
 			}
-		},
-		{
+		}
+		,{
             "path" : "pages/index/forAlipay",
             "style" : {
 				"navigationBarTitleText": "起电宝",

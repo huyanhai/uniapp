@@ -114,6 +114,8 @@
 		.zm{
 			width: 750rpx;
 			height: 400rpx;
+			display: block;
+			background-size:cover;
 		}
 		.top-info{
 			display: flex;

@@ -226,9 +226,11 @@ export default {
 			let _this = this
 			let datas = await post("driver/portal/certification",data).then(res=>{
 				if (res.code === 200 && !res.hasNext) {
-					uni.redirectTo({
-						url:"forAlipay"
-					})
+					setTimeout(function(){
+						uni.redirectTo({
+							url:"forAlipay"
+						})
+					},3000)
 				} else {
 					return true
 				}

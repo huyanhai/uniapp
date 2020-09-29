@@ -1,7 +1,12 @@
 <template>
 	<view class="for-alipay">
 		<view class="tips">
+			<!-- #ifdef MP-ALIPAY -->
+			<view class="big">此设备仅微信平台使用</view>
+			<!-- #endif -->
+			<!-- #ifdef MP-WEIXIN -->
 			<view class="big">此设备仅支付宝平台使用</view>
+			<!-- #endif -->
 			<text class="small">请打开支付宝App扫码租借</text>
 		</view>
 		<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/foralipay.png" mode="" class="img"></image>
@@ -33,6 +38,8 @@
 		width: 453rpx;
 		height: 401rpx;
 		margin: 0 auto;
+		display: block;
+		background-size:cover;
 	}
 	.tips{
 		margin-top: 200rpx;
