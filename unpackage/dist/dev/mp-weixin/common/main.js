@@ -1,8 +1,8 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/main"],[
 /* 0 */
-/*!****************************!*\
-  !*** G:/外包/uniapp/main.js ***!
-  \****************************/
+/*!*************************!*\
+  !*** G:/外包/充电宝/main.js ***!
+  \*************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26,9 +26,9 @@ createApp(app).$mount();
 /* 3 */,
 /* 4 */,
 /* 5 */
-/*!******************************************!*\
-  !*** G:/外包/uniapp/pages/index/index.vue ***!
-  \******************************************/
+/*!***************************************!*\
+  !*** G:/外包/充电宝/pages/index/index.vue ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -66,9 +66,9 @@ component.options.__file = "pages/index/index.vue"
 
 /***/ }),
 /* 6 */
-/*!*************************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/index.vue?vue&type=template&id=57280228& ***!
-  \*************************************************************************/
+/*!**********************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/index.vue?vue&type=template&id=57280228& ***!
+  \**********************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -87,9 +87,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 7 */
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/index.vue?vue&type=template&id=57280228& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/index.vue?vue&type=template&id=57280228& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -113,9 +113,9 @@ render._withStripped = true
 
 /***/ }),
 /* 8 */
-/*!*******************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/index.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************/
+/*!****************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/index.vue?vue&type=script&lang=js& ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -128,9 +128,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 9 */
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/index.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/index.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -250,7 +250,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _auth = __webpack_require__(/*! ../../libs/auth.js */ 13);
 var _utils = __webpack_require__(/*! ../../libs/utils */ 16);
-var _request = __webpack_require__(/*! ../../libs/request.js */ 14);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var shopItem = function shopItem() {__webpack_require__.e(/*! require.ensure | components/shopItem */ "components/shopItem").then((function () {return resolve(__webpack_require__(/*! ../../components/shopItem */ 205));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var _request = __webpack_require__(/*! ../../libs/request.js */ 14);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var shopItem = function shopItem() {__webpack_require__.e(/*! require.ensure | components/shopItem */ "components/shopItem").then((function () {return resolve(__webpack_require__(/*! ../../components/shopItem */ 219));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 var interstitialAd = null;var _default =
 {
@@ -258,7 +258,7 @@ var interstitialAd = null;var _default =
     return {
       markers: [],
       authCode: null,
-      addressInfo: null,
+      addressInfo: {},
       userInfo: null,
       shopItemData: {},
       showShopItem: false,
@@ -293,15 +293,40 @@ var interstitialAd = null;var _default =
       interstitialAd = wx.createInterstitialAd({
         adUnitId: 'adunit-5599b42df986bca2' });
 
-      interstitialAd.onLoad(function () {});
-      interstitialAd.onError(function (err) {});
-      interstitialAd.onClose(function () {});
+
+      console.log("", interstitialAd);
+      interstitialAd.onLoad(function () {
+        console.log("广告加载成功");
+      });
+      interstitialAd.onError(function (err) {
+        console.log("广告加载失败");
+      });
+      interstitialAd.onClose(function () {
+        console.log("广告加载关闭");
+      });
+      interstitialAd.show().catch(function (err) {
+        console.error(err);
+      });
     }
 
-    this.checkAuth();
-  },
 
-  onShow: function onShow() {
+  },
+  onShow: function onShow() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var client;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              client = 0;
+
+
+
+
+              client = 1;if (!
+
+              _this2.outSn) {_context.next = 6;break;}
+              _this2.checkDevice({
+                client: client,
+                driverId: _this2.outSn });_context.next = 10;break;case 6:
+
+
+              _this2.checkAuth();_context.next = 9;return (
+                (0, _auth.getLocation)());case 9:_this2.addressInfo = _context.sent;case 10:case "end":return _context.stop();}}}, _callee);}))();
 
   },
   onHide: function onHide() {
@@ -334,25 +359,43 @@ var interstitialAd = null;var _default =
       }
 
     },
-    checkAddress: function checkAddress() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var that;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                that = _this2;_context.next = 3;return (
-                  (0, _auth.getLocation)());case 3:that.addressInfo = _context.sent;
+    checkDevice: function checkDevice(data) {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _this, datas;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                _this = _this3;_context2.next = 3;return (
+                  (0, _request.post)("driver/portal/certification", data).then(function (res) {
+                    if (res.code === 200 && !res.hasNext) {
+                      setTimeout(function () {
+                        uni.redirectTo({
+                          url: "forAlipay" });
+
+                      }, 3000);
+                    } else {
+                      return true;
+                    }
+                  }));case 3:datas = _context2.sent;if (!
+                datas) {_context2.next = 9;break;}
+                _this.checkAuth();_context2.next = 8;return (
+                  (0, _auth.getLocation)());case 8:_this.addressInfo = _context2.sent;case 9:case "end":return _context2.stop();}}}, _callee2);}))();
+
+    },
+    checkAddress: function checkAddress() {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var that;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                that = _this4;_context3.next = 3;return (
+                  (0, _auth.getLocation)());case 3:that.addressInfo = _context3.sent;
                 if (that.addressInfo) {
                   that.getNearDevice({
                     lat: that.addressInfo['latitude'],
                     lng: that.addressInfo['longitude'],
                     range: 2000 });
 
-                }case 5:case "end":return _context.stop();}}}, _callee);}))();
+                }case 5:case "end":return _context3.stop();}}}, _callee3);}))();
     },
-    getUserInfo: function getUserInfo() {var _this3 = this;
+    getUserInfo: function getUserInfo() {var _this5 = this;
       return (0, _request.get)('/login/info').then(function (res) {
         if (res.code === 200) {
-          return _this3.userInfo = res.data;
+          return _this5.userInfo = res.data;
         }
       });
     },
-    makertap: function makertap(e) {var _this4 = this;
+    makertap: function makertap(e) {var _this6 = this;
       console.log(e);
       var id = e.markerId;
       (0, _request.post)('shop/detail', {
@@ -362,8 +405,8 @@ var interstitialAd = null;var _default =
       then(function (res) {
         if (res.code === 200) {
           var data = res.data;
-          _this4.shopItemData = data;
-          _this4.showShopItem = true;
+          _this6.shopItemData = data;
+          _this6.showShopItem = true;
         } else {
           uni.showToast({
             title: res.msg,
@@ -383,28 +426,40 @@ var interstitialAd = null;var _default =
         phoneNumber: "17783847895" //仅为示例
       });
     },
-    scanCode: function scanCode() {var _this5 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var data, no, code, sn;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (
-                _this5.can) {_context2.next = 3;break;}
+    scanCode: function scanCode() {var _this7 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var data, no, sn, code, parmes, parme;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:if (
+                _this7.can) {_context4.next = 3;break;}
                 uni.showToast({
-                  title: _this5.can.msg,
-                  icon: 'none' });return _context2.abrupt("return",
+                  title: _this7.can.msg,
+                  icon: 'none' });return _context4.abrupt("return",
 
-                false);case 3:_context2.next = 5;return (
+                false);case 3:_context4.next = 5;return (
 
-                  (0, _utils.scan)());case 5:data = _context2.sent;if (!
+                  (0, _utils.scan)());case 5:data = _context4.sent;if (!
 
-                data.result) {_context2.next = 13;break;}
+                data.result) {_context4.next = 20;break;}
                 // 扫码成功后跳转
-                no = data.result;
+                no = data.result;if (!(
+
+                no && no !== "undefined" && no.indexOf("?") < 0)) {_context4.next = 13;break;}
                 code = no.split('/');
-                sn = code[code.length - 1];if (
-                sn) {_context2.next = 12;break;}return _context2.abrupt("return",
+                sn = code[code.length - 1];_context4.next = 17;break;case 13:
+
+                parmes = no.split("?")[1];if (
+                parmes) {_context4.next = 16;break;}return _context4.abrupt("return");case 16:
+                parme = parmes.split("&").forEach(function (item) {
+                  var str = item.split("=");
+                  if (str[0] === "cabid") {
+                    sn = str[1];
+                  }
+                });case 17:if (
+
+                sn) {_context4.next = 19;break;}return _context4.abrupt("return",
                 uni.showToast({
                   title: '二维码格式错误',
-                  icon: 'none' }));case 12:
+                  icon: 'none' }));case 19:
 
                 uni.navigateTo({
-                  url: 'loan?sn=' + sn });case 13:case "end":return _context2.stop();}}}, _callee2);}))();
+                  url: 'loan?sn=' + sn });case 20:case "end":return _context4.stop();}}}, _callee4);}))();
 
 
     },
@@ -418,8 +473,8 @@ var interstitialAd = null;var _default =
         var content = uni.createMapContext('map', this);
         content.getCenterLocation({
           success: function success(res) {
-            that.addressInfo['latitude'] = res['latitude'];
-            that.addressInfo['longitude'] = res['longitude'];
+            that.addressInfo['latitude'] = (res || {}).latitude;
+            that.addressInfo['longitude'] = (res || {}).longitude;
             that.getNearDevice({
               lat: that.addressInfo['latitude'],
               lng: that.addressInfo['longitude'],
@@ -488,29 +543,29 @@ var interstitialAd = null;var _default =
         }
       });
     },
-    getUserOrder: function getUserOrder(data) {var _this6 = this;
+    getUserOrder: function getUserOrder(data) {var _this8 = this;
       // 获取用户订单
       return (0, _request.post)('order/list', data).then(function (res) {
         if (res.code === 200) {
-          _this6.orders = res.data;
+          _this8.orders = res.data;
           return res.data;
         }
       });
     },
     // 是否可以租借
-    canGet: function canGet() {var _this7 = this;
+    canGet: function canGet() {var _this9 = this;
       return (0, _request.post)('order/qualification').then(function (res) {
         if (res.code === 200) {
-          _this7.can = {
+          _this9.can = {
             can: res.data,
             msg: res.msg };
 
-          if (_this7.outSn && res.data) {
+          if (_this9.outSn && res.data) {
             uni.navigateTo({
-              url: 'loan?sn=' + _this7.outSn });
+              url: 'loan?sn=' + _this9.outSn });
 
           }
-          return _this7.can;
+          return _this9.can;
         }
       });
     },
@@ -536,15 +591,15 @@ var interstitialAd = null;var _default =
 
     },
     // 授权操作
-    onGetAuthorize: function onGetAuthorize(type) {var _this8 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this, data, user, can, order;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+    onGetAuthorize: function onGetAuthorize(type) {var _this10 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {var _this, data, user, order;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
                 // 授权成功
-                _this = _this8;_context3.next = 3;return (
-                  (0, _auth.userLogin)());case 3:data = _context3.sent;if (!
-                data) {_context3.next = 17;break;}
-                _this8.authCode = data;_context3.next = 8;return (
-                  _this8.getUserInfo());case 8:user = _context3.sent;_context3.next = 11;return (
-                  _this8.canGet());case 11:can = _context3.sent;_context3.next = 14;return (
-                  _this8.getUserOrder({ leaseStatus: 2 }));case 14:order = _context3.sent;
+                _this = _this10;_context5.next = 3;return (
+                  (0, _auth.userLogin)());case 3:data = _context5.sent;if (!
+                data) {_context5.next = 14;break;}
+                _this10.authCode = data;_context5.next = 8;return (
+                  _this10.getUserInfo());case 8:user = _context5.sent;_context5.next = 11;return (
+
+                  _this10.getUserOrder({ leaseStatus: 2 }));case 11:order = _context5.sent;
                 if (type === 'code' && can.can) {
                   _this.scanCode();
                 }
@@ -552,7 +607,7 @@ var interstitialAd = null;var _default =
                   uni.navigateTo({
                     url: "userInfo" });
 
-                }case 17:case "end":return _context3.stop();}}}, _callee3);}))();
+                }case 14:case "end":return _context5.stop();}}}, _callee5);}))();
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
@@ -566,9 +621,9 @@ var interstitialAd = null;var _default =
 /* 15 */,
 /* 16 */,
 /* 17 */
-/*!****************************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/index.vue?vue&type=style&index=0&lang=scss& ***!
-  \****************************************************************************/
+/*!*************************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/index.vue?vue&type=style&index=0&lang=scss& ***!
+  \*************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -581,9 +636,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 18 */
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/index.vue?vue&type=style&index=0&lang=scss& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/index.vue?vue&type=style&index=0&lang=scss& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

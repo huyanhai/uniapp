@@ -23,7 +23,9 @@
     "pages/index/joinIn",
     "pages/index/rechargeCz",
     "pages/index/loanSuccess",
-    "pages/index/feedback"
+    "pages/index/feedback",
+    "pages/index/web",
+    "pages/index/forAlipay"
   ],
   "subPackages": [],
   "window": {
@@ -37,6 +39,5 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap20.json"
+  "usingComponents": {}
 }

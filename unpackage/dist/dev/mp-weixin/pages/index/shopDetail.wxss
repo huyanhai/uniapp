@@ -234,4 +234,9 @@
   margin: 30rpx;
   text-align: center;
 }
+.shop-detail-content .adContainer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
 

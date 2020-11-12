@@ -2391,9 +2391,9 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 13:
-/*!*********************************!*\
-  !*** G:/外包/uniapp/libs/auth.js ***!
-  \*********************************/
+/*!******************************!*\
+  !*** G:/外包/充电宝/libs/auth.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2414,6 +2414,7 @@ function getOauthName() {
 // 用户登录
 function userLogin(agentId) {
   var name = getOauthName();
+  uni.showLoading();
   return new Promise(function (resolve, reject) {
     uni.login({
       provider: name,
@@ -2474,6 +2475,9 @@ function userLogin(agentId) {
       },
       fail: function fail(err) {
         reject(err);
+      },
+      complete: function complete() {
+        uni.hideLoading();
       } });
 
   });
@@ -2489,7 +2493,7 @@ function getLocation() {
         console.log("this.addressInfo1", res);
         resolve(res);
       },
-      fail: function fail(e) {
+      fail: function fail(err) {
         uni.showToast({
           title: '获取定位失败' });
 
@@ -2506,8 +2510,8 @@ function getSetting() {
       success: function success(res) {
         var data = res.authSetting;
       },
-      fail: function fail(e) {
-        uni.showToast('获取定位失败');
+      fail: function fail(err) {
+        uni.showToast('获取配置信息失败');
         reject(err);
       } });
 
@@ -2518,9 +2522,9 @@ function getSetting() {
 /***/ }),
 
 /***/ 14:
-/*!************************************!*\
-  !*** G:/外包/uniapp/libs/request.js ***!
-  \************************************/
+/*!*********************************!*\
+  !*** G:/外包/充电宝/libs/request.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2545,9 +2549,6 @@ function get(url, data) {
             icon: "none" });
 
           uni.clearStorageSync();
-          // uni.redirectTo({
-          // 	url:"index"
-          // })
         }
         if (res.data.code !== 200) {
           uni.showToast({
@@ -2591,9 +2592,6 @@ function post(url, data) {
             icon: "none" });
 
           uni.clearStorageSync();
-          // uni.redirectTo({
-          // 	url:"index"
-          // })
         }
         if (res.data.code !== 200) {
           uni.showToast({
@@ -2621,24 +2619,25 @@ function post(url, data) {
 /***/ }),
 
 /***/ 15:
-/*!************************************!*\
-  !*** G:/外包/uniapp/config/index.js ***!
-  \************************************/
+/*!*********************************!*\
+  !*** G:/外包/充电宝/config/index.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.TIMEOUT = exports.BASE_URL = void 0;var BASE_URL = "https://user.1in100.cn/"; //请求地址
 // export const BASE_URL = "http://112.74.109.251:7000/";
-exports.BASE_URL = BASE_URL;var TIMEOUT = 30000; // ms
+exports.BASE_URL = BASE_URL;
+var TIMEOUT = 30000; // ms
 exports.TIMEOUT = TIMEOUT;
 
 /***/ }),
 
 /***/ 16:
-/*!**********************************!*\
-  !*** G:/外包/uniapp/libs/utils.js ***!
-  \**********************************/
+/*!*******************************!*\
+  !*** G:/外包/充电宝/libs/utils.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8849,10 +8848,10 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 238:
-/*!********************************************************************************!*\
-  !*** G:/外包/uniapp/components/Winglau14-lotusAddress/Winglau14-lotusAddress.js ***!
-  \********************************************************************************/
+/***/ 252:
+/*!*****************************************************************************!*\
+  !*** G:/外包/充电宝/components/Winglau14-lotusAddress/Winglau14-lotusAddress.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8893,9 +8892,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
-/*!*******************************!*\
-  !*** G:/外包/uniapp/pages.json ***!
-  \*******************************/
+/*!****************************!*\
+  !*** G:/外包/充电宝/pages.json ***!
+  \****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

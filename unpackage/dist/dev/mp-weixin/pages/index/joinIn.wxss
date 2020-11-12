@@ -81,6 +81,10 @@
 	background: linear-gradient(bottom, #1EA1F0, #22A6F1);
 	background: -webkit-gradient(linear, top, bottom, from(#1EA1F0), to(#22A6F1));
 }
+.joinin-content .joinin-img {
+  width: 750rpx;
+  height: 438rpx;
+}
 .joinin-content .form {
   box-sizing: border-box;
   padding: 30rpx;
@@ -191,5 +195,10 @@
   text-align: center;
   line-height: 90rpx;
   margin-top: 40rpx;
+}
+.joinin-content .adContainer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 

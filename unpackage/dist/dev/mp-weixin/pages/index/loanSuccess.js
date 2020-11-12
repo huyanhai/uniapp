@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/loanSuccess"],{
 
 /***/ 189:
-/*!*******************************************************************!*\
-  !*** G:/外包/uniapp/main.js?{"page":"pages%2Findex%2FloanSuccess"} ***!
-  \*******************************************************************/
+/*!****************************************************************!*\
+  !*** G:/外包/充电宝/main.js?{"page":"pages%2Findex%2FloanSuccess"} ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_loanSuccess.default);
 /***/ }),
 
 /***/ 190:
-/*!************************************************!*\
-  !*** G:/外包/uniapp/pages/index/loanSuccess.vue ***!
-  \************************************************/
+/*!*********************************************!*\
+  !*** G:/外包/充电宝/pages/index/loanSuccess.vue ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/index/loanSuccess.vue"
 /***/ }),
 
 /***/ 191:
-/*!*******************************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/loanSuccess.vue?vue&type=template&id=292ccde6& ***!
-  \*******************************************************************************/
+/*!****************************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/loanSuccess.vue?vue&type=template&id=292ccde6& ***!
+  \****************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 192:
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/loanSuccess.vue?vue&type=template&id=292ccde6& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/loanSuccess.vue?vue&type=template&id=292ccde6& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -107,9 +107,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 193:
-/*!*************************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/loanSuccess.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
+/*!**********************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/loanSuccess.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -123,14 +123,27 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 194:
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/loanSuccess.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/loanSuccess.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -207,7 +220,25 @@ var _request = __webpack_require__(/*! ../../libs/request.js */ 14); //
 //
 //
 //
-var _default = { data: function data() {return { orderNum: null, number: null, cardSlot: null, timer: null, time: 60, tips: {} };}, onLoad: function onLoad(e) {var orderNum = e.orderNum,cardSlot = e.cardSlot,number = e.number;if (orderNum) this.orderNum = orderNum;if (cardSlot) this.cardSlot = Number(cardSlot);if (number) this.number = Number(number);console.log(e, cardSlot, number);this.countdown();this.getDetails();}, onHide: function onHide() {clearInterval(this.timer);}, methods: { countdown: function countdown() {var _this = this;this.timer = setInterval(function () {if (_this.time > 0) {_this.time--;} else {clearInterval(_this.timer);}}, 1000);}, goUse: function goUse() {uni.navigateTo({ url: "use" });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { orderNum: null, number: null, cardSlot: null, timer: null, time: 60, tips: {}, autoplay: true, indicatorDots: true, interval: 5000, duration: 500 };}, onLoad: function onLoad(e) {var orderNum = e.orderNum,cardSlot = e.cardSlot,number = e.number;if (orderNum) this.orderNum = orderNum;if (cardSlot) this.cardSlot = Number(cardSlot);if (number) this.number = Number(number);this.countdown();this.getDetails();}, onHide: function onHide() {clearInterval(this.timer);}, methods: { goJoin: function goJoin() {uni.navigateTo({ url: "./joinIn" });}, goOther: function goOther() {wx.navigateToMiniProgram({ appId: 'wx8103eb1b1bd87bae', path: '', envVersion: 'release', success: function success(res) {console.log("跳转成功");} });}, countdown: function countdown() {var _this = this;this.timer = setInterval(function () {if (_this.time > 0) {_this.time--;} else {clearInterval(_this.timer);}}, 1000);
+    },
+    goUse: function goUse() {
+      uni.navigateTo({
+        url: "use" });
+
     },
     goHome: function goHome() {
       uni.reLaunch({
@@ -226,9 +257,9 @@ var _default = { data: function data() {return { orderNum: null, number: null, c
 /***/ }),
 
 /***/ 195:
-/*!**********************************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/loanSuccess.vue?vue&type=style&index=0&lang=scss& ***!
-  \**********************************************************************************/
+/*!*******************************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/loanSuccess.vue?vue&type=style&index=0&lang=scss& ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -242,9 +273,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 196:
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/loanSuccess.vue?vue&type=style&index=0&lang=scss& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/loanSuccess.vue?vue&type=style&index=0&lang=scss& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

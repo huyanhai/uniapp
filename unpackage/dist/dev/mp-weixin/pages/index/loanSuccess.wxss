@@ -52,12 +52,20 @@
             transform-origin: center;
 }
 }
-.loan-success-content {
-  height: 100vh;
-  position: relative;
-  background: url("http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/zj-bj.png") no-repeat top center;
-  background-size: 750rpx 490rpx;
-  overflow: hidden;
+.loan-success-content .swiper {
+  height: 255rpx;
+}
+.loan-success-content .zm {
+  width: 750rpx;
+  height: 400rpx;
+  display: block;
+  background-size: cover;
+}
+.loan-success-content .zm1 {
+  width: 750rpx;
+  height: 255rpx;
+  display: block;
+  background-size: cover;
 }
 .loan-success-content .top-info {
   display: -webkit-box;

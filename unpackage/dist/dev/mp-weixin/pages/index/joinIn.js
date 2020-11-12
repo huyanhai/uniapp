@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/joinIn"],{
 
 /***/ 173:
-/*!**************************************************************!*\
-  !*** G:/外包/uniapp/main.js?{"page":"pages%2Findex%2FjoinIn"} ***!
-  \**************************************************************/
+/*!***********************************************************!*\
+  !*** G:/外包/充电宝/main.js?{"page":"pages%2Findex%2FjoinIn"} ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_joinIn.default);
 /***/ }),
 
 /***/ 174:
-/*!*******************************************!*\
-  !*** G:/外包/uniapp/pages/index/joinIn.vue ***!
-  \*******************************************/
+/*!****************************************!*\
+  !*** G:/外包/充电宝/pages/index/joinIn.vue ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/index/joinIn.vue"
 /***/ }),
 
 /***/ 175:
-/*!**************************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/joinIn.vue?vue&type=template&id=4f5dca76& ***!
-  \**************************************************************************/
+/*!***********************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/joinIn.vue?vue&type=template&id=4f5dca76& ***!
+  \***********************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 176:
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/joinIn.vue?vue&type=template&id=4f5dca76& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/joinIn.vue?vue&type=template&id=4f5dca76& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -112,9 +112,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 177:
-/*!********************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/joinIn.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
+/*!*****************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/joinIn.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -128,14 +128,20 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 178:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/joinIn.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/joinIn.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
 
 
 
@@ -234,14 +240,15 @@ var _request = __webpack_require__(/*! ../../libs/request.js */ 14); //
 //
 //
 //
-var lotusAddress = function lotusAddress() {Promise.all(/*! require.ensure | components/Winglau14-lotusAddress/Winglau14-lotusAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/Winglau14-lotusAddress/Winglau14-lotusAddress")]).then((function () {return resolve(__webpack_require__(/*! ../../components/Winglau14-lotusAddress/Winglau14-lotusAddress.vue */ 233));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { url: null, joinData: { shopName: "", name: "", record: "" }, lotusAddressData: { visible: false, provinceName: '', cityName: '', townName: '' }, mobile: "", code: "", region: "", step: 1, timer: null, // 计时器
+//
+//
+//
+//
+//
+//
+var lotusAddress = function lotusAddress() {Promise.all(/*! require.ensure | components/Winglau14-lotusAddress/Winglau14-lotusAddress */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/Winglau14-lotusAddress/Winglau14-lotusAddress")]).then((function () {return resolve(__webpack_require__(/*! ../../components/Winglau14-lotusAddress/Winglau14-lotusAddress.vue */ 247));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { url: null, joinData: { shopName: "", name: "", record: "" }, lotusAddressData: { visible: false, provinceName: '', cityName: '', townName: '' }, mobile: "", code: "", region: "", step: 1, timer: null, // 计时器
       count: 60, msg: false, msgImg: null, msgCode: null //图文验证码
-    };}, components: { lotusAddress: lotusAddress }, onHide: function onHide() {clearInterval(this.timer);}, methods: { countDown: function countDown() {var _this = this;_this.timer = setInterval(function () {if (_this.count > 0) {_this.count--;} else {_this.count = 60;clearInterval(_this.timer);}}, 1000);}, joinUs: function joinUs() {if (!this.joinData.shopName || !this.joinData.shopName || !this.joinData.shopName) {return uni.showToast({ icon: "none", title: "信息不完善" });
-      }
-      (0, _request.post)('/user/joinus', this.joinData).then(function (res) {
-        if (res.code === 200) {
-          uni.showToast({
-            title: "信息提交成功",
+    };}, components: { lotusAddress: lotusAddress }, onHide: function onHide() {clearInterval(this.timer);}, methods: { countDown: function countDown() {var _this = this;_this.timer = setInterval(function () {if (_this.count > 0) {_this.count--;} else {_this.count = 60;clearInterval(_this.timer);}}, 1000);}, joinUs: function joinUs() {if (!this.joinData.shopName || !this.joinData.shopName || !this.joinData.shopName) {return uni.showToast({ icon: "none", title: "信息不完善" });}this.joinData.phone = this.mobile;(0, _request.post)('/user/joinus', this.joinData).then(function (res) {if (res.code === 200) {uni.showToast({ title: "信息提交成功",
             icon: "none" });
 
           uni.navigateTo({
@@ -380,9 +387,9 @@ var lotusAddress = function lotusAddress() {Promise.all(/*! require.ensure | com
 /***/ }),
 
 /***/ 179:
-/*!*****************************************************************************!*\
-  !*** G:/外包/uniapp/pages/index/joinIn.vue?vue&type=style&index=0&lang=scss& ***!
-  \*****************************************************************************/
+/*!**************************************************************************!*\
+  !*** G:/外包/充电宝/pages/index/joinIn.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -396,9 +403,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 180:
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/uniapp/pages/index/joinIn.vue?vue&type=style&index=0&lang=scss& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!G:/外包/充电宝/pages/index/joinIn.vue?vue&type=style&index=0&lang=scss& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -8,7 +8,19 @@
  -->
 <template>
 	<view class="loan-success-content">
+		<!-- #ifdef MP-ALIPAY -->
 		<image @click="goJoin" class="zm" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/zj-bj.jpg" mode=""></image>
+		<!-- #endif -->
+		<!-- #ifdef MP-WEIXIN -->
+		<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
+			<swiper-item>
+				<image @click="goOther" class="zm1" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/zj-bj1.png" mode=""></image>
+			</swiper-item>
+			<swiper-item>
+				<image @click="goJoin" class="zm1" src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/zj-bj2.png" mode=""></image>
+			</swiper-item>
+		</swiper>
+		<!-- #endif -->
 		<view class="top-info">
 			<view class="tips">请取出亮灯闪烁的充电宝</view>
 			<view class="cdzt">
@@ -47,7 +59,11 @@
 				cardSlot:null,
 				timer:null,
 				time:60,
-				tips:{}
+				tips:{},
+				autoplay:true,
+				indicatorDots: true,
+				interval:5000,
+				duration: 500
 			}
 		},
 		onLoad(e){
@@ -65,6 +81,16 @@
 			goJoin(){
 				uni.navigateTo({
 					url:"./joinIn"
+				})
+			},
+			goOther(){
+				wx.navigateToMiniProgram({
+				  appId: 'wx8103eb1b1bd87bae',
+				  path: '',
+				  envVersion: 'release',
+				  success(res) {
+				    console.log("跳转成功")
+				  }
 				})
 			},
 			countdown(){
@@ -111,9 +137,18 @@
 	  }
 	}
 	.loan-success-content{
+		.swiper{
+			height: 255rpx;
+		}
 		.zm{
 			width: 750rpx;
 			height: 400rpx;
+			display: block;
+			background-size:cover;
+		}
+		.zm1{
+			width: 750rpx;
+			height: 255rpx;
 			display: block;
 			background-size:cover;
 		}

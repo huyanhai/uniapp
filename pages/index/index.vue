@@ -121,7 +121,7 @@ export default {
 		return {
 			markers: [],
 			authCode:null,
-			addressInfo: null,
+			addressInfo: {},
 			userInfo: null,
 			shopItemData: {},
 			showShopItem: false,
@@ -302,8 +302,20 @@ export default {
 			if (data.result) {
 				// 扫码成功后跳转
 				let no = data.result;
-				let code = no.split('/');
-				let sn = code[code.length - 1];
+				let sn;
+				if(no && no !== "undefined" && no.indexOf("?") < 0){
+				 let code = no.split('/');
+				 sn = code[code.length - 1];
+				} else {
+				 let parmes = no.split("?")[1];
+				 if(!parmes) return;
+				 let parme = parmes.split("&").forEach((item)=>{
+					let str = item.split("=");
+					if(str[0] === "cabid"){
+					 sn = str[1]
+					}
+				 })
+				}
 				if (!sn)
 					return uni.showToast({
 						title: '二维码格式错误',
