@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "起电宝",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "shop-item": "/components/shopItem"
-  }
-}

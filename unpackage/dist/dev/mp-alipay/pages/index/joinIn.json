@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "合作加盟",
-  "titleBarColor": "#FFFFFF",
-  "usingComponents": {
-    "lotus-address": "/components/Winglau14-lotusAddress/Winglau14-lotusAddress"
-  }
-}

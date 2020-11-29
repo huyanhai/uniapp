@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "附件门店",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "backgroundColor": "#F8F8F9",
-  "usingComponents": {
-    "shop-item": "/components/shopItem"
-  }
-}

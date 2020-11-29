@@ -47,18 +47,6 @@ export default {
 		agentId:null
 	};
   },
-  // #ifdef MP-ALIPAY
-  onLaunch(options){
-  	if (options.query && options.query.qrCode) {
-  	  let datas = options.query.qrCode;
-  	  this.agentId = this.getId(datas,'id')
-  	  uni.clearStorageSync('authCode')
-  	}		
-	uni.showModal({
-		content: "onLaunch"+JSON.stringify(options)
-	})
-  },
-  // #endif
   // #ifdef MP-WEIXIN
   onLoad(options) {
   	  let datas = decodeURIComponent(options.q);
@@ -68,12 +56,9 @@ export default {
   // #endif
   // #ifdef MP-ALIPAY
   onLoad(options) {
-  	  let datas = decodeURIComponent(options.q);
-  	  this.agentId = this.getId(datas,'id')
-  	  uni.clearStorageSync('authCode')
-	  uni.showModal({
-	  	content:"onLoad"+JSON.stringify(options)
-	  })
+  	  var App = getApp();
+  	  this.agentId = App.agentId;
+  	  uni.clearStorageSync('authCode');
   },
   // #endif
   methods: {

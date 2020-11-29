@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "我的订单",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {
-    "order-item": "/components/orderItem"
-  }
-}

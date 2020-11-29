@@ -2,6 +2,11 @@
 	<view class="order-loaning">
 		<image src="http://wd-qidian.oss-cn-beijing.aliyuncs.com/mini/loaning.png" class="loading"></image>
 		<text class="text">正在弹出充电宝，请稍等...</text>
+		<!-- #ifdef MP-WEIXIN -->
+		<view class="adContainer">
+			<ad unit-id="adunit-b8c7a5f8556ce3fa"></ad>
+		</view>
+		<!-- #endif -->
 	</view>
 </template>
 
@@ -76,6 +81,12 @@
 		.text{
 			font-size: 26rpx;
 			color: #333333;
+		}
+		.adContainer{
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			left: 0
 		}
 	}
 </style>

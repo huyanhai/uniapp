@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "起电宝",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {
-    "shop-item": "/components/shopItem"
-  }
-}

@@ -142,7 +142,12 @@ export default {
 		  	let code = datas.split('/');
 		  	this.outSn = code[code.length - 1] || "";
 		  }
-		}		
+		  let agentId = this.getId(datas,"id")
+		  if(agentId){
+		    var App = getApp();
+		    App.agentId = agentId;
+		  }
+		}
 	},
 	// #endif
 	onLoad(e) {
@@ -199,6 +204,14 @@ export default {
 		shopItem
 	},
 	methods: {
+		getId(url,name){
+			  var reg = new RegExp("[^\?&]?" + encodeURI(name) + "=[^&]+");
+			  var arr = url.match(reg);
+			  if (arr != null) {
+				return decodeURI(arr[0].substring(arr[0].search("=") + 1));
+			  }
+			  return "";
+		},
 		checkAuth() {
 			let that = this;
 			this.authCode = uni.getStorageSync('authCode');
@@ -463,7 +476,10 @@ export default {
 			let user = await this.getUserInfo()
 			// let can = await this.canGet() || {}
 			let order = await this.getUserOrder({leaseStatus: 2})
-			if(type === 'code' && can.can){
+			// if(type === 'code' && can.can){
+			// 	_this.scanCode()
+			// }
+			if(type === 'code'){
 				_this.scanCode()
 			}
 			if(type==='user' && user){

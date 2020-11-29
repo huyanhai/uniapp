@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "常见问题",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "usingComponents": {
-    "question-item": "/components/questionItem"
-  }
-}
